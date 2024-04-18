@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Jwt算法 - yx&#39;s blog</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Jwt算法" />
+<meta property="og:description" content="jwt算法 问题描述: ​ 传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存t" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/defaults/jwt/" /><meta property="og:image" content="http://localhost:1313/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-17T08:50:55+08:00" />
+<meta property="article:modified_time" content="2024-04-17T08:50:55+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/logo.png" /><meta name="twitter:title" content="Jwt算法"/>
+<meta name="twitter:description" content="jwt算法 问题描述: ​ 传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存t"/>
+<meta name="application-name" content="yuxin&#39;s blog">
+<meta name="apple-mobile-web-app-title" content="yuxin&#39;s blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/defaults/jwt/" /><link rel="prev" href="http://localhost:1313/posts/defaults/redis/" /><link rel="next" href="http://localhost:1313/posts/defaults/websocket/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Jwt算法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/defaults\/jwt\/"
+        },"genre": "posts","wordcount":  442 ,
+        "url": "http:\/\/localhost:1313\/posts\/defaults\/jwt\/","datePublished": "2024-04-17T08:50:55+08:00","dateModified": "2024-04-17T08:50:55+08:00","license": "write By yuxin","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "ytw"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="yx&#39;s blog">ytw</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/documentation"> 分类 </a><a class="menu-item" href="/about/"> 关于ytw </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="yx&#39;s blog">ytw</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/documentation" title="">分类</a><a class="menu-item" href="/about/" title="">关于ytw</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Jwt算法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-17">2024-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;442 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#jwt-密文结构">jwt 密文结构</a></li>
+    <li><a href="#jwt-加密思路">jwt 加密思路：</a>
+      <ul>
+        <li><a href="#第一段密文">第一段密文</a></li>
+        <li><a href="#第二段密文">第二段密文</a></li>
+        <li><a href="#第三段密文">第三段密文</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="jwt算法">jwt算法</h1>
+<p>问题描述:</p>
+<p>​		传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存token，却又能让系统记住这个所谓的&quot;token&quot;呢， 当然是有的，他就是jwt。</p>
+<h2 id="jwt-密文结构">jwt 密文结构</h2>
+<pre tabindex="0"><code># 由三段字符串组成，中间用.将其隔开
+xxxxx.xxxxx.xxxx
+</code></pre><h2 id="jwt-加密思路">jwt 加密思路：</h2>
+<p>假如我拿到如下用户信息</p>
+<pre tabindex="0"><code>{
+	&#34;username&#34;:&#34;yutianwang&#34;,
+	&#34;password&#34;:&#34;123123&#34;
+}
+</code></pre><p>jtw加密的思路其实就是分成三步，分别生成三段密文（包括根据给出用户信息的json串）</p>
+<h3 id="第一段密文">第一段密文</h3>
+<p>先注意如下json字符串，先将其进行base64url 编码</p>
+<pre tabindex="0"><code>{
+	&#34;alg&#34;:&#34;HS256&#34;,
+	&#34;typ&#34;:&#34;JWT&#34;
+}
+
+## 使用python代码处理
+import base64
+import json
+original_data = {
+	&#34;alg&#34;:&#34;HS256&#34;,
+	&#34;typ&#34;:&#34;JWT&#34;
+}
+json_data = json.dumps(original_data).encode(&#39;utf8&#39;)
+
+encoded_data = base64.b64encode(json_data).decode(&#39;utf8&#39;)
+print(encoded_data)
+</code></pre><p>然后我们拿到了这么一个东西：</p>
+<pre tabindex="0"><code>eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9
+</code></pre><p>这个东西将来就是jwt的第一段(可以说是固定内容)</p>
+<h3 id="第二段密文">第二段密文</h3>
+<p>拿到用户信息</p>
+<pre tabindex="0"><code>{
+	&#34;id&#34;:&#34;1234567890&#34;,
+	&#34;name&#34;:&#34;John Doe&#34;,
+	&#34;time&#34;:&#34;1516239022&#34;
+}
+</code></pre><p>同样先进行base64url编码，拿到这个玩意</p>
+<pre tabindex="0"><code>eyJpZCI6ICIxMjM0NTY3ODkwIiwgIm5hbWUiOiAiSm9obiBEb2UiLCAidGltZSI6ICIxNTE2MjM5MDIyIn0=
+</code></pre><p>它就是jwt中的第二段密文</p>
+<h3 id="第三段密文">第三段密文</h3>
+<p>第三段密文思路如下</p>
+<pre tabindex="0"><code>base64url(HS256(第一段密文.第二段密文),密钥加盐)
+</code></pre><p>最后将三段密文内容都用.拼接起来就的到了最终密文</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-04-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/defaults/jwt/" data-title="Jwt算法"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/defaults/jwt/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/defaults/jwt/" data-title="Jwt算法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/defaults/jwt/" data-title="Jwt算法"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/defaults/jwt/" data-title="Jwt算法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/defaults/redis/" class="prev" rel="prev" title="redis安装"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>redis安装</a>
+            <a href="/posts/defaults/websocket/" class="next" rel="next" title="Websocket">Websocket<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023-5 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">ytw</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
