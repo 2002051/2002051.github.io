@@ -1,56 +1,64 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>All Posts - yx&#39;s blog</title>
-        <link>http://localhost:51655/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>All Posts | yx&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>17879765153@163.com (ytw)</managingEditor>
-            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Thu, 18 Apr 2024 21:51:52 &#43;0800</lastBuildDate><atom:link href="http://localhost:51655/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sat, 20 Apr 2024 17:38:20 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>项目地址</title>
+    <link>http://localhost:1313/posts/my_project/</link>
+    <pubDate>Sat, 20 Apr 2024 17:38:20 &#43;0800</pubDate>
+    <author>ytw</author>
+    <guid>http://localhost:1313/posts/my_project/</guid>
+    <description><![CDATA[分享一些项目地址 基于websocket的聊天平台 本博客网站地址]]></description>
+</item>
+<item>
     <title>Drf整合</title>
-    <link>http://localhost:51655/posts/defaults/drf/</link>
+    <link>http://localhost:1313/posts/drf/</link>
     <pubDate>Thu, 18 Apr 2024 21:51:52 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/drf/</guid>
+    <guid>http://localhost:1313/posts/drf/</guid>
     <description><![CDATA[DRF整理 1.认证组件 基本使用 单视图全方法应用 ​ 这个非常简单，直接看就能看懂，认证组件必须重写父类的authenticate方法。同时认证组]]></description>
 </item>
 <item>
     <title>Websocket</title>
-    <link>http://localhost:51655/posts/defaults/websocket/</link>
+    <link>http://localhost:1313/posts/websocket/</link>
     <pubDate>Thu, 18 Apr 2024 08:09:30 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/websocket/</guid>
+    <guid>http://localhost:1313/posts/websocket/</guid>
     <description><![CDATA[快速上手websocket 在dj中 #环境： python 3.9 django4.2 pip install channels pip install daphne dj的使用 安装好后，我们要先知道django是通过wsgi进行启动的。但是默认情]]></description>
 </item>
 <item>
     <title>Jwt算法</title>
-    <link>http://localhost:51655/posts/defaults/jwt/</link>
+    <link>http://localhost:1313/posts/jwt/</link>
     <pubDate>Wed, 17 Apr 2024 08:50:55 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/jwt/</guid>
+    <guid>http://localhost:1313/posts/jwt/</guid>
     <description><![CDATA[jwt算法 问题描述: ​ 传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存t]]></description>
 </item>
 <item>
     <title>redis安装</title>
-    <link>http://localhost:51655/posts/defaults/redis/</link>
+    <link>http://localhost:1313/posts/redis/</link>
     <pubDate>Sun, 14 Apr 2024 22:07:16 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/redis/</guid>
+    <guid>http://localhost:1313/posts/redis/</guid>
     <description><![CDATA[1： 学习环境介绍： windows + vmware:centos 7 redis3.0.7 2: redis 5.0 版本安装,以及配置 下载安装 所有版本下载链接：链接1 mkdir -p /data/redis6379 cd /opt # yum -y install wget wget https://download.redis.io/releases/redis-5.0.7.tar.gz tar -zxf redis-5.0.7.tar.gz cd /opt/redis-5.0.7 make &amp;&amp; make install 关于编译安装的]]></description>
 </item>
 <item>
     <title>Vue学习</title>
-    <link>http://localhost:51655/posts/defaults/vue/</link>
+    <link>http://localhost:1313/posts/vue/</link>
     <pubDate>Sun, 28 Jan 2024 09:07:51 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/vue/</guid>
+    <guid>http://localhost:1313/posts/vue/</guid>
     <description><![CDATA[概要 vue3-cookie 使用 cookies vue3中需要使用cookies存储用户信息，可以使用vue3-cookies 安装 npm install vue3-cookies 全局挂载 # main.js import App from &#39;./App.vue&#39; import VueCookies from &#34;vue3-cookies&#34;; const app = createApp(App) app.use(VueCookies) 基]]></description>
 </item>
 <item>
     <title>关于博客</title>
-    <link>http://localhost:51655/posts/defaults/first_post/</link>
+    <link>http://localhost:1313/posts/first_post/</link>
     <pubDate>Sun, 15 Oct 2023 09:15:35 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:51655/posts/defaults/first_post/</guid>
-    <description><![CDATA[菜鸟的第一篇文章 自从开始学计算机，我就一直对于知识点的掌握虚浮经常需要翻阅文献资料和笔记,故建此博客，以供自己查询方便，顺便熟悉一个非常牛的]]></description>
+    <guid>http://localhost:1313/posts/first_post/</guid>
+    <description><![CDATA[第一篇文章 自从开始学计算机，我就一直对于知识点的掌握虚浮经常需要翻阅文献资料和笔记,故建此博客，以供自己查询方便，顺便熟悉一个非常牛的静态页]]></description>
 </item>
 </channel>
 </rss>

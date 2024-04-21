@@ -2,14 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:51655/posts/defaults/drf/</loc><lastmod>2024-04-18T21:51:52&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/</loc><lastmod>2024-04-18T21:51:52&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/</loc><lastmod>2024-04-18T21:51:52&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/defaults/websocket/</loc><lastmod>2024-04-18T08:09:30&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/defaults/jwt/</loc><lastmod>2024-04-17T08:50:55&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/categories/</loc><lastmod>2024-04-15T12:36:30&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/about/</loc><lastmod>2024-04-15T09:33:52&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/defaults/redis/</loc><lastmod>2024-04-14T22:07:16&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/defaults/vue/</loc><lastmod>2024-01-28T09:07:51&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/posts/defaults/first_post/</loc><lastmod>2023-10-15T09:15:35&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:51655/tags/</loc></url></urlset>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/categories/default/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/my_project/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/drf/</loc><lastmod>2024-04-18T21:51:52&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/websocket/</loc><lastmod>2024-04-18T08:09:30&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/jwt/</loc><lastmod>2024-04-17T08:50:55&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/about/</loc><lastmod>2024-04-15T09:33:52&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/categories/deploy/</loc><lastmod>2024-04-14T22:07:16&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/redis/</loc><lastmod>2024-04-14T22:07:16&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/vue/</loc><lastmod>2024-01-28T09:07:51&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/categories/web/</loc><lastmod>2024-01-28T09:07:51&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/first_post/</loc><lastmod>2023-10-15T09:15:35&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/tags/</loc></url></urlset>
