@@ -36,5 +36,13 @@
     <guid>http://localhost:1313/posts/jwt/</guid>
     <description><![CDATA[jwt算法 问题描述: ​ 传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存t]]></description>
 </item>
+<item>
+    <title>git命令整理</title>
+    <link>http://localhost:1313/posts/git/</link>
+    <pubDate>Wed, 11 Oct 2023 09:11:15 &#43;0800</pubDate>
+    <author>ytw</author>
+    <guid>http://localhost:1313/posts/git/</guid>
+    <description><![CDATA[git 命令整理 基础命令 进入待管理文件夹 git init // 初始化让git管理当前文件夹 git status // 检测当前文件的状态 比如是否有修改，是否未管理 git add // 指定某个文件让g]]></description>
+</item>
 </channel>
 </rss>

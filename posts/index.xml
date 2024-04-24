@@ -60,5 +60,13 @@
     <guid>http://localhost:1313/posts/first_post/</guid>
     <description><![CDATA[第一篇文章 自从开始学计算机，我就一直对于知识点的掌握虚浮经常需要翻阅文献资料和笔记,故建此博客，以供自己查询方便，顺便熟悉一个非常牛的静态页]]></description>
 </item>
+<item>
+    <title>git命令整理</title>
+    <link>http://localhost:1313/posts/git/</link>
+    <pubDate>Wed, 11 Oct 2023 09:11:15 &#43;0800</pubDate>
+    <author>ytw</author>
+    <guid>http://localhost:1313/posts/git/</guid>
+    <description><![CDATA[git 命令整理 基础命令 进入待管理文件夹 git init // 初始化让git管理当前文件夹 git status // 检测当前文件的状态 比如是否有修改，是否未管理 git add // 指定某个文件让g]]></description>
+</item>
 </channel>
 </rss>
