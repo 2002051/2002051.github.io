@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>deploy - Category - yx&#39;s blog</title>
-        <link>http://localhost:1313/categories/deploy/</link>
+        <link>http://example.org/categories/deploy/</link>
         <description>deploy - Category - yx&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>17879765153@163.com (ytw)</managingEditor>
-            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sun, 14 Apr 2024 22:07:16 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/deploy/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sun, 14 Apr 2024 22:07:16 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/deploy/" rel="self" type="application/rss+xml" /><item>
     <title>redis安装</title>
-    <link>http://localhost:1313/posts/redis/</link>
+    <link>http://example.org/posts/redis/</link>
     <pubDate>Sun, 14 Apr 2024 22:07:16 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/redis/</guid>
+    <guid>http://example.org/posts/redis/</guid>
     <description><![CDATA[1： 学习环境介绍： windows + vmware:centos 7 redis3.0.7 2: redis 5.0 版本安装,以及配置 下载安装 所有版本下载链接：链接1 mkdir -p /data/redis6379 cd /opt # yum -y install wget wget https://download.redis.io/releases/redis-5.0.7.tar.gz tar -zxf redis-5.0.7.tar.gz cd /opt/redis-5.0.7 make &amp;&amp; make install 关于编译安装的]]></description>
 </item>
 </channel>

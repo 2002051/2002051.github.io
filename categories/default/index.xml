@@ -1,47 +1,47 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>default - Category - yx&#39;s blog</title>
-        <link>http://localhost:1313/categories/default/</link>
+        <link>http://example.org/categories/default/</link>
         <description>default - Category - yx&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>17879765153@163.com (ytw)</managingEditor>
-            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sat, 20 Apr 2024 17:38:20 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/default/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sat, 20 Apr 2024 17:38:20 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/default/" rel="self" type="application/rss+xml" /><item>
     <title>项目地址</title>
-    <link>http://localhost:1313/posts/my_project/</link>
+    <link>http://example.org/posts/my_project/</link>
     <pubDate>Sat, 20 Apr 2024 17:38:20 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/my_project/</guid>
+    <guid>http://example.org/posts/my_project/</guid>
     <description><![CDATA[分享一些项目地址 基于websocket的聊天平台 本博客网站地址 wx小程序校园管理系统 前端代码 前端微信小程序 后端代码 后端api 基于El-ui的]]></description>
 </item>
 <item>
     <title>Drf整合</title>
-    <link>http://localhost:1313/posts/drf/</link>
+    <link>http://example.org/posts/drf/</link>
     <pubDate>Thu, 18 Apr 2024 21:51:52 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/drf/</guid>
+    <guid>http://example.org/posts/drf/</guid>
     <description><![CDATA[DRF整理 1.认证组件 基本使用 单视图全方法应用 ​ 这个非常简单，直接看就能看懂，认证组件必须重写父类的authenticate方法。同时认证组]]></description>
 </item>
 <item>
     <title>Websocket</title>
-    <link>http://localhost:1313/posts/websocket/</link>
+    <link>http://example.org/posts/websocket/</link>
     <pubDate>Thu, 18 Apr 2024 08:09:30 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/websocket/</guid>
+    <guid>http://example.org/posts/websocket/</guid>
     <description><![CDATA[快速上手websocket 在dj中 #环境： python 3.9 django4.2 pip install channels pip install daphne dj的使用 安装好后，我们要先知道django是通过wsgi进行启动的。但是默认情]]></description>
 </item>
 <item>
     <title>Jwt算法</title>
-    <link>http://localhost:1313/posts/jwt/</link>
+    <link>http://example.org/posts/jwt/</link>
     <pubDate>Wed, 17 Apr 2024 08:50:55 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/jwt/</guid>
+    <guid>http://example.org/posts/jwt/</guid>
     <description><![CDATA[jwt算法 问题描述: ​ 传统的登录状态token，通常会保存在数据库或者缓存中，这其实增加服务器的压力，那么有没有什么方法，可以在不需要保存t]]></description>
 </item>
 <item>
     <title>git命令整理</title>
-    <link>http://localhost:1313/posts/git/</link>
+    <link>http://example.org/posts/git/</link>
     <pubDate>Wed, 11 Oct 2023 09:11:15 &#43;0800</pubDate>
     <author>ytw</author>
-    <guid>http://localhost:1313/posts/git/</guid>
+    <guid>http://example.org/posts/git/</guid>
     <description><![CDATA[git 命令整理 基础命令 进入待管理文件夹 git init // 初始化让git管理当前文件夹 git status // 检测当前文件的状态 比如是否有修改，是否未管理 git add // 指定某个文件让g]]></description>
 </item>
 </channel>
