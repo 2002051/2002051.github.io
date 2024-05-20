@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker容器相关 - yx&#39;s blog</title><meta name="Description" content="关于Docker的基本使用"><meta property="og:title" content="Docker容器相关" />
+<meta property="og:description" content="关于Docker的基本使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/docker/" /><meta property="og:image" content="http://localhost:1313/images/yyttww.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-20T22:25:58+08:00" />
+<meta property="article:modified_time" content="2024-05-20T22:25:58+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/yyttww.png" /><meta name="twitter:title" content="Docker容器相关"/>
+<meta name="twitter:description" content="关于Docker的基本使用"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/yyttww.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/docker/" /><link rel="prev" href="http://localhost:1313/posts/my_project/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker容器相关",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/docker\/"
+        },"genre": "posts","wordcount":  1441 ,
+        "url": "http:\/\/localhost:1313\/posts\/docker\/","datePublished": "2024-05-20T22:25:58+08:00","dateModified": "2024-05-20T22:25:58+08:00","license": "write By yuxin","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "ytw"
+            },"description": "关于Docker的基本使用"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="文章"> 文章 </a><a class="menu-item" href="/categories/" title="分类"> 分类 </a><a class="menu-item" href="/about/"> 关于ytw </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="请输入关键字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="请输入关键字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="文章">文章</a><a class="menu-item" href="/categories/" title="分类">分类</a><a class="menu-item" href="/about/" title="">关于ytw</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker容器相关</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-category">included in <a href="/categories/deploy/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>deploy</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-20">2024-05-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1441 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装docker-ce社区版">安装docker-ce社区版</a></li>
+    <li><a href="#启动docker">启动docker</a></li>
+    <li><a href="#宿主机网卡转发">宿主机网卡转发</a></li>
+    <li><a href="#部署一个简单的项目">部署一个简单的项目</a>
+      <ul>
+        <li><a href="#下载基础镜像">下载基础镜像</a></li>
+        <li><a href="#构建镜像">构建镜像</a></li>
+        <li><a href="#容器">容器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#shell端的docker命令">shell端的docker命令</a></li>
+    <li><a href="#dockerfile中的命令">Dockerfile中的命令</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="1-docker作用和介绍">1 docker作用和介绍</h1>
+<p>docker 的作用主要可以帮助我们在一台电脑上创建出多个<strong>隔离的环境</strong>，比传统的虚拟机极大的<strong>节省资源</strong> 。类似于虚拟环境概念。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/docker/docker-differents.svg"
+        data-srcset="/images/posts/docker/docker-differents.svg, /images/posts/docker/docker-differents.svg 1.5x, /images/posts/docker/docker-differents.svg 2x"
+        data-sizes="auto"
+        alt="/images/posts/docker/docker-differents.svg"
+        title="docker-differents" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/docker/image-20240520222930681.png"
+        data-srcset="/images/posts/docker/image-20240520222930681.png, /images/posts/docker/image-20240520222930681.png 1.5x, /images/posts/docker/image-20240520222930681.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/docker/image-20240520222930681.png"
+        title="image-20240520222930681" /></p>
+<h1 id="2-docker相关链接">2 docker相关链接</h1>
+<ul>
+<li>DockerHub，远程镜像仓库。https://hub.docker.com/</li>
+</ul>
+<pre tabindex="0"><code>仓库中有官方的一些镜像文件，也有开发者自定义的镜像文件。
+</code></pre><ul>
+<li>Images，本地镜像仓库。</li>
+</ul>
+<pre tabindex="0"><code>可以去远程仓库下载镜像到本地仓库，后续再根据镜像为“模版”去创建容器。本地的镜像也可以发布到远程镜像库。
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/docker/image-20240520223059241.png"
+        data-srcset="/images/posts/docker/image-20240520223059241.png, /images/posts/docker/image-20240520223059241.png 1.5x, /images/posts/docker/image-20240520223059241.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/docker/image-20240520223059241.png"
+        title="image-20240520223059241" /></p>
+<h1 id="3-基本使用">3 基本使用</h1>
+<h2 id="安装docker-ce社区版">安装docker-ce社区版</h2>
+<ul>
+<li>配置repo源</li>
+</ul>
+<pre tabindex="0"><code>curl -o /etc/yum.repos.d/Centos-7.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+curl -o /etc/yum.repos.d/docker-ce.repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+yum clean all &amp;&amp; yum makecache
+</code></pre><ul>
+<li>查看可下载版本</li>
+</ul>
+<pre tabindex="0"><code>yum list docker-ce --showduplicates | sort -r
+</code></pre><ul>
+<li>安装docker</li>
+</ul>
+<pre tabindex="0"><code># 最新版
+yum install -y docker-ce
+
+# 指定某版本
+yum install -y docker-ce-23.0.6
+</code></pre><h2 id="启动docker">启动docker</h2>
+<ul>
+<li>设置开机启动</li>
+</ul>
+<pre tabindex="0"><code class="language--" data-lang="-">systemctl enable docker 
+</code></pre><ul>
+<li>启动docker</li>
+</ul>
+<pre tabindex="0"><code>systemctl start docker  
+# 重启
+systemctl restart docker 
+</code></pre><ul>
+<li>停止docker</li>
+</ul>
+<pre tabindex="0"><code>systemctl stop docker  
+</code></pre><ul>
+<li>其它命令</li>
+</ul>
+<pre tabindex="0"><code>## 查看docker信息
+docker version
+
+## 查看docker信息
+docker info
+
+## docker-client
+which docker
+
+## docker daemon
+ps -ef |grep docker
+</code></pre><h2 id="宿主机网卡转发">宿主机网卡转发</h2>
+<pre tabindex="0"><code>cat &lt;&lt;EOF &gt; /etc/sysctl.d/docker.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.conf.default.rp_filter = 0
+net.ipv4.conf.all.rp_filter = 0
+net.ipv4.ip_forward=1
+EOF
+</code></pre><pre tabindex="0"><code>sysctl -p /etc/sysctl.d/docker.conf
+</code></pre><h2 id="部署一个简单的项目">部署一个简单的项目</h2>
+<p>通过docker部署项目，主要有三个步骤： 1，下载基础的镜像； 2，构建自己的镜像; 3. 创建容器</p>
+<p>需求：假设现在我有一个Flask程序，希望通过docker将他部署在<strong>ubuntu</strong>的操作系统上运行。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/index&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;欢迎光临红浪漫&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="下载基础镜像">下载基础镜像</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># docker images</span>
+</span></span><span class="line"><span class="cl">REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># docker pull ubuntu:18.04</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">18.04: Pulling from library/ubuntu
+</span></span><span class="line"><span class="cl">284055322776: Pull <span class="nb">complete</span> 
+</span></span><span class="line"><span class="cl">Digest: sha256:0fedbd5bd9fb72089c7bbca476949e10593cebed9b1fb9edf5b79dbbacddd7d6
+</span></span><span class="line"><span class="cl">Status: Downloaded newer image <span class="k">for</span> ubuntu:18.04
+</span></span><span class="line"><span class="cl">docker.io/library/ubuntu:18.04
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># docker images</span>
+</span></span><span class="line"><span class="cl">REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+</span></span><span class="line"><span class="cl">ubuntu         18.04     5a214d77f5d7   <span class="m">20</span> months ago    63.1MB
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 ~<span class="o">]</span><span class="c1"># </span>
+</span></span></code></pre></div><p>这个只有基础镜像，j接下来可以基础镜像的基础上创造出一个新的镜像：基础镜像 + 必备环境 + 代码。</p>
+<p>后续基础新的镜像来创建容器并运行。</p>
+<h3 id="构建镜像">构建镜像</h3>
+<p>Dockerfile 就是集成docker环境初始化状态的一些命令集合，通过Dockerfile的语法转换成对应的linux命令，在容器创建完初期，执行这些内容，比如下载git ，python 等</p>
+<ul>
+<li>编写Dockerfile</li>
+</ul>
+<pre tabindex="0"><code># Base images 基础镜像
+FROM ubuntu:18.04
+
+#MAINTAINER 维护者信息
+LABEL maintainer ytw@jjjj.com
+
+#RUN 执行以下命令
+RUN apt update
+RUN apt install python3  python3-pip  -y
+RUN pip3 install flask
+RUN mkdir -p /data/www/
+
+#拷贝文件至工作目录
+COPY app.py  /data/www/app.py
+
+#工作目录
+WORKDIR /data/www/
+
+#EXPOSE 映射端口
+EXPOSE 80
+
+#容器启动时执行命令
+CMD [&#34;python3&#34;,&#34;app.py&#34;]
+</code></pre><ul>
+<li>根据Dockerfile构建镜像</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker build  -t v0:0.1  .  -f Dockerfile </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> Building 0.0s <span class="o">(</span>12/12<span class="o">)</span> <span class="nv">FINISHED</span>              
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build definition from <span class="nv">Dockerfile</span>         
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/v1:0.01                0.0s
+</span></span><span class="line"><span class="cl"> ...
+</span></span><span class="line"><span class="cl"> <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/library/v1:0.01
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker images</span>
+</span></span><span class="line"><span class="cl">REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+</span></span><span class="line"><span class="cl">v1             0.01      0dd632180107   <span class="m">3</span> minutes ago   513MB
+</span></span><span class="line"><span class="cl">ubuntu         18.04     5a214d77f5d7   <span class="m">20</span> months ago   63.1MB
+</span></span><span class="line"><span class="cl">centos         latest    5d0da3dc9764   <span class="m">20</span> months ago   231MB
+</span></span></code></pre></div><h3 id="容器">容器</h3>
+<p>基于构建的镜像，来创建容器并启动。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker images</span>
+</span></span><span class="line"><span class="cl">REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
+</span></span><span class="line"><span class="cl">v1              0.01      cd885cb29f41   <span class="m">9</span> minutes ago   513MB
+</span></span><span class="line"><span class="cl">ubuntu          18.04     5a214d77f5d7   <span class="m">20</span> months ago   63.1MB
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker run -d -p 80:8000  cd885cb29f41</span>
+</span></span><span class="line"><span class="cl">93352e1c52ec397233b33ca88545c3dd8ab9f6f2c3c93ad292944d8f4d570bc8
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker ps</span>
+</span></span><span class="line"><span class="cl">CONTAINER ID   IMAGE          COMMAND            CREATED          STATUS          PORTS      
+</span></span><span class="line"><span class="cl">93352e1c52ec   cd885cb29f41   <span class="s2">&#34;python3 app.py&#34;</span>   <span class="m">42</span> seconds ago   Up <span class="m">42</span> seconds   ...
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker ps</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker ps -a</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker stop 933</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@192 crm<span class="o">]</span><span class="c1"># docker rm 933</span>
+</span></span></code></pre></div><h1 id="4-相关命令">4 相关命令</h1>
+<p>让我来稍微介绍下上面涉及到的一些docker相关的命令</p>
+<h2 id="shell端的docker命令">shell端的docker命令</h2>
+<ul>
+<li>查看已安装镜像</li>
+</ul>
+<pre tabindex="0"><code>docker images
+</code></pre><ul>
+<li>查看容器</li>
+</ul>
+<pre tabindex="0"><code>docker ps    # 查看正在运行的容器
+
+docker ps -a # 查看所有的容器
+</code></pre><ul>
+<li>下载镜像</li>
+</ul>
+<pre tabindex="0"><code>docker pull ubuntu:18.04  # 下载了乌邦图18.04 镜像
+</code></pre><ul>
+<li>构建镜像</li>
+</ul>
+<pre tabindex="0"><code>docker build  -t 镜像名:0.1  .  -f Dockerfile 
+</code></pre><ul>
+<li>启动容器</li>
+</ul>
+<pre tabindex="0"><code>docker run -d -p 80:8000  cd885cb29f41
+# -d 表示后台启动，不占用当前终端   -p 表示指定端口转发，以宿主机80 转发到容器的8000端口 cbxxxx是镜像的id
+</code></pre><ul>
+<li>删除镜像</li>
+</ul>
+<pre tabindex="0"><code>docker rmi f16
+</code></pre><ul>
+<li>停止/删除容器</li>
+</ul>
+<pre tabindex="0"><code>#停止容器
+docker stop xxx
+#删除容器
+docker rm xxxx
+
+# 批量停止容器
+docker stop `docker ps -aq`
+
+# 批量删除容器
+docker rm `docker ps -aq`
+</code></pre><h2 id="dockerfile中的命令">Dockerfile中的命令</h2>
+<ul>
+<li>指定镜像</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Base images 基础镜像</span>
+</span></span><span class="line"><span class="cl">FROM wupeiqi/centos76py39:1.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#MAINTAINER 维护者信息</span>
+</span></span><span class="line"><span class="cl">MAINTAINER wupeiqi@live.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># git</span>
+</span></span><span class="line"><span class="cl">RUN yum install git -y
+</span></span><span class="line"><span class="cl">RUN git config --global user.name <span class="s2">&#34;ytw&#34;</span>
+</span></span><span class="line"><span class="cl">RUN git config --global user.email <span class="s2">&#34;ytw@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># git拉代码  /data/blog</span>
+</span></span><span class="line"><span class="cl">WORKDIR /data/
+</span></span><span class="line"><span class="cl">RUN git clone https://gitee.com/wupeiqi/blog.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 虚拟环境</span>
+</span></span><span class="line"><span class="cl">WORKDIR /data/blog/
+</span></span><span class="line"><span class="cl">RUN pip3.9 install virtualenv
+</span></span><span class="line"><span class="cl">RUN virtualenv  /envs/blog --python<span class="o">=</span>python3.9
+</span></span><span class="line"><span class="cl">RUN /envs/blog/bin/pip3.9 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 收集静态资源  /data/allstatic/</span>
+</span></span><span class="line"><span class="cl">WORKDIR /data/blog/
+</span></span><span class="line"><span class="cl">RUN /envs/blog/bin/python manage.py collectstatic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装uwsgi</span>
+</span></span><span class="line"><span class="cl">RUN /envs/blog/bin/pip3.9 install uwsgi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装nginx</span>
+</span></span><span class="line"><span class="cl">WORKDIR /data/blog/
+</span></span><span class="line"><span class="cl">RUN rpm -Uvh  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</span></span><span class="line"><span class="cl">RUN yum install nginx -y
+</span></span><span class="line"><span class="cl"><span class="c1"># 易错点</span>
+</span></span><span class="line"><span class="cl">RUN cp /data/blog/blog.conf /etc/nginx/myblog.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行项目</span>
+</span></span><span class="line"><span class="cl">WORKDIR /data/blog
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CMD [&#34;/envs/blog/bin/uwsgi&#34;,&#34;--ini&#34;,&#34;uwsgi.ini&#34;]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># CMD [&#34;nginx&#34;,&#34;-c&#34;,&#34;/etc/nginx/myblog.conf&#34;,&#34;-g&#34;,&#34;daemon off;&#34;]</span>
+</span></span><span class="line"><span class="cl">CMD <span class="o">[</span><span class="s2">&#34;/bin/sh&#34;</span>,<span class="s2">&#34;run.sh&#34;</span><span class="o">]</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-05-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/docker/" data-title="Docker容器相关"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/docker/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/docker/" data-title="Docker容器相关"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/docker/" data-title="Docker容器相关"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/docker/" data-title="Docker容器相关"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="http://localhost:1313/posts/docker/" data-title="Docker容器相关"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/my_project/" class="prev" rel="prev" title="项目地址"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>项目地址</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">tel:17879765153</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">ytw</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
