@@ -379,10 +379,10 @@ docker rm `docker ps -aq`
 <li>指定镜像</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Base images 基础镜像</span>
-</span></span><span class="line"><span class="cl">FROM wupeiqi/centos76py39:1.0
+</span></span><span class="line"><span class="cl">FROM ytw/centos76py39:1.0
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#MAINTAINER 维护者信息</span>
-</span></span><span class="line"><span class="cl">MAINTAINER wupeiqi@live.com
+</span></span><span class="line"><span class="cl">MAINTAINER ytw@live.com
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># git</span>
 </span></span><span class="line"><span class="cl">RUN yum install git -y
@@ -391,7 +391,7 @@ docker rm `docker ps -aq`
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># git拉代码  /data/blog</span>
 </span></span><span class="line"><span class="cl">WORKDIR /data/
-</span></span><span class="line"><span class="cl">RUN git clone https://gitee.com/wupeiqi/blog.git
+</span></span><span class="line"><span class="cl">RUN git clone https://gitee.com/ytw/blog.git
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 虚拟环境</span>
 </span></span><span class="line"><span class="cl">WORKDIR /data/blog/
