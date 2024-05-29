@@ -2,11 +2,11 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2024-05-27T11:13:54&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2024-05-27T11:13:54&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/categories/</loc><lastmod>2024-05-20T22:25:58&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/categories/deploy/</loc><lastmod>2024-05-20T22:25:58&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/posts/docker/</loc><lastmod>2024-05-20T22:25:58&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2024-05-20T22:25:58&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2024-05-20T22:25:58&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/categories/default/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/posts/my_project/</loc><lastmod>2024-04-20T17:38:20&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/posts/drf/</loc><lastmod>2024-04-18T21:51:52&#43;08:00</lastmod></url><url>
@@ -19,5 +19,6 @@
             <loc>http://localhost:1313/posts/vue/</loc><lastmod>2024-01-28T09:07:51&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/categories/web/</loc><lastmod>2024-01-28T09:07:51&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/posts/first_post/</loc><lastmod>2023-10-15T09:15:35&#43;08:00</lastmod></url><url>
+            <loc>http://localhost:1313/posts/scripy/</loc><lastmod>2023-10-12T12:26:44&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/posts/git/</loc><lastmod>2023-10-11T09:11:15&#43;08:00</lastmod></url><url>
             <loc>http://localhost:1313/tags/</loc></url></urlset>
