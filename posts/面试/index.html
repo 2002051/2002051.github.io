@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>面试准备 - yx&#39;s blog</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="面试准备" />
+<meta property="og:description" content="基础知识 1.列表推导式 # 列表推导式, 格式如下 list = [逻辑值 for x in xxx ] 其实就是一个循环成成列表元素的方法 list1 = [x*x for x in range(10)] print(list1) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] list2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" /><meta property="og:image" content="http://localhost:1313/images/yyttww.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-06T12:25:34+08:00" />
+<meta property="article:modified_time" content="2023-06-06T12:25:34+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/yyttww.png" /><meta name="twitter:title" content="面试准备"/>
+<meta name="twitter:description" content="基础知识 1.列表推导式 # 列表推导式, 格式如下 list = [逻辑值 for x in xxx ] 其实就是一个循环成成列表元素的方法 list1 = [x*x for x in range(10)] print(list1) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] list2"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/yyttww.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" /><link rel="next" href="http://localhost:1313/posts/git/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "面试准备",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/%E9%9D%A2%E8%AF%95\/"
+        },"genre": "posts","wordcount":  6829 ,
+        "url": "http:\/\/localhost:1313\/posts\/%E9%9D%A2%E8%AF%95\/","datePublished": "2023-06-06T12:25:34+08:00","dateModified": "2023-06-06T12:25:34+08:00","license": "write By yuxin","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "ytw"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="文章"> 文章 </a><a class="menu-item" href="/categories/" title="分类"> 分类 </a><a class="menu-item" href="/about/"> 关于ytw </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="请输入关键字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="请输入关键字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="文章">文章</a><a class="menu-item" href="/categories/" title="分类">分类</a><a class="menu-item" href="/about/" title="">关于ytw</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">面试准备</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6829 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;14 minutes&nbsp;<span id="/posts/%E9%9D%A2%E8%AF%95/" class="leancloud_visitors" data-flag-title="面试准备">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1列表推导式">1.列表推导式</a></li>
+    <li><a href="#2装饰器">2.装饰器</a></li>
+    <li><a href="#迭代器">迭代器</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1下面这些是什么意思classmethod-staticmethodproperty">1.下面这些是什么意思：@classmethod ，@staticmethod，@property？</a></li>
+    <li><a href="#2输入一个字符串输出这个字符串的所有组合--用python实现">2.输入一个字符串，输出这个字符串的所有组合  用python实现</a></li>
+    <li><a href="#3谈谈你所知道的python-web框架">3.谈谈你所知道的python web框架</a></li>
+    <li><a href="#4使用python将数据库中student表的提取的数据写入到dbtxt文件中">4.使用python将数据库中student表的提取的数据写入到db.txt文件中</a></li>
+    <li><a href="#5编程实现斐波那契数列需要用递归实现">5.编程实现斐波那契数列，需要用递归实现</a></li>
+    <li><a href="#6简述join-left--和join-right的区别">6.简述join left  和join right的区别</a></li>
+    <li><a href="#7谈谈python-mvc--并写出示例代码">7.谈谈python mvc  并写出示例代码</a></li>
+    <li><a href="#8简述http协议下一个http请求的数据结构简述http-和https的区别">8.简述HTTP协议下，一个Http请求的数据结构，简述http 和https的区别</a></li>
+    <li><a href="#9python2-和python3-的区别">9.python2 和python3 的区别</a></li>
+    <li><a href="#10影响服务器请求qbs的核心问题有哪些">10.影响服务器请求QBS的核心问题有哪些</a></li>
+    <li><a href="#11-python如何处理一秒五百次的日志写操作">11. python如何处理一秒五百次的日志写操作</a></li>
+    <li><a href="#12一张数据表每天300万的数据增长量怎么保证一年后的查询稳定">12.一张数据表，每天300万的数据增长量，怎么保证一年后的查询稳定</a></li>
+    <li><a href="#13简述python-import-的执行流程">13.简述python import 的执行流程</a></li>
+    <li><a href="#14-python中用map函数将1-2-3-4-5改为1-4-9-16-25并使用列表推导式提取大于10的数">14. python中用map函数将[1, 2, 3, 4, 5]改为[1, 4, 9, 16, 25]，并使用列表推导式提取大于10的数</a></li>
+    <li><a href="#15正则匹配不是以4-和7结尾的手机号">15.正则匹配不是以4 和7结尾的手机号</a></li>
+    <li><a href="#16-举例几个魔术方法及其作用">16. 举例几个魔术方法及其作用</a></li>
+    <li><a href="#17-设计一个支持push-pop-top-操作的并且能在短时间内检索到最小元素的栈">17. 设计一个支持push pop top 操作的并且能在短时间内检索到最小元素的栈</a></li>
+    <li><a href="#18-简述yield-和yield-from">18. 简述yield 和yield from</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="基础知识">基础知识</h1>
+<h2 id="1列表推导式">1.列表推导式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 列表推导式,   格式如下  list = [逻辑值 for x in xxx ]   其实就是一个循环成成列表元素的方法</span>
+</span></span><span class="line"><span class="cl"><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1"># [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+</span></span><span class="line"><span class="cl"><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span> <span class="c1"># [0, 4, 8, 12, 16, 20, 24, 28, 32, 36]</span>
+</span></span><span class="line"><span class="cl"><span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">list3</span><span class="p">)</span> <span class="c1"># [0, 8, 16, 24, 32, 40, 48, 56, 64, 72]</span>
+</span></span></code></pre></div><h2 id="2装饰器">2.装饰器</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">decro</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰器被定义了&#39;</span><span class="p">)</span>   <span class="c1"># 只要定义了函数绑定了次修饰器就会执行。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1">#  只有在被修饰函数被调用的时候才会执行</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;wrapper开始执行&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">wrapper</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@decro</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="迭代器">迭代器</h2>
+<pre tabindex="0"><code># 可迭代对象： 可以被循环访问，或者遍历的对象比如一个列表    可迭代对象必须实现__iter__()   方法。
+</code></pre><pre tabindex="0"><code></code></pre><h1 id="面试题目整理">面试题目整理</h1>
+<h2 id="1下面这些是什么意思classmethod-staticmethodproperty">1.下面这些是什么意思：@classmethod ，@staticmethod，@property？</h2>
+<pre tabindex="0"><code>@classmethod：@classmethod 用于定义一个类方法，类方法与普通方法不同之处在于第一个参数是类本身（通常被命名为 cls），而不是实例对象。
+
+@staticmethod：@staticmethod 用于定义一个静态方法，静态方法与实例方法类似，但是它不接受自动传递的参数（实例或类），需要手动传递参数。
+
+@property：@property 用于将一个方法转换为属性，使得该方法可以像访问属性一样使用，而不需要使用方法调用的括号。常用于定义 Getter 方法，用于获取属性值。
+</code></pre><h2 id="2输入一个字符串输出这个字符串的所有组合--用python实现">2.输入一个字符串，输出这个字符串的所有组合  用python实现</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">all_combinations</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">backtrack</span><span class="p">(</span><span class="n">comb</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="p">(</span><span class="n">comb</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">backtrack</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">input_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入一个字符串：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">combinations</span> <span class="o">=</span> <span class="n">all_combinations</span><span class="p">(</span><span class="n">input_str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="3谈谈你所知道的python-web框架">3.谈谈你所知道的python web框架</h2>
+<pre tabindex="0"><code>Django：Django 是一个开放源代码的 Web 应用框架，由 Python 编写而成，它遵循了 MVC（模型-视图-控制器）的设计模式，提供了大量的功能，包括 ORM（对象关系映射）、表单处理、用户认证、管理界面等等。Django 的易用性和完善的文档使得它成为开发 Web 应用的热门选择。
+
+Flask：Flask 是一个轻量级的 Python Web 框架，它也使用了 Werkzeug 和 Jinja2 这两个工具库。相比于 Django，Flask 的设计更加灵活，它的核心只包含了一个基本的路由器和模板引擎，其他功能都需要通过扩展来实现。Flask 非常适合于快速开发小型到中型的 Web 应用。
+
+FastAPI：FastAPI 是一个相对较新的 Python Web 框架，它基于 Python 3.6+ 的标准 typing 模块实现了快速的 API 开发，性能也非常优秀。通过使用类型提示，FastAPI 能够自动生成文档，并提供交互式 API 文档。这使得开发者可以方便地理解和测试 API。
+</code></pre><h2 id="4使用python将数据库中student表的提取的数据写入到dbtxt文件中">4.使用python将数据库中student表的提取的数据写入到db.txt文件中</h2>
+<pre tabindex="0"><code>import sqlite3
+
+# 连接到 SQLite 数据库
+conn = sqlite3.connect(&#39;your_database.db&#39;)
+cursor = conn.cursor()
+
+# 查询 student 表的数据
+cursor.execute(&#39;SELECT * FROM student&#39;)
+rows = cursor.fetchall()
+w
+# 将数据写入到 db.txt 文件中
+with open(&#39;db.txt&#39;, &#39;w&#39;) as file:
+    for row in rows:
+        file.write(f&#39;{row}\n&#39;)
+
+# 关闭数据库连接
+conn.close()
+</code></pre><h2 id="5编程实现斐波那契数列需要用递归实现">5.编程实现斐波那契数列，需要用递归实现</h2>
+<pre tabindex="0"><code>def fibonacci(n):
+    if n &lt;= 0:
+        return &#34;请输入大于0的整数&#34;
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# 输入要计算的斐波那契数列的第 n 项
+n = 10  # 例如计算第 10 个斐波那契数
+
+# 调用递归函数计算第 n 项斐波那契数
+result = fibonacci(n)
+print(f&#34;斐波那契数列第 {n} 项为：{result}&#34;)
+</code></pre><h2 id="6简述join-left--和join-right的区别">6.简述join left  和join right的区别</h2>
+<pre tabindex="0"><code>在数据库中，左连接（LEFT JOIN）和右连接（RIGHT JOIN）是两种常见的连接操作，用于联合查询两个表的数据。它们之间的主要区别在于连接操作时左表和右表的处理方式不同。
+左连接（LEFT JOIN）：左连接返回左表中的所有行，以及右表中满足连接条件的行。如果右表中没有匹配的行，则返回 NULL 值。换句话说，左连接会保留左表中的所有数据，即使在右表中没有相匹配的数据，也会显示左表中的数据。
+右连接（RIGHT JOIN）：右连接返回右表中的所有行，以及左表中满足连接条件的行。如果左表中没有匹配的行，则返回 NULL 值。右连接实际上就是左连接的镜像，它会保留右表中的所有数据，即使在左表中没有相匹配的数据，也会显示右表中的数据。
+简单来说，左连接保留左表中的所有数据，右连接保留右表中的所有数据。根据应用场景和数据需求，可以选择使用左连接或右连接来实现不同的查询逻辑，以获取需要的联合数据结果。
+</code></pre><h2 id="7谈谈python-mvc--并写出示例代码">7.谈谈python mvc  并写出示例代码</h2>
+<pre tabindex="0"><code>在 Python 中，MVC（Model-View-Controller）是一种常见的软件架构模式，用于将应用程序的不同功能模块分离开来，以提高代码的可维护性和可扩展性。在 MVC 架构中，通常将应用程序分为三个部分：Model（模型）、View（视图）和Controller（控制器）。
+
+Model（模型）：负责处理应用程序的数据和业务逻辑。模型通常包括数据存储、数据操作和业务规则等功能。
+View（视图）：负责用户界面的展示和用户的交互。视图显示数据给用户，并接收用户的输入。
+Controller（控制器）：负责处理用户的输入、控制应用程序的流程，以及更新模型和视图之间的交互。
+下面是一个简单的示例代码，演示了如何在 Python 中使用 MVC 架构：
+
+# Model
+class UserModel:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_user_info(self):
+        return f&#34;Name: {self.name}, Age: {self.age}&#34;
+
+# View
+class UserView:
+    def display_user_info(self, user_info):
+        print(user_info)
+
+# Controller
+class UserController:
+    def __init__(self):
+        self.model = UserModel(&#34;Alice&#34;, 30)
+        self.view = UserView()
+
+    def show_user_info(self):
+        user_info = self.model.get_user_info()
+        self.view.display_user_info(user_info)
+
+# Main
+if __name__ == &#34;__main__&#34;:
+    controller = UserController()
+    controller.show_user_info()
+在这个示例代码中，模型类 UserModel 表示用户数据和业务逻辑，视图类 UserView 负责显示用户信息，控制器类 UserController 控制用户信息的展示过程。在 Main 部分，实例化了控制器对象并调用其方法来展示用户信息。这样，通过 MVC 架构可以将用户数据、展示和交互逻辑分离开来，提高代码的组织性和可扩展性。
+</code></pre><h2 id="8简述http协议下一个http请求的数据结构简述http-和https的区别">8.简述HTTP协议下，一个Http请求的数据结构，简述http 和https的区别</h2>
+<pre tabindex="0"><code>在 HTTP 协议下，一个 HTTP 请求由请求行、请求头和请求体三部分组成。
+
+请求行：包含请求的方法、请求的资源路径和协议版本。常见的请求方法包括 GET、POST、PUT、DELETE 等，资源路径指定要访问的资源地址，协议版本一般为 HTTP/1.1。
+
+请求头：包含了一系列的键值对，用于传输请求相关的信息。常见的请求头包括 Host（目标主机地址）、User-Agent（客户端信息）、Content-Type（请求体类型）、Accept（可接受的数据类型）、Cookie（客户端保存的信息）等。
+
+请求体：对于 POST、PUT 等需要传递数据的请求，请求体用于承载要发送的数据。请求体的内容格式取决于请求的 Content-Type，可以是文本、JSON、XML 等格式。
+
+HTTP 和 HTTPS 的主要区别在于安全性和加密通信方式：
+
+HTTP：是不安全的超文本传输协议，信息是明文传输的。因此，存在被窃听和篡改的风险。对于一些敏感信息的传输，不建议使用 HTTP 协议。
+
+HTTPS：是在 HTTP 基础上加入了 SSL/TLS 协议的安全版本，也称为 HTTP Secure。HTTPS 在数据传输过程中使用 SSL/TLS 加密算法，确保数据的机密性、完整性和认证性。使用 HTTPS 可以有效防止中间人攻击、窃听和数据篡改，提供更高的安全性。HTTPS 默认使用 443 端口进行通信。
+
+因此，一般情况下，对于涉及用户隐私或涉密信息的传输，建议使用 HTTPS 协议以确保数据的安全性和保密性
+</code></pre><h2 id="9python2-和python3-的区别">9.python2 和python3 的区别</h2>
+<pre tabindex="0"><code>Python 2 和 Python 3 是 Python 编程语言的两个主要版本，它们之间有一些重要的区别，主要包括以下几点：
+
+语法差异：
+
+print 语句：Python 2 使用 print 语句，而 Python 3 使用 print() 函数。
+整数除法：Python 2 中的整数除法默认会截断小数部分，Python 3 中的整数除法返回浮点数结果。
+输入函数：Python 2 中的输入函数是 raw_input()，Python 3 中的输入函数是 input()。
+Unicode 支持：
+
+Python 3 默认使用 Unicode 字符串，而 Python 2 默认使用 ASCII 字符串，在 Python 2 中需要使用 u 前缀来表示 Unicode 字符串。
+print 函数：
+
+Python 3 的 print() 函数可以接受多个参数，并且可以通过 end、sep 参数控制输出格式，而 Python 2 的 print 语句只能输出一个对象，并且不支持这些参数。
+整数类型：
+
+Python 3 的整数类型只有 int，而 Python 2 中有 int 和 long 两种整数类型。在 Python 3 中整数会根据需要自动转换为长整型。
+异常处理：
+
+Python 3 中的异常处理语法更加简洁明了，例如使用 as 关键字来捕获异常信息。
+range() 函数：
+
+Python 3 中的 range() 函数返回的是一个迭代器，可以用于节省内存，而 Python 2 中 range() 返回的是一个列表。
+总的来说，Python 3 在各方面对语言进行了改进和优化，支持更好的 Unicode 处理、语法规范和更好的语言设计。因此，新的项目应该优先选择 Python 3，而已有的使用 Python 2 开发的项目可以逐步迁移到 Python 3，以获得更好的支持和特性。
+</code></pre><h2 id="10影响服务器请求qbs的核心问题有哪些">10.影响服务器请求QBS的核心问题有哪些</h2>
+<pre tabindex="0"><code>影响服务器请求 QPS（Queries Per Second，每秒查询数）的核心问题有很多，主要包括以下几点：
+
+服务器硬件性能：服务器硬件的性能直接影响了处理请求的能力，包括 CPU 的性能、内存大小、硬盘速度等。服务器硬件性能越好，能够处理的请求量就越大。
+
+网络带宽：服务器的网络带宽限制了服务器能够处理的请求量，如果网络带宽不足，会导致请求响应时间延长或者丢包。
+
+请求处理方式：服务器的请求处理方式（如同步处理、异步处理、多线程、多进程等）对 QPS 有着直接影响。合理选择和优化请求处理方式可以提高服务器的吞吐量。
+
+代码质量和优化：服务器端代码的质量和性能优化程度直接影响了请求的处理效率。高效的算法和代码可以提高服务器的并发处理能力。
+
+数据库性能：如果请求涉及数据库操作，数据库的性能也是影响服务器 QPS 的重要因素。数据库的性能优化、索引设计以及连接池的配置都会影响服务器的请求处理能力。
+
+缓存机制：合理使用缓存可以减轻服务器对数据库的访问压力，提高请求的处理速度。缓存的命中率和缓存更新策略等都会直接影响服务器的 QPS。
+
+高可用和负载均衡：采用负载均衡方案可以将请求均衡的分发到多台服务器上，提高整个系统的请求处理能力和可靠性。
+
+综上所述，影响服务器请求 QPS 的核心问题涉及到硬件性能、网络带宽、请求处理方式、代码质量、数据库性能、缓存机制等多个方面，需要综合考虑并进行合理的优化和调整，以提高服务器的性能和稳定性。
+
+影响服务器请求 QPS（Queries Per Second，每秒查询数）的核心问题有很多，主要包括以下几点：
+
+服务器硬件性能：服务器硬件的性能直接影响了处理请求的能力，包括 CPU 的性能、内存大小、硬盘速度等。服务器硬件性能越好，能够处理的请求量就越大。
+
+网络带宽：服务器的网络带宽限制了服务器能够处理的请求量，如果网络带宽不足，会导致请求响应时间延长或者丢包。
+
+请求处理方式：服务器的请求处理方式（如同步处理、异步处理、多线程、多进程等）对 QPS 有着直接影响。合理选择和优化请求处理方式可以提高服务器的吞吐量。
+
+代码质量和优化：服务器端代码的质量和性能优化程度直接影响了请求的处理效率。高效的算法和代码可以提高服务器的并发处理能力。
+
+数据库性能：如果请求涉及数据库操作，数据库的性能也是影响服务器 QPS 的重要因素。数据库的性能优化、索引设计以及连接池的配置都会影响服务器的请求处理能力。
+
+缓存机制：合理使用缓存可以减轻服务器对数据库的访问压力，提高请求的处理速度。缓存的命中率和缓存更新策略等都会直接影响服务器的 QPS。
+
+高可用和负载均衡：采用负载均衡方案可以将请求均衡的分发到多台服务器上，提高整个系统的请求处理能力和可靠性。
+
+综上所述，影响服务器请求 QPS 的核心问题涉及到硬件性能、网络带宽、请求处理方式、代码质量、数据库性能、缓存机制等多个方面，需要综合考虑并进行合理的优化和调整，以提高服务器的性能和稳定性。
+</code></pre><h2 id="11-python如何处理一秒五百次的日志写操作">11. python如何处理一秒五百次的日志写操作</h2>
+<pre tabindex="0"><code>处理一秒五百次的日志写操作可以采取以下几种方式来提高写操作的效率：
+
+批量写入： 将日志数据批量积累一定量后再进行写入，减少频繁的磁盘操作，提高写入效率。可以考虑利用缓冲区来暂存一定量的日志数据，然后进行批量写入。
+
+异步写入： 将日志写入操作异步化，单独开启一个线程或进程来处理日志写入操作，主线程继续处理其他逻辑。这样可以避免因为日志写入操作阻塞主线程，提高程序的整体响应速度。
+
+使用日志队列： 可以考虑使用消息队列来缓存日志数据，然后由另外的消费者进程负责将日志写入到文件或数据库中，以减轻主程序的负担。
+
+优化写入文件： 使用合适的日志写入方式和工具，比如 Python 中的 logging 模块提供了一些高效的写入日志的方式，可以选择适合的日志处理器和格式，以提高写入效率。
+
+利用缓存： 如果日志写入的目标是文件或者数据库，可以考虑使用缓存机制，将数据缓存在内存中一定时间后再批量写入磁盘，减少频繁的磁盘操作。
+
+优化磁盘性能： 如果日志写入频繁造成了磁盘 I/O 压力过大，可以考虑使用 SSD 等高性能硬盘，或者使用 RAID 技术来提高磁盘的读写速度和容量。
+
+综合利用上述方法，可以有效提高 Python 程序处理一秒五百次日志写入操作的效率和性能，从而更好地满足实际需求。
+</code></pre><h2 id="12一张数据表每天300万的数据增长量怎么保证一年后的查询稳定">12.一张数据表，每天300万的数据增长量，怎么保证一年后的查询稳定</h2>
+<pre tabindex="0"><code>要确保在每天增长 300 万条数据的情况下，一年后仍然可以保证查询的稳定性，可以考虑以下几个方面进行优化：
+
+合理设计数据表结构： 使用合适的数据表结构、索引和分区等数据库设计技巧，以提高查询效率。确保表结构规范化、冗余数据最小化，避免不必要的连接操作等。
+
+适时清理历史数据： 对于不再需要的历史数据，可以定期进行清理或者归档，避免数据量过大导致查询效率降低。可以根据业务需求将历史数据归档到其他存储或者数据仓库中。
+
+优化查询语句： 编写高效的查询语句，使用合适的索引、优化器提示等技术，避免全表扫描和不必要的性能开销，以提高查询效率。
+
+水平和垂直分片： 如果数据量过大，可以考虑对数据进行水平或垂直分片，将数据分散存储在不同的节点或表中，以减轻单个节点的压力并提高查询效率。
+
+使用缓存： 可以考虑使用缓存来缓存热点数据或查询结果，减少对数据库的频繁访问，提高查询响应速度。
+
+数据库优化： 定期对数据库进行性能优化，包括参数调优、统计信息更新、空间回收、定期重建索引等，以保持数据库的高性能状态。
+
+扩展数据库服务器： 如果单台数据库服务器无法满足需求，可以考虑通过主从复制、集群、分布式数据库等方式扩展数据库服务器，提高查询的并发处理能力。
+
+综合考虑以上方面的优化方法，可以有效地保证在每天增长 300 万数据的情况下，一年后依然能够保证查询的稳定性和高效性。需要根据具体业务需求和数据量规模来选择适合的优化策略，以保持系统的稳定性和性能。
+</code></pre><h2 id="13简述python-import-的执行流程">13.简述python import 的执行流程</h2>
+<pre tabindex="0"><code>当 Python 解释器执行到 import 语句时，会按照一定的执行流程来查找、加载和执行被导入的模块。以下是 import 的执行流程简述：
+
+查找模块： Python 解释器首先会在内建模块（built-in module）和内置模块（built-in module）中查找是否存在要导入的模块。如果没有找到，则会继续搜索 sys.path 变量中指定的目录，包括当前目录、标准库目录以及其他用户自定义目录。
+
+编译模块： 一旦找到了要导入的模块，Python 解释器会对该模块进行编译，生成对应的字节码文件（.pyc 文件），以便后续执行。
+
+执行模块： 执行导入的模块时，Python 会创建一个新的命名空间（namespace）用来存放模块中定义的变量、函数和类等。模块中的代码会被执行，并将其定义的内容保存在这个命名空间中。
+
+建立引用： 一旦导入模块完成，Python 解释器会建立一个模块对象，使得当前模块可以通过该对象访问导入的模块，从而实现模块间的引用和调用。
+
+总的来说，Python 的 import 执行流程包括查找模块、编译模块、执行模块和建立引用等步骤。通过这个流程，Python 实现了模块化的代码组织方式，使得代码的复用和管理更加方便和灵活。
+</code></pre><h2 id="14-python中用map函数将1-2-3-4-5改为1-4-9-16-25并使用列表推导式提取大于10的数">14. python中用map函数将[1, 2, 3, 4, 5]改为[1, 4, 9, 16, 25]，并使用列表推导式提取大于10的数</h2>
+<pre tabindex="0"><code>numbers = [1, 2, 3, 4, 5]
+squared_numbers = map(lambda x: x ** 2, numbers)
+print(list(squared_numbers))  # [1, 4, 9, 16, 25]
+
+print([num for num in list(squared_numbers) if num &gt; 10])  
+</code></pre><h2 id="15正则匹配不是以4-和7结尾的手机号">15.正则匹配不是以4 和7结尾的手机号</h2>
+<pre tabindex="0"><code>import re
+
+# 定义手机号列表
+phone_numbers = [&#39;13812345678&#39;, &#39;15678901234&#39;, &#39;13987654327&#39;, &#39;18345678907&#39;, &#39;17098765432&#39;]
+
+# 匹配不以4和7结尾的手机号的正则表达式
+pattern = r&#39;^1\d{9}(?![47])$&#39;
+
+# 遍历手机号列表，匹配不以4和7结尾的手机号
+valid_phone_numbers = [number for number in phone_numbers if re.match(pattern, number)]
+
+print(valid_phone_numbers)
+</code></pre><h2 id="16-举例几个魔术方法及其作用">16. 举例几个魔术方法及其作用</h2>
+<pre tabindex="0"><code>在 Python 中，魔术方法（Magic methods）是以双下划线 __ 开头和结尾的特殊方法，用于实现类的特殊行为。以下是几个常用的魔术方法及其作用的示例：
+
+__init__(self, ...): 初始化方法，用于创建实例时进行初始化操作。
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+obj = MyClass(10)
+__str__(self): 返回对象的字符串表示，通常在使用 print() 函数时被调用。
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return f&#34;Value: {self.value}&#34;
+
+obj = MyClass(10)
+print(obj)  # 输出 &#34;Value: 10&#34;
+__len__(self): 返回对象的长度，通常在调用 len() 函数时被调用。
+class MyList:
+    def __init__(self, elements):
+        self.elements = elements
+
+    def __len__(self):
+        return len(self.elements)
+
+__getattr__(self, name): 当访问一个对象的属性不存在时，会调用 __getattr__() 方法，可用于动态返回属性的值。
+class MyObject:
+    def __init__(self):
+        self.data = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+
+    def __getattr__(self, name):
+        if name in self.data:
+            return self.data[name]
+        else:
+            raise AttributeError(f&#34;&#39;MyObject&#39; object has no attribute &#39;{name}&#39;&#34;)
+
+obj = MyObject()
+print(obj.key1)  # 输出 &#39;value1&#39;
+__setattr__(self, name, value): 当给对象的属性赋值时，会调用 __setattr__() 方法，可用于控制属性的赋值行为。
+class MyObject:
+    def __init__(self):
+        self.data = {}
+
+    def __setattr__(self, name, value):
+        print(f&#34;Setting attribute &#39;{name}&#39; with value &#39;{value}&#39;&#34;)
+        self.data[name] = value
+
+obj = MyObject()
+obj.key = &#39;value&#39;  # 输出 &#34;Setting attribute &#39;key&#39; with value &#39;value&#39;&#34;
+</code></pre><h2 id="17-设计一个支持push-pop-top-操作的并且能在短时间内检索到最小元素的栈">17. 设计一个支持push pop top 操作的并且能在短时间内检索到最小元素的栈</h2>
+<pre tabindex="0"><code>class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
+
+    def push(self, val):
+        self.stack.append(val)
+        if not self.min_stack or val &lt;= self.min_stack[-1]:
+            self.min_stack.append(val)
+
+    def pop(self):
+        if self.stack:
+            if self.stack[-1] == self.min_stack[-1]:
+                self.min_stack.pop()
+            return self.stack.pop()
+
+    def top(self):
+        if self.stack:
+            return self.stack[-1]
+
+    def get_min(self):
+        if self.min_stack:
+            return self.min_stack[-1]
+
+# 测试
+min_stack = MinStack()
+min_stack.push(-2)
+min_stack.push(0)
+min_stack.push(-3)
+print(min_stack.get_min())  # 输出 -3
+min_stack.pop()
+print(min_stack.top())       # 输出 0
+print(min_stack.get_min())   # 输出 -2
+</code></pre><h2 id="18-简述yield-和yield-from">18. 简述yield 和yield from</h2>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" data-title="面试准备"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" data-title="面试准备"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" data-title="面试准备"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" data-title="面试准备"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="http://localhost:1313/posts/%E9%9D%A2%E8%AF%95/" data-title="面试准备"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/git/" class="next" rel="next" title="git命令整理">git命令整理<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">tel:17879765153</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">ytw</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"07ZLKN6j99XXVTYxOqYf58xM-gzGzoHsz","appKey":"oDUcddY2PAnTQfpn5AzxknCZ","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"en","pageSize":10,"placeholder":"评论","recordIP":true,"serverURLs":"https://07zlkn6j.lc-cn-n1-shared.com","visitor":true}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

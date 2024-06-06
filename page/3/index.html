@@ -109,38 +109,18 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/2002051" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://github.com/2002051" title="yuxin‘s github" target="_blank" rel="noopener noreffer me"><i class="fab fa-mastodon fa-fw" aria-hidden="true"></i></a><a href="tel:17879765153" title="Phone" rel="me"><i class="fas fa-phone fa-fw" aria-hidden="true"></i></a><a href="mailto:17879765153@163.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/redis/">redis安装</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-14">2024-04-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/deploy/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>deploy</a></span></div><div class="content">1： 学习环境介绍： windows + vmware:centos 7 redis3.0.7 2: redis 5.0 版本安装,以及配置 下载安装 所有版本下载链接：链接1 mkdir -p /data/redis6379 cd /opt # yum -y install wget wget https://download.redis.io/releases/redis-5.0.7.tar.gz tar -zxf redis-5.0.7.tar.gz cd /opt/redis-5.0.7 make &amp;&amp; make install 关于编译安装的</div><div class="post-footer">
-        <a href="/posts/redis/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/demo02/">图片验证码识别</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-02-16">2024-02-16</time></span>&nbsp;<span class="post-category">included in <a href="/categories/spider/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>spider</a></span></div><div class="content">这里推荐三种可行的识别图片验证码的方法 超级鹰 直接从官网引入其sdk import base64 import requests from lxml import etree from hashlib import md5 url = &#34;https://so.gushiwen.cn/user/login.aspx&#34; headers = { &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36&#39;, } response = requests.get(url=url, headers=headers).text tree =</div><div class="post-footer">
-        <a href="/posts/demo02/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/vue/">Vue学习</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-01-28">2024-01-28</time></span>&nbsp;<span class="post-category">included in <a href="/categories/web/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>web</a></span></div><div class="content">概要 vue3-cookie 使用 cookies vue3中需要使用cookies存储用户信息，可以使用vue3-cookies 安装 npm install vue3-cookies 全局挂载 # main.js import App from &#39;./App.vue&#39; import VueCookies from &#34;vue3-cookies&#34;; const app = createApp(App) app.use(VueCookies) 基</div><div class="post-footer">
-        <a href="/posts/vue/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/first_post/">关于博客</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-10-15">2023-10-15</time></span></div><div class="content">第一篇文章 自从开始学计算机，我就一直对于知识点的掌握虚浮经常需要翻阅文献资料和笔记,故建此博客，以供自己查询方便，顺便熟悉一个非常牛的静态页</div><div class="post-footer">
-        <a href="/posts/first_post/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/scripy/">Scripy菜鸟使用</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-10-12">2023-10-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/spider/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>spider</a></span></div><div class="content">项目启动 创建工程 scrapy startproject 工程名称 进入到项目内的spiders文件夹中，创建爬虫文件。 scrapy genspider spiderName www.xxx.com 执行程序 scrapy crawl siderName # 执行爬虫程序 scrapy crawl siderName --nolog # 无日志执行爬虫</div><div class="post-footer">
-        <a href="/posts/scripy/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/git/">git命令整理</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-10-11">2023-10-11</time></span>&nbsp;<span class="post-category">included in <a href="/categories/default/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>default</a></span></div><div class="content">git 命令整理 基础命令 进入待管理文件夹 git init // 初始化让git管理当前文件夹 git status // 检测当前文件的状态 比如是否有修改，是否未管理 git add // 指定某个文件让g</div><div class="post-footer">
-        <a href="/posts/git/">Read More</a></div>
+        <a href="/posts/%E9%9D%A2%E8%AF%95/">面试准备</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-06-06">2023-06-06</time></span></div><div class="content">基础知识 1.列表推导式 # 列表推导式, 格式如下 list = [逻辑值 for x in xxx ] 其实就是一个循环成成列表元素的方法 list1 = [x*x for x in range(10)] print(list1) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81] list2</div><div class="post-footer">
+        <a href="/posts/%E9%9D%A2%E8%AF%95/">Read More</a></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
                     </span>
-                </li><li class="page-item active">
+                </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/2/">2</a>
                     </span>
-                </li><li class="page-item ">
+                </li><li class="page-item active">
                     <span class="page-link">
                         <a href="/page/3/">3</a>
                     </span>
