@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/posts\/%E9%9D%A2%E8%AF%95\/"
-        },"genre": "posts","wordcount":  6829 ,
+        },"genre": "posts","wordcount":  8151 ,
         "url": "http:\/\/localhost:1313\/posts\/%E9%9D%A2%E8%AF%95\/","datePublished": "2023-06-06T12:25:34+08:00","dateModified": "2023-06-06T12:25:34+08:00","license": "write By yuxin","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -113,8 +113,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">面试准备</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6829 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;14 minutes&nbsp;<span id="/posts/%E9%9D%A2%E8%AF%95/" class="leancloud_visitors" data-flag-title="面试准备">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;8151 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;17 minutes&nbsp;<span id="/posts/%E9%9D%A2%E8%AF%95/" class="leancloud_visitors" data-flag-title="面试准备">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
@@ -148,9 +148,16 @@
     <li><a href="#16-举例几个魔术方法及其作用">16. 举例几个魔术方法及其作用</a></li>
     <li><a href="#17-设计一个支持push-pop-top-操作的并且能在短时间内检索到最小元素的栈">17. 设计一个支持push pop top 操作的并且能在短时间内检索到最小元素的栈</a></li>
     <li><a href="#18-简述yield-和yield-from">18. 简述yield 和yield from</a></li>
+    <li><a href="#19-请实现一个装饰器限制某个函数被调用的频率十秒钟一次">19 请实现一个装饰器，限制某个函数被调用的频率，十秒钟一次</a>
+      <ul>
+        <li><a href="#解释">解释：</a></li>
+        <li><a href="#使用示例">使用示例：</a></li>
+      </ul>
+    </li>
+    <li><a href="#20说一下lambda-的用法和使用实例">20说一下lambda 的用法，和使用实例</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="基础知识">基础知识</h1>
+            </div><div class="content" id="content"><p>基础知识</p>
 <h2 id="1列表推导式">1.列表推导式</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 列表推导式,   格式如下  list = [逻辑值 for x in xxx ]   其实就是一个循环成成列表元素的方法</span>
 </span></span><span class="line"><span class="cl"><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -175,15 +182,15 @@
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">()</span>
 </span></span></code></pre></div><h2 id="迭代器">迭代器</h2>
-<pre tabindex="0"><code># 可迭代对象： 可以被循环访问，或者遍历的对象比如一个列表    可迭代对象必须实现__iter__()   方法。
-</code></pre><pre tabindex="0"><code></code></pre><h1 id="面试题目整理">面试题目整理</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 可迭代对象： 可以被循环访问，或者遍历的对象比如一个列表    可迭代对象必须实现__iter__()   方法。</span>
+</span></span></code></pre></div><pre tabindex="0"><code></code></pre><h1 id="面试题目整理">面试题目整理</h1>
 <h2 id="1下面这些是什么意思classmethod-staticmethodproperty">1.下面这些是什么意思：@classmethod ，@staticmethod，@property？</h2>
-<pre tabindex="0"><code>@classmethod：@classmethod 用于定义一个类方法，类方法与普通方法不同之处在于第一个参数是类本身（通常被命名为 cls），而不是实例对象。
-
-@staticmethod：@staticmethod 用于定义一个静态方法，静态方法与实例方法类似，但是它不接受自动传递的参数（实例或类），需要手动传递参数。
-
-@property：@property 用于将一个方法转换为属性，使得该方法可以像访问属性一样使用，而不需要使用方法调用的括号。常用于定义 Getter 方法，用于获取属性值。
-</code></pre><h2 id="2输入一个字符串输出这个字符串的所有组合--用python实现">2.输入一个字符串，输出这个字符串的所有组合  用python实现</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@classmethod</span><span class="err">：</span><span class="nd">@classmethod</span> <span class="n">用于定义一个类方法</span><span class="err">，</span><span class="n">类方法与普通方法不同之处在于第一个参数是类本身</span><span class="err">（</span><span class="n">通常被命名为</span> <span class="bp">cls</span><span class="err">），</span><span class="n">而不是实例对象</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@staticmethod</span><span class="err">：</span><span class="nd">@staticmethod</span> <span class="n">用于定义一个静态方法</span><span class="err">，</span><span class="n">静态方法与实例方法类似</span><span class="err">，</span><span class="n">但是它不接受自动传递的参数</span><span class="err">（</span><span class="n">实例或类</span><span class="err">），</span><span class="n">需要手动传递参数</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@property</span><span class="err">：</span><span class="nd">@property</span> <span class="n">用于将一个方法转换为属性</span><span class="err">，</span><span class="n">使得该方法可以像访问属性一样使用</span><span class="err">，</span><span class="n">而不需要使用方法调用的括号</span><span class="err">。</span><span class="n">常用于定义</span> <span class="n">Getter</span> <span class="n">方法</span><span class="err">，</span><span class="n">用于获取属性值</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="2输入一个字符串输出这个字符串的所有组合--用python实现">2.输入一个字符串，输出这个字符串的所有组合  用python实现</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">all_combinations</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
@@ -201,315 +208,445 @@
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="3谈谈你所知道的python-web框架">3.谈谈你所知道的python web框架</h2>
-<pre tabindex="0"><code>Django：Django 是一个开放源代码的 Web 应用框架，由 Python 编写而成，它遵循了 MVC（模型-视图-控制器）的设计模式，提供了大量的功能，包括 ORM（对象关系映射）、表单处理、用户认证、管理界面等等。Django 的易用性和完善的文档使得它成为开发 Web 应用的热门选择。
-
-Flask：Flask 是一个轻量级的 Python Web 框架，它也使用了 Werkzeug 和 Jinja2 这两个工具库。相比于 Django，Flask 的设计更加灵活，它的核心只包含了一个基本的路由器和模板引擎，其他功能都需要通过扩展来实现。Flask 非常适合于快速开发小型到中型的 Web 应用。
-
-FastAPI：FastAPI 是一个相对较新的 Python Web 框架，它基于 Python 3.6+ 的标准 typing 模块实现了快速的 API 开发，性能也非常优秀。通过使用类型提示，FastAPI 能够自动生成文档，并提供交互式 API 文档。这使得开发者可以方便地理解和测试 API。
-</code></pre><h2 id="4使用python将数据库中student表的提取的数据写入到dbtxt文件中">4.使用python将数据库中student表的提取的数据写入到db.txt文件中</h2>
-<pre tabindex="0"><code>import sqlite3
-
-# 连接到 SQLite 数据库
-conn = sqlite3.connect(&#39;your_database.db&#39;)
-cursor = conn.cursor()
-
-# 查询 student 表的数据
-cursor.execute(&#39;SELECT * FROM student&#39;)
-rows = cursor.fetchall()
-w
-# 将数据写入到 db.txt 文件中
-with open(&#39;db.txt&#39;, &#39;w&#39;) as file:
-    for row in rows:
-        file.write(f&#39;{row}\n&#39;)
-
-# 关闭数据库连接
-conn.close()
-</code></pre><h2 id="5编程实现斐波那契数列需要用递归实现">5.编程实现斐波那契数列，需要用递归实现</h2>
-<pre tabindex="0"><code>def fibonacci(n):
-    if n &lt;= 0:
-        return &#34;请输入大于0的整数&#34;
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 1
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-
-# 输入要计算的斐波那契数列的第 n 项
-n = 10  # 例如计算第 10 个斐波那契数
-
-# 调用递归函数计算第 n 项斐波那契数
-result = fibonacci(n)
-print(f&#34;斐波那契数列第 {n} 项为：{result}&#34;)
-</code></pre><h2 id="6简述join-left--和join-right的区别">6.简述join left  和join right的区别</h2>
-<pre tabindex="0"><code>在数据库中，左连接（LEFT JOIN）和右连接（RIGHT JOIN）是两种常见的连接操作，用于联合查询两个表的数据。它们之间的主要区别在于连接操作时左表和右表的处理方式不同。
-左连接（LEFT JOIN）：左连接返回左表中的所有行，以及右表中满足连接条件的行。如果右表中没有匹配的行，则返回 NULL 值。换句话说，左连接会保留左表中的所有数据，即使在右表中没有相匹配的数据，也会显示左表中的数据。
-右连接（RIGHT JOIN）：右连接返回右表中的所有行，以及左表中满足连接条件的行。如果左表中没有匹配的行，则返回 NULL 值。右连接实际上就是左连接的镜像，它会保留右表中的所有数据，即使在左表中没有相匹配的数据，也会显示右表中的数据。
-简单来说，左连接保留左表中的所有数据，右连接保留右表中的所有数据。根据应用场景和数据需求，可以选择使用左连接或右连接来实现不同的查询逻辑，以获取需要的联合数据结果。
-</code></pre><h2 id="7谈谈python-mvc--并写出示例代码">7.谈谈python mvc  并写出示例代码</h2>
-<pre tabindex="0"><code>在 Python 中，MVC（Model-View-Controller）是一种常见的软件架构模式，用于将应用程序的不同功能模块分离开来，以提高代码的可维护性和可扩展性。在 MVC 架构中，通常将应用程序分为三个部分：Model（模型）、View（视图）和Controller（控制器）。
-
-Model（模型）：负责处理应用程序的数据和业务逻辑。模型通常包括数据存储、数据操作和业务规则等功能。
-View（视图）：负责用户界面的展示和用户的交互。视图显示数据给用户，并接收用户的输入。
-Controller（控制器）：负责处理用户的输入、控制应用程序的流程，以及更新模型和视图之间的交互。
-下面是一个简单的示例代码，演示了如何在 Python 中使用 MVC 架构：
-
-# Model
-class UserModel:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def get_user_info(self):
-        return f&#34;Name: {self.name}, Age: {self.age}&#34;
-
-# View
-class UserView:
-    def display_user_info(self, user_info):
-        print(user_info)
-
-# Controller
-class UserController:
-    def __init__(self):
-        self.model = UserModel(&#34;Alice&#34;, 30)
-        self.view = UserView()
-
-    def show_user_info(self):
-        user_info = self.model.get_user_info()
-        self.view.display_user_info(user_info)
-
-# Main
-if __name__ == &#34;__main__&#34;:
-    controller = UserController()
-    controller.show_user_info()
-在这个示例代码中，模型类 UserModel 表示用户数据和业务逻辑，视图类 UserView 负责显示用户信息，控制器类 UserController 控制用户信息的展示过程。在 Main 部分，实例化了控制器对象并调用其方法来展示用户信息。这样，通过 MVC 架构可以将用户数据、展示和交互逻辑分离开来，提高代码的组织性和可扩展性。
-</code></pre><h2 id="8简述http协议下一个http请求的数据结构简述http-和https的区别">8.简述HTTP协议下，一个Http请求的数据结构，简述http 和https的区别</h2>
-<pre tabindex="0"><code>在 HTTP 协议下，一个 HTTP 请求由请求行、请求头和请求体三部分组成。
-
-请求行：包含请求的方法、请求的资源路径和协议版本。常见的请求方法包括 GET、POST、PUT、DELETE 等，资源路径指定要访问的资源地址，协议版本一般为 HTTP/1.1。
-
-请求头：包含了一系列的键值对，用于传输请求相关的信息。常见的请求头包括 Host（目标主机地址）、User-Agent（客户端信息）、Content-Type（请求体类型）、Accept（可接受的数据类型）、Cookie（客户端保存的信息）等。
-
-请求体：对于 POST、PUT 等需要传递数据的请求，请求体用于承载要发送的数据。请求体的内容格式取决于请求的 Content-Type，可以是文本、JSON、XML 等格式。
-
-HTTP 和 HTTPS 的主要区别在于安全性和加密通信方式：
-
-HTTP：是不安全的超文本传输协议，信息是明文传输的。因此，存在被窃听和篡改的风险。对于一些敏感信息的传输，不建议使用 HTTP 协议。
-
-HTTPS：是在 HTTP 基础上加入了 SSL/TLS 协议的安全版本，也称为 HTTP Secure。HTTPS 在数据传输过程中使用 SSL/TLS 加密算法，确保数据的机密性、完整性和认证性。使用 HTTPS 可以有效防止中间人攻击、窃听和数据篡改，提供更高的安全性。HTTPS 默认使用 443 端口进行通信。
-
-因此，一般情况下，对于涉及用户隐私或涉密信息的传输，建议使用 HTTPS 协议以确保数据的安全性和保密性
-</code></pre><h2 id="9python2-和python3-的区别">9.python2 和python3 的区别</h2>
-<pre tabindex="0"><code>Python 2 和 Python 3 是 Python 编程语言的两个主要版本，它们之间有一些重要的区别，主要包括以下几点：
-
-语法差异：
-
-print 语句：Python 2 使用 print 语句，而 Python 3 使用 print() 函数。
-整数除法：Python 2 中的整数除法默认会截断小数部分，Python 3 中的整数除法返回浮点数结果。
-输入函数：Python 2 中的输入函数是 raw_input()，Python 3 中的输入函数是 input()。
-Unicode 支持：
-
-Python 3 默认使用 Unicode 字符串，而 Python 2 默认使用 ASCII 字符串，在 Python 2 中需要使用 u 前缀来表示 Unicode 字符串。
-print 函数：
-
-Python 3 的 print() 函数可以接受多个参数，并且可以通过 end、sep 参数控制输出格式，而 Python 2 的 print 语句只能输出一个对象，并且不支持这些参数。
-整数类型：
-
-Python 3 的整数类型只有 int，而 Python 2 中有 int 和 long 两种整数类型。在 Python 3 中整数会根据需要自动转换为长整型。
-异常处理：
-
-Python 3 中的异常处理语法更加简洁明了，例如使用 as 关键字来捕获异常信息。
-range() 函数：
-
-Python 3 中的 range() 函数返回的是一个迭代器，可以用于节省内存，而 Python 2 中 range() 返回的是一个列表。
-总的来说，Python 3 在各方面对语言进行了改进和优化，支持更好的 Unicode 处理、语法规范和更好的语言设计。因此，新的项目应该优先选择 Python 3，而已有的使用 Python 2 开发的项目可以逐步迁移到 Python 3，以获得更好的支持和特性。
-</code></pre><h2 id="10影响服务器请求qbs的核心问题有哪些">10.影响服务器请求QBS的核心问题有哪些</h2>
-<pre tabindex="0"><code>影响服务器请求 QPS（Queries Per Second，每秒查询数）的核心问题有很多，主要包括以下几点：
-
-服务器硬件性能：服务器硬件的性能直接影响了处理请求的能力，包括 CPU 的性能、内存大小、硬盘速度等。服务器硬件性能越好，能够处理的请求量就越大。
-
-网络带宽：服务器的网络带宽限制了服务器能够处理的请求量，如果网络带宽不足，会导致请求响应时间延长或者丢包。
-
-请求处理方式：服务器的请求处理方式（如同步处理、异步处理、多线程、多进程等）对 QPS 有着直接影响。合理选择和优化请求处理方式可以提高服务器的吞吐量。
-
-代码质量和优化：服务器端代码的质量和性能优化程度直接影响了请求的处理效率。高效的算法和代码可以提高服务器的并发处理能力。
-
-数据库性能：如果请求涉及数据库操作，数据库的性能也是影响服务器 QPS 的重要因素。数据库的性能优化、索引设计以及连接池的配置都会影响服务器的请求处理能力。
-
-缓存机制：合理使用缓存可以减轻服务器对数据库的访问压力，提高请求的处理速度。缓存的命中率和缓存更新策略等都会直接影响服务器的 QPS。
-
-高可用和负载均衡：采用负载均衡方案可以将请求均衡的分发到多台服务器上，提高整个系统的请求处理能力和可靠性。
-
-综上所述，影响服务器请求 QPS 的核心问题涉及到硬件性能、网络带宽、请求处理方式、代码质量、数据库性能、缓存机制等多个方面，需要综合考虑并进行合理的优化和调整，以提高服务器的性能和稳定性。
-
-影响服务器请求 QPS（Queries Per Second，每秒查询数）的核心问题有很多，主要包括以下几点：
-
-服务器硬件性能：服务器硬件的性能直接影响了处理请求的能力，包括 CPU 的性能、内存大小、硬盘速度等。服务器硬件性能越好，能够处理的请求量就越大。
-
-网络带宽：服务器的网络带宽限制了服务器能够处理的请求量，如果网络带宽不足，会导致请求响应时间延长或者丢包。
-
-请求处理方式：服务器的请求处理方式（如同步处理、异步处理、多线程、多进程等）对 QPS 有着直接影响。合理选择和优化请求处理方式可以提高服务器的吞吐量。
-
-代码质量和优化：服务器端代码的质量和性能优化程度直接影响了请求的处理效率。高效的算法和代码可以提高服务器的并发处理能力。
-
-数据库性能：如果请求涉及数据库操作，数据库的性能也是影响服务器 QPS 的重要因素。数据库的性能优化、索引设计以及连接池的配置都会影响服务器的请求处理能力。
-
-缓存机制：合理使用缓存可以减轻服务器对数据库的访问压力，提高请求的处理速度。缓存的命中率和缓存更新策略等都会直接影响服务器的 QPS。
-
-高可用和负载均衡：采用负载均衡方案可以将请求均衡的分发到多台服务器上，提高整个系统的请求处理能力和可靠性。
-
-综上所述，影响服务器请求 QPS 的核心问题涉及到硬件性能、网络带宽、请求处理方式、代码质量、数据库性能、缓存机制等多个方面，需要综合考虑并进行合理的优化和调整，以提高服务器的性能和稳定性。
-</code></pre><h2 id="11-python如何处理一秒五百次的日志写操作">11. python如何处理一秒五百次的日志写操作</h2>
-<pre tabindex="0"><code>处理一秒五百次的日志写操作可以采取以下几种方式来提高写操作的效率：
-
-批量写入： 将日志数据批量积累一定量后再进行写入，减少频繁的磁盘操作，提高写入效率。可以考虑利用缓冲区来暂存一定量的日志数据，然后进行批量写入。
-
-异步写入： 将日志写入操作异步化，单独开启一个线程或进程来处理日志写入操作，主线程继续处理其他逻辑。这样可以避免因为日志写入操作阻塞主线程，提高程序的整体响应速度。
-
-使用日志队列： 可以考虑使用消息队列来缓存日志数据，然后由另外的消费者进程负责将日志写入到文件或数据库中，以减轻主程序的负担。
-
-优化写入文件： 使用合适的日志写入方式和工具，比如 Python 中的 logging 模块提供了一些高效的写入日志的方式，可以选择适合的日志处理器和格式，以提高写入效率。
-
-利用缓存： 如果日志写入的目标是文件或者数据库，可以考虑使用缓存机制，将数据缓存在内存中一定时间后再批量写入磁盘，减少频繁的磁盘操作。
-
-优化磁盘性能： 如果日志写入频繁造成了磁盘 I/O 压力过大，可以考虑使用 SSD 等高性能硬盘，或者使用 RAID 技术来提高磁盘的读写速度和容量。
-
-综合利用上述方法，可以有效提高 Python 程序处理一秒五百次日志写入操作的效率和性能，从而更好地满足实际需求。
-</code></pre><h2 id="12一张数据表每天300万的数据增长量怎么保证一年后的查询稳定">12.一张数据表，每天300万的数据增长量，怎么保证一年后的查询稳定</h2>
-<pre tabindex="0"><code>要确保在每天增长 300 万条数据的情况下，一年后仍然可以保证查询的稳定性，可以考虑以下几个方面进行优化：
-
-合理设计数据表结构： 使用合适的数据表结构、索引和分区等数据库设计技巧，以提高查询效率。确保表结构规范化、冗余数据最小化，避免不必要的连接操作等。
-
-适时清理历史数据： 对于不再需要的历史数据，可以定期进行清理或者归档，避免数据量过大导致查询效率降低。可以根据业务需求将历史数据归档到其他存储或者数据仓库中。
-
-优化查询语句： 编写高效的查询语句，使用合适的索引、优化器提示等技术，避免全表扫描和不必要的性能开销，以提高查询效率。
-
-水平和垂直分片： 如果数据量过大，可以考虑对数据进行水平或垂直分片，将数据分散存储在不同的节点或表中，以减轻单个节点的压力并提高查询效率。
-
-使用缓存： 可以考虑使用缓存来缓存热点数据或查询结果，减少对数据库的频繁访问，提高查询响应速度。
-
-数据库优化： 定期对数据库进行性能优化，包括参数调优、统计信息更新、空间回收、定期重建索引等，以保持数据库的高性能状态。
-
-扩展数据库服务器： 如果单台数据库服务器无法满足需求，可以考虑通过主从复制、集群、分布式数据库等方式扩展数据库服务器，提高查询的并发处理能力。
-
-综合考虑以上方面的优化方法，可以有效地保证在每天增长 300 万数据的情况下，一年后依然能够保证查询的稳定性和高效性。需要根据具体业务需求和数据量规模来选择适合的优化策略，以保持系统的稳定性和性能。
-</code></pre><h2 id="13简述python-import-的执行流程">13.简述python import 的执行流程</h2>
-<pre tabindex="0"><code>当 Python 解释器执行到 import 语句时，会按照一定的执行流程来查找、加载和执行被导入的模块。以下是 import 的执行流程简述：
-
-查找模块： Python 解释器首先会在内建模块（built-in module）和内置模块（built-in module）中查找是否存在要导入的模块。如果没有找到，则会继续搜索 sys.path 变量中指定的目录，包括当前目录、标准库目录以及其他用户自定义目录。
-
-编译模块： 一旦找到了要导入的模块，Python 解释器会对该模块进行编译，生成对应的字节码文件（.pyc 文件），以便后续执行。
-
-执行模块： 执行导入的模块时，Python 会创建一个新的命名空间（namespace）用来存放模块中定义的变量、函数和类等。模块中的代码会被执行，并将其定义的内容保存在这个命名空间中。
-
-建立引用： 一旦导入模块完成，Python 解释器会建立一个模块对象，使得当前模块可以通过该对象访问导入的模块，从而实现模块间的引用和调用。
-
-总的来说，Python 的 import 执行流程包括查找模块、编译模块、执行模块和建立引用等步骤。通过这个流程，Python 实现了模块化的代码组织方式，使得代码的复用和管理更加方便和灵活。
-</code></pre><h2 id="14-python中用map函数将1-2-3-4-5改为1-4-9-16-25并使用列表推导式提取大于10的数">14. python中用map函数将[1, 2, 3, 4, 5]改为[1, 4, 9, 16, 25]，并使用列表推导式提取大于10的数</h2>
-<pre tabindex="0"><code>numbers = [1, 2, 3, 4, 5]
-squared_numbers = map(lambda x: x ** 2, numbers)
-print(list(squared_numbers))  # [1, 4, 9, 16, 25]
-
-print([num for num in list(squared_numbers) if num &gt; 10])  
-</code></pre><h2 id="15正则匹配不是以4-和7结尾的手机号">15.正则匹配不是以4 和7结尾的手机号</h2>
-<pre tabindex="0"><code>import re
-
-# 定义手机号列表
-phone_numbers = [&#39;13812345678&#39;, &#39;15678901234&#39;, &#39;13987654327&#39;, &#39;18345678907&#39;, &#39;17098765432&#39;]
-
-# 匹配不以4和7结尾的手机号的正则表达式
-pattern = r&#39;^1\d{9}(?![47])$&#39;
-
-# 遍历手机号列表，匹配不以4和7结尾的手机号
-valid_phone_numbers = [number for number in phone_numbers if re.match(pattern, number)]
-
-print(valid_phone_numbers)
-</code></pre><h2 id="16-举例几个魔术方法及其作用">16. 举例几个魔术方法及其作用</h2>
-<pre tabindex="0"><code>在 Python 中，魔术方法（Magic methods）是以双下划线 __ 开头和结尾的特殊方法，用于实现类的特殊行为。以下是几个常用的魔术方法及其作用的示例：
-
-__init__(self, ...): 初始化方法，用于创建实例时进行初始化操作。
-class MyClass:
-    def __init__(self, value):
-        self.value = value
-
-obj = MyClass(10)
-__str__(self): 返回对象的字符串表示，通常在使用 print() 函数时被调用。
-class MyClass:
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return f&#34;Value: {self.value}&#34;
-
-obj = MyClass(10)
-print(obj)  # 输出 &#34;Value: 10&#34;
-__len__(self): 返回对象的长度，通常在调用 len() 函数时被调用。
-class MyList:
-    def __init__(self, elements):
-        self.elements = elements
-
-    def __len__(self):
-        return len(self.elements)
-
-__getattr__(self, name): 当访问一个对象的属性不存在时，会调用 __getattr__() 方法，可用于动态返回属性的值。
-class MyObject:
-    def __init__(self):
-        self.data = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
-
-    def __getattr__(self, name):
-        if name in self.data:
-            return self.data[name]
-        else:
-            raise AttributeError(f&#34;&#39;MyObject&#39; object has no attribute &#39;{name}&#39;&#34;)
-
-obj = MyObject()
-print(obj.key1)  # 输出 &#39;value1&#39;
-__setattr__(self, name, value): 当给对象的属性赋值时，会调用 __setattr__() 方法，可用于控制属性的赋值行为。
-class MyObject:
-    def __init__(self):
-        self.data = {}
-
-    def __setattr__(self, name, value):
-        print(f&#34;Setting attribute &#39;{name}&#39; with value &#39;{value}&#39;&#34;)
-        self.data[name] = value
-
-obj = MyObject()
-obj.key = &#39;value&#39;  # 输出 &#34;Setting attribute &#39;key&#39; with value &#39;value&#39;&#34;
-</code></pre><h2 id="17-设计一个支持push-pop-top-操作的并且能在短时间内检索到最小元素的栈">17. 设计一个支持push pop top 操作的并且能在短时间内检索到最小元素的栈</h2>
-<pre tabindex="0"><code>class MinStack:
-    def __init__(self):
-        self.stack = []
-        self.min_stack = []
-
-    def push(self, val):
-        self.stack.append(val)
-        if not self.min_stack or val &lt;= self.min_stack[-1]:
-            self.min_stack.append(val)
-
-    def pop(self):
-        if self.stack:
-            if self.stack[-1] == self.min_stack[-1]:
-                self.min_stack.pop()
-            return self.stack.pop()
-
-    def top(self):
-        if self.stack:
-            return self.stack[-1]
-
-    def get_min(self):
-        if self.min_stack:
-            return self.min_stack[-1]
-
-# 测试
-min_stack = MinStack()
-min_stack.push(-2)
-min_stack.push(0)
-min_stack.push(-3)
-print(min_stack.get_min())  # 输出 -3
-min_stack.pop()
-print(min_stack.top())       # 输出 0
-print(min_stack.get_min())   # 输出 -2
-</code></pre><h2 id="18-简述yield-和yield-from">18. 简述yield 和yield from</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Django</span><span class="err">：</span><span class="n">Django</span> <span class="n">是一个开放源代码的</span> <span class="n">Web</span> <span class="n">应用框架</span><span class="err">，</span><span class="n">由</span> <span class="n">Python</span> <span class="n">编写而成</span><span class="err">，</span><span class="n">它遵循了</span> <span class="n">MVC</span><span class="err">（</span><span class="n">模型</span><span class="o">-</span><span class="n">视图</span><span class="o">-</span><span class="n">控制器</span><span class="err">）</span><span class="n">的设计模式</span><span class="err">，</span><span class="n">提供了大量的功能</span><span class="err">，</span><span class="n">包括</span> <span class="n">ORM</span><span class="err">（</span><span class="n">对象关系映射</span><span class="err">）、</span><span class="n">表单处理</span><span class="err">、</span><span class="n">用户认证</span><span class="err">、</span><span class="n">管理界面等等</span><span class="err">。</span><span class="n">Django</span> <span class="n">的易用性和完善的文档使得它成为开发</span> <span class="n">Web</span> <span class="n">应用的热门选择</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Flask</span><span class="err">：</span><span class="n">Flask</span> <span class="n">是一个轻量级的</span> <span class="n">Python</span> <span class="n">Web</span> <span class="n">框架</span><span class="err">，</span><span class="n">它也使用了</span> <span class="n">Werkzeug</span> <span class="n">和</span> <span class="n">Jinja2</span> <span class="n">这两个工具库</span><span class="err">。</span><span class="n">相比于</span> <span class="n">Django</span><span class="err">，</span><span class="n">Flask</span> <span class="n">的设计更加灵活</span><span class="err">，</span><span class="n">它的核心只包含了一个基本的路由器和模板引擎</span><span class="err">，</span><span class="n">其他功能都需要通过扩展来实现</span><span class="err">。</span><span class="n">Flask</span> <span class="n">非常适合于快速开发小型到中型的</span> <span class="n">Web</span> <span class="n">应用</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">FastAPI</span><span class="err">：</span><span class="n">FastAPI</span> <span class="n">是一个相对较新的</span> <span class="n">Python</span> <span class="n">Web</span> <span class="n">框架</span><span class="err">，</span><span class="n">它基于</span> <span class="n">Python</span> <span class="mf">3.6</span><span class="o">+</span> <span class="n">的标准</span> <span class="n">typing</span> <span class="n">模块实现了快速的</span> <span class="n">API</span> <span class="n">开发</span><span class="err">，</span><span class="n">性能也非常优秀</span><span class="err">。</span><span class="n">通过使用类型提示</span><span class="err">，</span><span class="n">FastAPI</span> <span class="n">能够自动生成文档</span><span class="err">，</span><span class="n">并提供交互式</span> <span class="n">API</span> <span class="n">文档</span><span class="err">。</span><span class="n">这使得开发者可以方便地理解和测试</span> <span class="n">API</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="4使用python将数据库中student表的提取的数据写入到dbtxt文件中">4.使用python将数据库中student表的提取的数据写入到db.txt文件中</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sqlite3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 连接到 SQLite 数据库</span>
+</span></span><span class="line"><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;your_database.db&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查询 student 表的数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM student&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">w</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将数据写入到 db.txt 文件中</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;db.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">row</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 关闭数据库连接</span>
+</span></span><span class="line"><span class="cl"><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="5编程实现斐波那契数列需要用递归实现">5.编程实现斐波那契数列，需要用递归实现</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;请输入大于0的整数&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输入要计算的斐波那契数列的第 n 项</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 例如计算第 10 个斐波那契数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 调用递归函数计算第 n 项斐波那契数</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;斐波那契数列第 </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> 项为：</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="6简述join-left--和join-right的区别">6.简述join left  和join right的区别</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">在数据库中</span><span class="err">，</span><span class="n">左连接</span><span class="err">（</span><span class="n">LEFT</span> <span class="n">JOIN</span><span class="err">）</span><span class="n">和右连接</span><span class="err">（</span><span class="n">RIGHT</span> <span class="n">JOIN</span><span class="err">）</span><span class="n">是两种常见的连接操作</span><span class="err">，</span><span class="n">用于联合查询两个表的数据</span><span class="err">。</span><span class="n">它们之间的主要区别在于连接操作时左表和右表的处理方式不同</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">左连接</span><span class="err">（</span><span class="n">LEFT</span> <span class="n">JOIN</span><span class="err">）：</span><span class="n">左连接返回左表中的所有行</span><span class="err">，</span><span class="n">以及右表中满足连接条件的行</span><span class="err">。</span><span class="n">如果右表中没有匹配的行</span><span class="err">，</span><span class="n">则返回</span> <span class="n">NULL</span> <span class="n">值</span><span class="err">。</span><span class="n">换句话说</span><span class="err">，</span><span class="n">左连接会保留左表中的所有数据</span><span class="err">，</span><span class="n">即使在右表中没有相匹配的数据</span><span class="err">，</span><span class="n">也会显示左表中的数据</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">右连接</span><span class="err">（</span><span class="n">RIGHT</span> <span class="n">JOIN</span><span class="err">）：</span><span class="n">右连接返回右表中的所有行</span><span class="err">，</span><span class="n">以及左表中满足连接条件的行</span><span class="err">。</span><span class="n">如果左表中没有匹配的行</span><span class="err">，</span><span class="n">则返回</span> <span class="n">NULL</span> <span class="n">值</span><span class="err">。</span><span class="n">右连接实际上就是左连接的镜像</span><span class="err">，</span><span class="n">它会保留右表中的所有数据</span><span class="err">，</span><span class="n">即使在左表中没有相匹配的数据</span><span class="err">，</span><span class="n">也会显示右表中的数据</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">简单来说</span><span class="err">，</span><span class="n">左连接保留左表中的所有数据</span><span class="err">，</span><span class="n">右连接保留右表中的所有数据</span><span class="err">。</span><span class="n">根据应用场景和数据需求</span><span class="err">，</span><span class="n">可以选择使用左连接或右连接来实现不同的查询逻辑</span><span class="err">，</span><span class="n">以获取需要的联合数据结果</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="7谈谈python-mvc--并写出示例代码">7.谈谈python mvc  并写出示例代码</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">在</span> <span class="n">Python</span> <span class="n">中</span><span class="err">，</span><span class="n">MVC</span><span class="err">（</span><span class="n">Model</span><span class="o">-</span><span class="n">View</span><span class="o">-</span><span class="n">Controller</span><span class="err">）</span><span class="n">是一种常见的软件架构模式</span><span class="err">，</span><span class="n">用于将应用程序的不同功能模块分离开来</span><span class="err">，</span><span class="n">以提高代码的可维护性和可扩展性</span><span class="err">。</span><span class="n">在</span> <span class="n">MVC</span> <span class="n">架构中</span><span class="err">，</span><span class="n">通常将应用程序分为三个部分</span><span class="err">：</span><span class="n">Model</span><span class="err">（</span><span class="n">模型</span><span class="err">）、</span><span class="n">View</span><span class="err">（</span><span class="n">视图</span><span class="err">）</span><span class="n">和Controller</span><span class="err">（</span><span class="n">控制器</span><span class="err">）。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Model</span><span class="err">（</span><span class="n">模型</span><span class="err">）：</span><span class="n">负责处理应用程序的数据和业务逻辑</span><span class="err">。</span><span class="n">模型通常包括数据存储</span><span class="err">、</span><span class="n">数据操作和业务规则等功能</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">View</span><span class="err">（</span><span class="n">视图</span><span class="err">）：</span><span class="n">负责用户界面的展示和用户的交互</span><span class="err">。</span><span class="n">视图显示数据给用户</span><span class="err">，</span><span class="n">并接收用户的输入</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">Controller</span><span class="err">（</span><span class="n">控制器</span><span class="err">）：</span><span class="n">负责处理用户的输入</span><span class="err">、</span><span class="n">控制应用程序的流程</span><span class="err">，</span><span class="n">以及更新模型和视图之间的交互</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">下面是一个简单的示例代码</span><span class="err">，</span><span class="n">演示了如何在</span> <span class="n">Python</span> <span class="n">中使用</span> <span class="n">MVC</span> <span class="n">架构</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Model</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserModel</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_user_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># View</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">display_user_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">user_info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Controller</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserController</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span><span class="s2">&#34;Alice&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">view</span> <span class="o">=</span> <span class="n">UserView</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_user_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_user_info</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">display_user_info</span><span class="p">(</span><span class="n">user_info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Main</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">controller</span> <span class="o">=</span> <span class="n">UserController</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">controller</span><span class="o">.</span><span class="n">show_user_info</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">在这个示例代码中</span><span class="err">，</span><span class="n">模型类</span> <span class="n">UserModel</span> <span class="n">表示用户数据和业务逻辑</span><span class="err">，</span><span class="n">视图类</span> <span class="n">UserView</span> <span class="n">负责显示用户信息</span><span class="err">，</span><span class="n">控制器类</span> <span class="n">UserController</span> <span class="n">控制用户信息的展示过程</span><span class="err">。</span><span class="n">在</span> <span class="n">Main</span> <span class="n">部分</span><span class="err">，</span><span class="n">实例化了控制器对象并调用其方法来展示用户信息</span><span class="err">。</span><span class="n">这样</span><span class="err">，</span><span class="n">通过</span> <span class="n">MVC</span> <span class="n">架构可以将用户数据</span><span class="err">、</span><span class="n">展示和交互逻辑分离开来</span><span class="err">，</span><span class="n">提高代码的组织性和可扩展性</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="8简述http协议下一个http请求的数据结构简述http-和https的区别">8.简述HTTP协议下，一个Http请求的数据结构，简述http 和https的区别</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">在</span> <span class="n">HTTP</span> <span class="n">协议下</span><span class="err">，</span><span class="n">一个</span> <span class="n">HTTP</span> <span class="n">请求由请求行</span><span class="err">、</span><span class="n">请求头和请求体三部分组成</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">请求行</span><span class="err">：</span><span class="n">包含请求的方法</span><span class="err">、</span><span class="n">请求的资源路径和协议版本</span><span class="err">。</span><span class="n">常见的请求方法包括</span> <span class="n">GET</span><span class="err">、</span><span class="n">POST</span><span class="err">、</span><span class="n">PUT</span><span class="err">、</span><span class="n">DELETE</span> <span class="n">等</span><span class="err">，</span><span class="n">资源路径指定要访问的资源地址</span><span class="err">，</span><span class="n">协议版本一般为</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">请求头</span><span class="err">：</span><span class="n">包含了一系列的键值对</span><span class="err">，</span><span class="n">用于传输请求相关的信息</span><span class="err">。</span><span class="n">常见的请求头包括</span> <span class="n">Host</span><span class="err">（</span><span class="n">目标主机地址</span><span class="err">）、</span><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="err">（</span><span class="n">客户端信息</span><span class="err">）、</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="err">（</span><span class="n">请求体类型</span><span class="err">）、</span><span class="n">Accept</span><span class="err">（</span><span class="n">可接受的数据类型</span><span class="err">）、</span><span class="n">Cookie</span><span class="err">（</span><span class="n">客户端保存的信息</span><span class="err">）</span><span class="n">等</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">请求体</span><span class="err">：</span><span class="n">对于</span> <span class="n">POST</span><span class="err">、</span><span class="n">PUT</span> <span class="n">等需要传递数据的请求</span><span class="err">，</span><span class="n">请求体用于承载要发送的数据</span><span class="err">。</span><span class="n">请求体的内容格式取决于请求的</span> <span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="err">，</span><span class="n">可以是文本</span><span class="err">、</span><span class="n">JSON</span><span class="err">、</span><span class="n">XML</span> <span class="n">等格式</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HTTP</span> <span class="n">和</span> <span class="n">HTTPS</span> <span class="n">的主要区别在于安全性和加密通信方式</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HTTP</span><span class="err">：</span><span class="n">是不安全的超文本传输协议</span><span class="err">，</span><span class="n">信息是明文传输的</span><span class="err">。</span><span class="n">因此</span><span class="err">，</span><span class="n">存在被窃听和篡改的风险</span><span class="err">。</span><span class="n">对于一些敏感信息的传输</span><span class="err">，</span><span class="n">不建议使用</span> <span class="n">HTTP</span> <span class="n">协议</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HTTPS</span><span class="err">：</span><span class="n">是在</span> <span class="n">HTTP</span> <span class="n">基础上加入了</span> <span class="n">SSL</span><span class="o">/</span><span class="n">TLS</span> <span class="n">协议的安全版本</span><span class="err">，</span><span class="n">也称为</span> <span class="n">HTTP</span> <span class="n">Secure</span><span class="err">。</span><span class="n">HTTPS</span> <span class="n">在数据传输过程中使用</span> <span class="n">SSL</span><span class="o">/</span><span class="n">TLS</span> <span class="n">加密算法</span><span class="err">，</span><span class="n">确保数据的机密性</span><span class="err">、</span><span class="n">完整性和认证性</span><span class="err">。</span><span class="n">使用</span> <span class="n">HTTPS</span> <span class="n">可以有效防止中间人攻击</span><span class="err">、</span><span class="n">窃听和数据篡改</span><span class="err">，</span><span class="n">提供更高的安全性</span><span class="err">。</span><span class="n">HTTPS</span> <span class="n">默认使用</span> <span class="mi">443</span> <span class="n">端口进行通信</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">因此</span><span class="err">，</span><span class="n">一般情况下</span><span class="err">，</span><span class="n">对于涉及用户隐私或涉密信息的传输</span><span class="err">，</span><span class="n">建议使用</span> <span class="n">HTTPS</span> <span class="n">协议以确保数据的安全性和保密性</span>
+</span></span></code></pre></div><h2 id="9python2-和python3-的区别">9.python2 和python3 的区别</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">2</span> <span class="n">和</span> <span class="n">Python</span> <span class="mi">3</span> <span class="n">是</span> <span class="n">Python</span> <span class="n">编程语言的两个主要版本</span><span class="err">，</span><span class="n">它们之间有一些重要的区别</span><span class="err">，</span><span class="n">主要包括以下几点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">语法差异</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">语句</span><span class="err">：</span><span class="n">Python</span> <span class="mi">2</span> <span class="n">使用</span> <span class="nb">print</span> <span class="n">语句</span><span class="err">，</span><span class="n">而</span> <span class="n">Python</span> <span class="mi">3</span> <span class="n">使用</span> <span class="nb">print</span><span class="p">()</span> <span class="n">函数</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">整数除法</span><span class="err">：</span><span class="n">Python</span> <span class="mi">2</span> <span class="n">中的整数除法默认会截断小数部分</span><span class="err">，</span><span class="n">Python</span> <span class="mi">3</span> <span class="n">中的整数除法返回浮点数结果</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">输入函数</span><span class="err">：</span><span class="n">Python</span> <span class="mi">2</span> <span class="n">中的输入函数是</span> <span class="n">raw_input</span><span class="p">()</span><span class="err">，</span><span class="n">Python</span> <span class="mi">3</span> <span class="n">中的输入函数是</span> <span class="nb">input</span><span class="p">()</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">Unicode</span> <span class="n">支持</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">3</span> <span class="n">默认使用</span> <span class="n">Unicode</span> <span class="n">字符串</span><span class="err">，</span><span class="n">而</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">默认使用</span> <span class="n">ASCII</span> <span class="n">字符串</span><span class="err">，</span><span class="n">在</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">中需要使用</span> <span class="n">u</span> <span class="n">前缀来表示</span> <span class="n">Unicode</span> <span class="n">字符串</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">函数</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">3</span> <span class="n">的</span> <span class="nb">print</span><span class="p">()</span> <span class="n">函数可以接受多个参数</span><span class="err">，</span><span class="n">并且可以通过</span> <span class="n">end</span><span class="err">、</span><span class="n">sep</span> <span class="n">参数控制输出格式</span><span class="err">，</span><span class="n">而</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">的</span> <span class="nb">print</span> <span class="n">语句只能输出一个对象</span><span class="err">，</span><span class="n">并且不支持这些参数</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">整数类型</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">3</span> <span class="n">的整数类型只有</span> <span class="nb">int</span><span class="err">，</span><span class="n">而</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">中有</span> <span class="nb">int</span> <span class="n">和</span> <span class="n">long</span> <span class="n">两种整数类型</span><span class="err">。</span><span class="n">在</span> <span class="n">Python</span> <span class="mi">3</span> <span class="n">中整数会根据需要自动转换为长整型</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">异常处理</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">3</span> <span class="n">中的异常处理语法更加简洁明了</span><span class="err">，</span><span class="n">例如使用</span> <span class="k">as</span> <span class="n">关键字来捕获异常信息</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="nb">range</span><span class="p">()</span> <span class="n">函数</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Python</span> <span class="mi">3</span> <span class="n">中的</span> <span class="nb">range</span><span class="p">()</span> <span class="n">函数返回的是一个迭代器</span><span class="err">，</span><span class="n">可以用于节省内存</span><span class="err">，</span><span class="n">而</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">中</span> <span class="nb">range</span><span class="p">()</span> <span class="n">返回的是一个列表</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">总的来说</span><span class="err">，</span><span class="n">Python</span> <span class="mi">3</span> <span class="n">在各方面对语言进行了改进和优化</span><span class="err">，</span><span class="n">支持更好的</span> <span class="n">Unicode</span> <span class="n">处理</span><span class="err">、</span><span class="n">语法规范和更好的语言设计</span><span class="err">。</span><span class="n">因此</span><span class="err">，</span><span class="n">新的项目应该优先选择</span> <span class="n">Python</span> <span class="mi">3</span><span class="err">，</span><span class="n">而已有的使用</span> <span class="n">Python</span> <span class="mi">2</span> <span class="n">开发的项目可以逐步迁移到</span> <span class="n">Python</span> <span class="mi">3</span><span class="err">，</span><span class="n">以获得更好的支持和特性</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="10影响服务器请求qbs的核心问题有哪些">10.影响服务器请求QBS的核心问题有哪些</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">影响服务器请求</span> <span class="n">QPS</span><span class="err">（</span><span class="n">Queries</span> <span class="n">Per</span> <span class="n">Second</span><span class="err">，</span><span class="n">每秒查询数</span><span class="err">）</span><span class="n">的核心问题有很多</span><span class="err">，</span><span class="n">主要包括以下几点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">服务器硬件性能</span><span class="err">：</span><span class="n">服务器硬件的性能直接影响了处理请求的能力</span><span class="err">，</span><span class="n">包括</span> <span class="n">CPU</span> <span class="n">的性能</span><span class="err">、</span><span class="n">内存大小</span><span class="err">、</span><span class="n">硬盘速度等</span><span class="err">。</span><span class="n">服务器硬件性能越好</span><span class="err">，</span><span class="n">能够处理的请求量就越大</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">网络带宽</span><span class="err">：</span><span class="n">服务器的网络带宽限制了服务器能够处理的请求量</span><span class="err">，</span><span class="n">如果网络带宽不足</span><span class="err">，</span><span class="n">会导致请求响应时间延长或者丢包</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">请求处理方式</span><span class="err">：</span><span class="n">服务器的请求处理方式</span><span class="err">（</span><span class="n">如同步处理</span><span class="err">、</span><span class="n">异步处理</span><span class="err">、</span><span class="n">多线程</span><span class="err">、</span><span class="n">多进程等</span><span class="err">）</span><span class="n">对</span> <span class="n">QPS</span> <span class="n">有着直接影响</span><span class="err">。</span><span class="n">合理选择和优化请求处理方式可以提高服务器的吞吐量</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">代码质量和优化</span><span class="err">：</span><span class="n">服务器端代码的质量和性能优化程度直接影响了请求的处理效率</span><span class="err">。</span><span class="n">高效的算法和代码可以提高服务器的并发处理能力</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">数据库性能</span><span class="err">：</span><span class="n">如果请求涉及数据库操作</span><span class="err">，</span><span class="n">数据库的性能也是影响服务器</span> <span class="n">QPS</span> <span class="n">的重要因素</span><span class="err">。</span><span class="n">数据库的性能优化</span><span class="err">、</span><span class="n">索引设计以及连接池的配置都会影响服务器的请求处理能力</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">缓存机制</span><span class="err">：</span><span class="n">合理使用缓存可以减轻服务器对数据库的访问压力</span><span class="err">，</span><span class="n">提高请求的处理速度</span><span class="err">。</span><span class="n">缓存的命中率和缓存更新策略等都会直接影响服务器的</span> <span class="n">QPS</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">高可用和负载均衡</span><span class="err">：</span><span class="n">采用负载均衡方案可以将请求均衡的分发到多台服务器上</span><span class="err">，</span><span class="n">提高整个系统的请求处理能力和可靠性</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">综上所述</span><span class="err">，</span><span class="n">影响服务器请求</span> <span class="n">QPS</span> <span class="n">的核心问题涉及到硬件性能</span><span class="err">、</span><span class="n">网络带宽</span><span class="err">、</span><span class="n">请求处理方式</span><span class="err">、</span><span class="n">代码质量</span><span class="err">、</span><span class="n">数据库性能</span><span class="err">、</span><span class="n">缓存机制等多个方面</span><span class="err">，</span><span class="n">需要综合考虑并进行合理的优化和调整</span><span class="err">，</span><span class="n">以提高服务器的性能和稳定性</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">影响服务器请求</span> <span class="n">QPS</span><span class="err">（</span><span class="n">Queries</span> <span class="n">Per</span> <span class="n">Second</span><span class="err">，</span><span class="n">每秒查询数</span><span class="err">）</span><span class="n">的核心问题有很多</span><span class="err">，</span><span class="n">主要包括以下几点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">服务器硬件性能</span><span class="err">：</span><span class="n">服务器硬件的性能直接影响了处理请求的能力</span><span class="err">，</span><span class="n">包括</span> <span class="n">CPU</span> <span class="n">的性能</span><span class="err">、</span><span class="n">内存大小</span><span class="err">、</span><span class="n">硬盘速度等</span><span class="err">。</span><span class="n">服务器硬件性能越好</span><span class="err">，</span><span class="n">能够处理的请求量就越大</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">网络带宽</span><span class="err">：</span><span class="n">服务器的网络带宽限制了服务器能够处理的请求量</span><span class="err">，</span><span class="n">如果网络带宽不足</span><span class="err">，</span><span class="n">会导致请求响应时间延长或者丢包</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">请求处理方式</span><span class="err">：</span><span class="n">服务器的请求处理方式</span><span class="err">（</span><span class="n">如同步处理</span><span class="err">、</span><span class="n">异步处理</span><span class="err">、</span><span class="n">多线程</span><span class="err">、</span><span class="n">多进程等</span><span class="err">）</span><span class="n">对</span> <span class="n">QPS</span> <span class="n">有着直接影响</span><span class="err">。</span><span class="n">合理选择和优化请求处理方式可以提高服务器的吞吐量</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">代码质量和优化</span><span class="err">：</span><span class="n">服务器端代码的质量和性能优化程度直接影响了请求的处理效率</span><span class="err">。</span><span class="n">高效的算法和代码可以提高服务器的并发处理能力</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">数据库性能</span><span class="err">：</span><span class="n">如果请求涉及数据库操作</span><span class="err">，</span><span class="n">数据库的性能也是影响服务器</span> <span class="n">QPS</span> <span class="n">的重要因素</span><span class="err">。</span><span class="n">数据库的性能优化</span><span class="err">、</span><span class="n">索引设计以及连接池的配置都会影响服务器的请求处理能力</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">缓存机制</span><span class="err">：</span><span class="n">合理使用缓存可以减轻服务器对数据库的访问压力</span><span class="err">，</span><span class="n">提高请求的处理速度</span><span class="err">。</span><span class="n">缓存的命中率和缓存更新策略等都会直接影响服务器的</span> <span class="n">QPS</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">高可用和负载均衡</span><span class="err">：</span><span class="n">采用负载均衡方案可以将请求均衡的分发到多台服务器上</span><span class="err">，</span><span class="n">提高整个系统的请求处理能力和可靠性</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">综上所述</span><span class="err">，</span><span class="n">影响服务器请求</span> <span class="n">QPS</span> <span class="n">的核心问题涉及到硬件性能</span><span class="err">、</span><span class="n">网络带宽</span><span class="err">、</span><span class="n">请求处理方式</span><span class="err">、</span><span class="n">代码质量</span><span class="err">、</span><span class="n">数据库性能</span><span class="err">、</span><span class="n">缓存机制等多个方面</span><span class="err">，</span><span class="n">需要综合考虑并进行合理的优化和调整</span><span class="err">，</span><span class="n">以提高服务器的性能和稳定性</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="11-python如何处理一秒五百次的日志写操作">11. python如何处理一秒五百次的日志写操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">处理一秒五百次的日志写操作可以采取以下几种方式来提高写操作的效率</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">批量写入</span><span class="err">：</span> <span class="n">将日志数据批量积累一定量后再进行写入</span><span class="err">，</span><span class="n">减少频繁的磁盘操作</span><span class="err">，</span><span class="n">提高写入效率</span><span class="err">。</span><span class="n">可以考虑利用缓冲区来暂存一定量的日志数据</span><span class="err">，</span><span class="n">然后进行批量写入</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">异步写入</span><span class="err">：</span> <span class="n">将日志写入操作异步化</span><span class="err">，</span><span class="n">单独开启一个线程或进程来处理日志写入操作</span><span class="err">，</span><span class="n">主线程继续处理其他逻辑</span><span class="err">。</span><span class="n">这样可以避免因为日志写入操作阻塞主线程</span><span class="err">，</span><span class="n">提高程序的整体响应速度</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">使用日志队列</span><span class="err">：</span> <span class="n">可以考虑使用消息队列来缓存日志数据</span><span class="err">，</span><span class="n">然后由另外的消费者进程负责将日志写入到文件或数据库中</span><span class="err">，</span><span class="n">以减轻主程序的负担</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">优化写入文件</span><span class="err">：</span> <span class="n">使用合适的日志写入方式和工具</span><span class="err">，</span><span class="n">比如</span> <span class="n">Python</span> <span class="n">中的</span> <span class="n">logging</span> <span class="n">模块提供了一些高效的写入日志的方式</span><span class="err">，</span><span class="n">可以选择适合的日志处理器和格式</span><span class="err">，</span><span class="n">以提高写入效率</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">利用缓存</span><span class="err">：</span> <span class="n">如果日志写入的目标是文件或者数据库</span><span class="err">，</span><span class="n">可以考虑使用缓存机制</span><span class="err">，</span><span class="n">将数据缓存在内存中一定时间后再批量写入磁盘</span><span class="err">，</span><span class="n">减少频繁的磁盘操作</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">优化磁盘性能</span><span class="err">：</span> <span class="n">如果日志写入频繁造成了磁盘</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">压力过大</span><span class="err">，</span><span class="n">可以考虑使用</span> <span class="n">SSD</span> <span class="n">等高性能硬盘</span><span class="err">，</span><span class="n">或者使用</span> <span class="n">RAID</span> <span class="n">技术来提高磁盘的读写速度和容量</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">综合利用上述方法</span><span class="err">，</span><span class="n">可以有效提高</span> <span class="n">Python</span> <span class="n">程序处理一秒五百次日志写入操作的效率和性能</span><span class="err">，</span><span class="n">从而更好地满足实际需求</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="12一张数据表每天300万的数据增长量怎么保证一年后的查询稳定">12.一张数据表，每天300万的数据增长量，怎么保证一年后的查询稳定</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">要确保在每天增长</span> <span class="mi">300</span> <span class="n">万条数据的情况下</span><span class="err">，</span><span class="n">一年后仍然可以保证查询的稳定性</span><span class="err">，</span><span class="n">可以考虑以下几个方面进行优化</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">合理设计数据表结构</span><span class="err">：</span> <span class="n">使用合适的数据表结构</span><span class="err">、</span><span class="n">索引和分区等数据库设计技巧</span><span class="err">，</span><span class="n">以提高查询效率</span><span class="err">。</span><span class="n">确保表结构规范化</span><span class="err">、</span><span class="n">冗余数据最小化</span><span class="err">，</span><span class="n">避免不必要的连接操作等</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">适时清理历史数据</span><span class="err">：</span> <span class="n">对于不再需要的历史数据</span><span class="err">，</span><span class="n">可以定期进行清理或者归档</span><span class="err">，</span><span class="n">避免数据量过大导致查询效率降低</span><span class="err">。</span><span class="n">可以根据业务需求将历史数据归档到其他存储或者数据仓库中</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">优化查询语句</span><span class="err">：</span> <span class="n">编写高效的查询语句</span><span class="err">，</span><span class="n">使用合适的索引</span><span class="err">、</span><span class="n">优化器提示等技术</span><span class="err">，</span><span class="n">避免全表扫描和不必要的性能开销</span><span class="err">，</span><span class="n">以提高查询效率</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">水平和垂直分片</span><span class="err">：</span> <span class="n">如果数据量过大</span><span class="err">，</span><span class="n">可以考虑对数据进行水平或垂直分片</span><span class="err">，</span><span class="n">将数据分散存储在不同的节点或表中</span><span class="err">，</span><span class="n">以减轻单个节点的压力并提高查询效率</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">使用缓存</span><span class="err">：</span> <span class="n">可以考虑使用缓存来缓存热点数据或查询结果</span><span class="err">，</span><span class="n">减少对数据库的频繁访问</span><span class="err">，</span><span class="n">提高查询响应速度</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">数据库优化</span><span class="err">：</span> <span class="n">定期对数据库进行性能优化</span><span class="err">，</span><span class="n">包括参数调优</span><span class="err">、</span><span class="n">统计信息更新</span><span class="err">、</span><span class="n">空间回收</span><span class="err">、</span><span class="n">定期重建索引等</span><span class="err">，</span><span class="n">以保持数据库的高性能状态</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">扩展数据库服务器</span><span class="err">：</span> <span class="n">如果单台数据库服务器无法满足需求</span><span class="err">，</span><span class="n">可以考虑通过主从复制</span><span class="err">、</span><span class="n">集群</span><span class="err">、</span><span class="n">分布式数据库等方式扩展数据库服务器</span><span class="err">，</span><span class="n">提高查询的并发处理能力</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">综合考虑以上方面的优化方法</span><span class="err">，</span><span class="n">可以有效地保证在每天增长</span> <span class="mi">300</span> <span class="n">万数据的情况下</span><span class="err">，</span><span class="n">一年后依然能够保证查询的稳定性和高效性</span><span class="err">。</span><span class="n">需要根据具体业务需求和数据量规模来选择适合的优化策略</span><span class="err">，</span><span class="n">以保持系统的稳定性和性能</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="13简述python-import-的执行流程">13.简述python import 的执行流程</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">当</span> <span class="n">Python</span> <span class="n">解释器执行到</span> <span class="kn">import</span> <span class="nn">语句时</span><span class="err">，</span><span class="n">会按照一定的执行流程来查找</span><span class="err">、</span><span class="n">加载和执行被导入的模块</span><span class="err">。</span><span class="n">以下是</span> <span class="kn">import</span> <span class="nn">的执行流程简述</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">查找模块</span><span class="err">：</span> <span class="n">Python</span> <span class="n">解释器首先会在内建模块</span><span class="err">（</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">module</span><span class="err">）</span><span class="n">和内置模块</span><span class="err">（</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">module</span><span class="err">）</span><span class="n">中查找是否存在要导入的模块</span><span class="err">。</span><span class="n">如果没有找到</span><span class="err">，</span><span class="n">则会继续搜索</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="n">变量中指定的目录</span><span class="err">，</span><span class="n">包括当前目录</span><span class="err">、</span><span class="n">标准库目录以及其他用户自定义目录</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">编译模块</span><span class="err">：</span> <span class="n">一旦找到了要导入的模块</span><span class="err">，</span><span class="n">Python</span> <span class="n">解释器会对该模块进行编译</span><span class="err">，</span><span class="n">生成对应的字节码文件</span><span class="err">（</span><span class="o">.</span><span class="n">pyc</span> <span class="n">文件</span><span class="err">），</span><span class="n">以便后续执行</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">执行模块</span><span class="err">：</span> <span class="n">执行导入的模块时</span><span class="err">，</span><span class="n">Python</span> <span class="n">会创建一个新的命名空间</span><span class="err">（</span><span class="n">namespace</span><span class="err">）</span><span class="n">用来存放模块中定义的变量</span><span class="err">、</span><span class="n">函数和类等</span><span class="err">。</span><span class="n">模块中的代码会被执行</span><span class="err">，</span><span class="n">并将其定义的内容保存在这个命名空间中</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">建立引用</span><span class="err">：</span> <span class="n">一旦导入模块完成</span><span class="err">，</span><span class="n">Python</span> <span class="n">解释器会建立一个模块对象</span><span class="err">，</span><span class="n">使得当前模块可以通过该对象访问导入的模块</span><span class="err">，</span><span class="n">从而实现模块间的引用和调用</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">总的来说</span><span class="err">，</span><span class="n">Python</span> <span class="n">的</span> <span class="kn">import</span> <span class="nn">执行流程包括查找模块</span><span class="err">、</span><span class="n">编译模块</span><span class="err">、</span><span class="n">执行模块和建立引用等步骤</span><span class="err">。</span><span class="n">通过这个流程</span><span class="err">，</span><span class="n">Python</span> <span class="n">实现了模块化的代码组织方式</span><span class="err">，</span><span class="n">使得代码的复用和管理更加方便和灵活</span><span class="err">。</span>
+</span></span></code></pre></div><h2 id="14-python中用map函数将1-2-3-4-5改为1-4-9-16-25并使用列表推导式提取大于10的数">14. python中用map函数将[1, 2, 3, 4, 5]改为[1, 4, 9, 16, 25]，并使用列表推导式提取大于10的数</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">squared_numbers</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">squared_numbers</span><span class="p">))</span>  <span class="c1"># [1, 4, 9, 16, 25]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">([</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">squared_numbers</span><span class="p">)</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">])</span>  
+</span></span></code></pre></div><h2 id="15正则匹配不是以4-和7结尾的手机号">15.正则匹配不是以4 和7结尾的手机号</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义手机号列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">phone_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;13812345678&#39;</span><span class="p">,</span> <span class="s1">&#39;15678901234&#39;</span><span class="p">,</span> <span class="s1">&#39;13987654327&#39;</span><span class="p">,</span> <span class="s1">&#39;18345678907&#39;</span><span class="p">,</span> <span class="s1">&#39;17098765432&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 匹配不以4和7结尾的手机号的正则表达式</span>
+</span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^1\d</span><span class="si">{9}</span><span class="s1">(?![47])$&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 遍历手机号列表，匹配不以4和7结尾的手机号</span>
+</span></span><span class="line"><span class="cl"><span class="n">valid_phone_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">phone_numbers</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">number</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">valid_phone_numbers</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="16-举例几个魔术方法及其作用">16. 举例几个魔术方法及其作用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">在</span> <span class="n">Python</span> <span class="n">中</span><span class="err">，</span><span class="n">魔术方法</span><span class="err">（</span><span class="n">Magic</span> <span class="n">methods</span><span class="err">）</span><span class="n">是以双下划线</span> <span class="n">__</span> <span class="n">开头和结尾的特殊方法</span><span class="err">，</span><span class="n">用于实现类的特殊行为</span><span class="err">。</span><span class="n">以下是几个常用的魔术方法及其作用的示例</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="n">初始化方法</span><span class="err">，</span><span class="n">用于创建实例时进行初始化操作</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="n">返回对象的字符串表示</span><span class="err">，</span><span class="n">通常在使用</span> <span class="nb">print</span><span class="p">()</span> <span class="n">函数时被调用</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Value: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>  <span class="c1"># 输出 &#34;Value: 10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="n">返回对象的长度</span><span class="err">，</span><span class="n">通常在调用</span> <span class="nb">len</span><span class="p">()</span> <span class="n">函数时被调用</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="n">elements</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span> <span class="n">当访问一个对象的属性不存在时</span><span class="err">，</span><span class="n">会调用</span> <span class="fm">__getattr__</span><span class="p">()</span> <span class="n">方法</span><span class="err">，</span><span class="n">可用于动态返回属性的值</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyObject</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;&#39;MyObject&#39; object has no attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key1</span><span class="p">)</span>  <span class="c1"># 输出 &#39;value1&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span> <span class="n">当给对象的属性赋值时</span><span class="err">，</span><span class="n">会调用</span> <span class="fm">__setattr__</span><span class="p">()</span> <span class="n">方法</span><span class="err">，</span><span class="n">可用于控制属性的赋值行为</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyObject</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Setting attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; with value &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">obj</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span>  <span class="c1"># 输出 &#34;Setting attribute &#39;key&#39; with value &#39;value&#39;&#34;</span>
+</span></span></code></pre></div><h2 id="17-设计一个支持push-pop-top-操作的并且能在短时间内检索到最小元素的栈">17. 设计一个支持push pop top 操作的并且能在短时间内检索到最小元素的栈</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MinStack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span> <span class="ow">or</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_stack</span> <span class="o">=</span> <span class="n">MinStack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">min_stack</span><span class="o">.</span><span class="n">get_min</span><span class="p">())</span>  <span class="c1"># 输出 -3</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">min_stack</span><span class="o">.</span><span class="n">top</span><span class="p">())</span>       <span class="c1"># 输出 0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">min_stack</span><span class="o">.</span><span class="n">get_min</span><span class="p">())</span>   <span class="c1"># 输出 -2</span>
+</span></span></code></pre></div><h2 id="18-简述yield-和yield-from">18. 简述yield 和yield from</h2>
+<p><code>yield</code> 和 <code>yield from</code> 都是在 Python 中用于生成器函数的关键字，用来实现迭代器协议的重要工具。它们的作用和用法略有不同：</p>
+<ol>
+<li>
+<p><strong>yield</strong>:</p>
+<ul>
+<li>
+<p><code>yield</code> 用于定义一个生成器函数（generator function）。</p>
+</li>
+<li>
+<p>在生成器函数中，<code>yield</code> 关键字用来暂停函数的执行，并返回一个值给调用者。</p>
+</li>
+<li>
+<p>当生成器函数再次被调用时，从上次暂停的地方继续执行，而不是从头开始。</p>
+</li>
+<li>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">simple_generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">simple_generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 输出 1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 输出 2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 输出 3</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>yield from</strong>:</p>
+<ul>
+<li>
+<p><code>yield from</code> 通常用于委托生成器（delegating generator）中，用于在生成器中调用另一个生成器。</p>
+</li>
+<li>
+<p>它使得一个生成器能够将其部分工作委托给另一个生成器，使得代码更加模块化和可重用。</p>
+</li>
+<li>
+<p>除了委托生成器外，<code>yield from</code> 还可以用于与可迭代对象交互，将其作为子生成器使用。</p>
+</li>
+<li>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator1</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s1">&#39;A&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s1">&#39;B&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generator2</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s1">&#39;X&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s1">&#39;Y&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">combined_generator</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield from</span> <span class="n">generator1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield from</span> <span class="n">generator2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">combined_generator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 输出 [&#39;A&#39;, &#39;B&#39;, &#39;X&#39;, &#39;Y&#39;]</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p>总结：</p>
+<ul>
+<li><code>yield</code> 用于从生成器函数中产生值，可以多次调用生成器函数以逐步获取值。</li>
+<li><code>yield from</code> 用于将值从一个生成器传递到另一个生成器，或从可迭代对象中产生值。</li>
+</ul>
+<h2 id="19-请实现一个装饰器限制某个函数被调用的频率十秒钟一次">19 请实现一个装饰器，限制某个函数被调用的频率，十秒钟一次</h2>
+<p>为了实现一个装饰器，限制某个函数被调用的频率为十秒钟一次，我们可以这样来设计：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rate_limited</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">last_called</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">nonlocal</span> <span class="n">last_called</span>
+</span></span><span class="line"><span class="cl">        <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">last_called</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">() is rate limited. Please wait before calling again.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># or raise an exception, depending on desired behavior</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">last_called</span> <span class="o">=</span> <span class="n">current_time</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">wrapper</span>
+</span></span></code></pre></div><h3 id="解释">解释：</h3>
+<ul>
+<li><code>rate_limited</code> 是我们的装饰器函数，它接受一个函数 <code>func</code> 作为参数，并返回一个新的函数 <code>wrapper</code> 作为装饰后的函数。</li>
+<li>在 <code>wrapper</code> 函数中，我们使用 <code>nonlocal last_called</code> 来声明并修改 <code>last_called</code> 变量，以记录上一次函数被调用的时间戳。</li>
+<li>每次调用被装饰的函数 <code>func</code> 时，首先获取当前时间 <code>current_time</code>。</li>
+<li>如果当前时间与 <code>last_called</code> 的时间差小于 10 秒，则说明函数调用过于频繁，输出一条消息并返回 <code>None</code>（或者根据需求抛出异常等处理）。</li>
+<li>如果时间差大于等于 10 秒，则更新 <code>last_called</code> 的时间为当前时间，并调用原函数 <code>func</code>，返回其结果。</li>
+</ul>
+<h3 id="使用示例">使用示例：</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@rate_limited</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Function called.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试调用</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_function</span><span class="p">()</span>  <span class="c1"># 第一次调用，会正常执行</span>
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_function</span><span class="p">()</span>  <span class="c1"># 5秒后再次调用，会被限制</span>
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_function</span><span class="p">()</span>  <span class="c1"># 10秒后再次调用，会正常执行</span>
+</span></span></code></pre></div><p>这样，通过装饰器 <code>rate_limited</code>，可以确保某个函数在十秒钟内只能被调用一次，从而限制了函数调用的频率。</p>
+<h2 id="20说一下lambda-的用法和使用实例">20说一下lambda 的用法，和使用实例</h2>
+<p>Lambda 表达式是一种用来创建匿名函数的方式，它允许你定义简单的函数功能而不需要使用 <code>def</code> 声明一个完整的函数。Lambda 表达式的语法结构如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">lambda</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>其中：</p>
+<ul>
+<li><code>lambda</code> 是关键字。</li>
+<li><code>arguments</code> 是函数参数，可以是任意数量的参数，但只能在冒号前定义，不能使用默认参数值。</li>
+<li><code>expression</code> 是一个返回值的表达式，用来定义函数的功能。</li>
+</ul>
+<p>Lambda 表达式通常用于需要一个简单函数的地方，且函数体较短，不复杂。下面是一个使用 Lambda 表达式的例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 定义一个计算平方的 lambda 函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 lambda 函数计算平方</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 输出 25</span>
+</span></span></code></pre></div><p>Lambda 表达式也可以与内置函数如 <code>map()</code>、<code>filter()</code> 等结合使用，用来提供简洁的函数功能：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 使用 lambda 函数配合 map() 对列表中的每个元素求平方</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span>  <span class="c1"># 输出 [1, 4, 9, 16, 25]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 lambda 函数配合 filter() 过滤列表中的偶数</span>
+</span></span><span class="line"><span class="cl"><span class="n">even_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>  <span class="c1"># 输出 [2, 4]</span>
+</span></span></code></pre></div><p>在这些例子中，Lambda 表达式使得定义和使用简单的函数功能变得更加便捷和紧凑，尤其是在函数体较短、仅需一次使用或者函数功能不复杂的情况下，Lambda 表达式是一种常用的选择。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
