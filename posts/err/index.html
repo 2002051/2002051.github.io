@@ -130,38 +130,38 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="images/posts/err/image-20240623164247601.png"
-        data-srcset="images/posts/err/image-20240623164247601.png, images/posts/err/image-20240623164247601.png 1.5x, images/posts/err/image-20240623164247601.png 2x"
+        data-src="/images/posts/err/image-20240623164247601.png"
+        data-srcset="/images/posts/err/image-20240623164247601.png, /images/posts/err/image-20240623164247601.png 1.5x, /images/posts/err/image-20240623164247601.png 2x"
         data-sizes="auto"
-        alt="images/posts/err/image-20240623164247601.png"
+        alt="/images/posts/err/image-20240623164247601.png"
         title="image-20240623164247601" /></p>
 <p>随后，form中代码如下：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="images/posts/err/image-20240623164502281.png"
-        data-srcset="images/posts/err/image-20240623164502281.png, images/posts/err/image-20240623164502281.png 1.5x, images/posts/err/image-20240623164502281.png 2x"
+        data-src="/images/posts/err/image-20240623164502281.png"
+        data-srcset="/images/posts/err/image-20240623164502281.png, /images/posts/err/image-20240623164502281.png 1.5x, /images/posts/err/image-20240623164502281.png 2x"
         data-sizes="auto"
-        alt="images/posts/err/image-20240623164502281.png"
+        alt="/images/posts/err/image-20240623164502281.png"
         title="image-20240623164502281" /></p>
 <p>可以看到在钩子方法中，我通过反射可以成功的获取到ip，但是问题来了：在 <code>clean_code</code> 方法中依赖于 <code>self.ip</code>，而 <code>self.ip</code> 又依赖于 <code>clean_code</code> 方法中的操作（例如在 <code>clean_code</code> 中修改 <code>self.ip</code> 的值），就可能形成循环引用。这种循环引用会导致程序逻辑混乱，甚至引发意料之外的错误。</p>
 <p>那么这个form可以这么优化：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="images/posts/err/image-20240623165203459.png"
-        data-srcset="images/posts/err/image-20240623165203459.png, images/posts/err/image-20240623165203459.png 1.5x, images/posts/err/image-20240623165203459.png 2x"
+        data-src="/images/posts/err/image-20240623165203459.png"
+        data-srcset="/images/posts/err/image-20240623165203459.png, /images/posts/err/image-20240623165203459.png 1.5x, /images/posts/err/image-20240623165203459.png 2x"
         data-sizes="auto"
-        alt="images/posts/err/image-20240623165203459.png"
+        alt="/images/posts/err/image-20240623165203459.png"
         title="image-20240623165203459" /></p>
 <p>视图中就可以改为这样。</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="images/posts/err/image-20240623165150753.png"
-        data-srcset="images/posts/err/image-20240623165150753.png, images/posts/err/image-20240623165150753.png 1.5x, images/posts/err/image-20240623165150753.png 2x"
+        data-src="/images/posts/err/image-20240623165150753.png"
+        data-srcset="/images/posts/err/image-20240623165150753.png, /images/posts/err/image-20240623165150753.png 1.5x, /images/posts/err/image-20240623165150753.png 2x"
         data-sizes="auto"
-        alt="images/posts/err/image-20240623165150753.png"
+        alt="/images/posts/err/image-20240623165150753.png"
         title="image-20240623165150753" /></p>
 <p>在 <code>LoginForm</code> 的 <code>__init__</code> 方法中接受 <code>ip</code> 参数，并将其存储为实例变量 <code>self.ip</code>。这样，在 <code>clean_code</code> 方法中就可以安全地使用 <code>self.ip</code>，而不会涉及循环引用问题。</p>
 </div><div class="post-footer" id="post-footer">
