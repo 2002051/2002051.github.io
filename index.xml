@@ -15,6 +15,14 @@
     <description><![CDATA[uniapp相关 官档地址 1.基于vue3组合式布局 &lt;template&gt; &lt;/template&gt; &lt;script setup&gt; &lt;/script&gt; &lt;style lang=&#34;scss&#34;&gt; &lt;/style&gt; 2.新建页面 操作类似于微信小程序 3.JS和vue等在uniapp中的语法 官]]></description>
 </item>
 <item>
+    <title>Pd_learning</title>
+    <link>http://localhost:1313/posts/pd_learning/</link>
+    <pubDate>Thu, 23 May 2024 09:43:54 &#43;0800</pubDate>
+    <author>ytw</author>
+    <guid>http://localhost:1313/posts/pd_learning/</guid>
+    <description><![CDATA[pandas之数据分析 先来看看基本的使用,先读取一个表格数据 import numpy as np import pandas as pd # 导入csv文件或者excel文件 df = pd.DataFrame(pd.read_csv(&#39;./data/test.csv&#39;,header=1)) # df = pd.DataFrame(pd.read_excel(&#39;name.xlsx&#39;)) 当然，表格数据可]]></description>
+</item>
+<item>
     <title>Docker容器相关</title>
     <link>http://localhost:1313/posts/docker/</link>
     <pubDate>Mon, 20 May 2024 22:25:58 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>ytw</author>
     <guid>http://localhost:1313/posts/vue/</guid>
     <description><![CDATA[概要 vue3-cookie 使用 cookies vue3中需要使用cookies存储用户信息，可以使用vue3-cookies 安装 npm install vue3-cookies 全局挂载 # main.js import App from &#39;./App.vue&#39; import VueCookies from &#34;vue3-cookies&#34;; const app = createApp(App) app.use(VueCookies) 基]]></description>
-</item>
-<item>
-    <title>关于博客</title>
-    <link>http://localhost:1313/posts/first_post/</link>
-    <pubDate>Sun, 15 Oct 2023 09:15:35 &#43;0800</pubDate>
-    <author>ytw</author>
-    <guid>http://localhost:1313/posts/first_post/</guid>
-    <description><![CDATA[第一篇文章 自从开始学计算机，我就一直对于知识点的掌握虚浮经常需要翻阅文献资料和笔记,故建此博客，以供自己查询方便，顺便熟悉一个非常牛的静态页]]></description>
 </item>
 </channel>
 </rss>
