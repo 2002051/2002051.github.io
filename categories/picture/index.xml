@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>picture - Category - yx&#39;s blog</title>
+        <link>http://localhost:1313/categories/picture/</link>
+        <description>picture - Category - yx&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>17879765153@163.com (ytw)</managingEditor>
+            <webMaster>17879765153@163.com (ytw)</webMaster><copyright>write By yuxin</copyright><lastBuildDate>Sat, 18 May 2002 09:07:51 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/picture/" rel="self" type="application/rss+xml" /><item>
+    <title>小耿老师~</title>
+    <link>http://localhost:1313/posts/%E5%B0%8F%E8%80%BF%E8%80%81%E5%B8%88/</link>
+    <pubDate>Sat, 18 May 2002 09:07:51 &#43;0800</pubDate>
+    <author>ytw</author>
+    <guid>http://localhost:1313/posts/%E5%B0%8F%E8%80%BF%E8%80%81%E5%B8%88/</guid>
+    <description><![CDATA[概要 照片 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;zh-CN&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;我们的浪漫之旅&lt;/title&gt; &lt;style&gt; * { margin: 0; padding: 0; box-sizing: border-box; font-family: &#39;Helvetica Neue&#39;, Arial, sans-serif; } body { background-color: #f9f7f7; color: #333;]]></description>
+</item>
+</channel>
+</rss>
