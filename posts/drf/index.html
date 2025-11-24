@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Drf整合 - yx&#39;s blog</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Drf整合" />
+<meta property="og:description" content="DRF整理 1.认证组件 基本使用 单视图全方法应用 ​ 这个非常简单，直接看就能看懂，认证组件必须重写父类的authenticate方法。同时认证组" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/drf/" /><meta property="og:image" content="http://localhost:1313/images/tttt.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-18T21:51:52+08:00" />
+<meta property="article:modified_time" content="2024-04-18T21:51:52+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/tttt.jpg" /><meta name="twitter:title" content="Drf整合"/>
+<meta name="twitter:description" content="DRF整理 1.认证组件 基本使用 单视图全方法应用 ​ 这个非常简单，直接看就能看懂，认证组件必须重写父类的authenticate方法。同时认证组"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/tttt.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/drf/" /><link rel="prev" href="http://localhost:1313/posts/websocket/" /><link rel="next" href="http://localhost:1313/posts/my_project/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Drf整合",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/drf\/"
+        },"genre": "posts","wordcount":  5139 ,
+        "url": "http:\/\/localhost:1313\/posts\/drf\/","datePublished": "2024-04-18T21:51:52+08:00","dateModified": "2024-04-18T21:51:52+08:00","license": "write By yuxin","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "ytw"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="文章"> 文章 </a><a class="menu-item" href="/categories/" title="分类"> 分类 </a><a class="menu-item" href="/about/"> 关于ytw </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="请输入关键字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="请输入关键字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="文章">文章</a><a class="menu-item" href="/categories/" title="分类">分类</a><a class="menu-item" href="/about/" title="">关于ytw</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Drf整合</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-category">included in <a href="/categories/default/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>default</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-18">2024-04-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5139 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;<span id="/posts/drf/" class="leancloud_visitors" data-flag-title="Drf整合">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1认证组件">1.认证组件</a></li>
+    <li><a href="#2权限组件">2.权限组件</a></li>
+    <li><a href="#3限流组件">3.限流组件</a></li>
+    <li><a href="#4解析器">4.解析器</a>
+      <ul>
+        <li><a href="#371-jsonparser-">3.7.1 JSONParser （*）</a></li>
+        <li><a href="#372-formparser">3.7.2 FormParser</a></li>
+        <li><a href="#373-multipartparser">3.7.3 MultiPartParser（*）</a></li>
+        <li><a href="#374-fileuploadparser">3.7.4 FileUploadParser（*）</a></li>
+      </ul>
+    </li>
+    <li><a href="#5序列化器">5.序列化器</a>
+      <ul>
+        <li><a href="#51-定义序列化器">5.1 定义序列化器：</a></li>
+        <li><a href="#52-钩子方法">5.2 钩子方法</a></li>
+        <li><a href="#53-数据序列化以及校验">5.3 数据序列化以及校验</a></li>
+      </ul>
+    </li>
+    <li><a href="#6自定义异常返回">6.自定义异常返回</a></li>
+    <li><a href="#7-自定义返回值">7 自定义返回值</a></li>
+    <li><a href="#8-分页组件">8 分页组件</a>
+      <ul>
+        <li><a href="#pagenumberpagination">PageNumberPagination</a></li>
+        <li><a href="#limitoffsetpagination">LimitOffsetPagination</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-条件搜索">9 条件搜索</a>
+      <ul>
+        <li><a href="#自定义filter">自定义Filter</a></li>
+      </ul>
+    </li>
+    <li><a href="#10视图">10.视图</a>
+      <ul>
+        <li><a href="#apiview">APIView</a></li>
+        <li><a href="#genericapiview">GenericAPIView</a></li>
+        <li><a href="#genericviewset">GenericViewSet</a></li>
+        <li><a href="#五大类">五大类</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="drf整理">DRF整理</h1>
+<h2 id="1认证组件">1.认证组件</h2>
+<p>基本使用</p>
+<ul>
+<li><strong>单视图全方法应用</strong></li>
+</ul>
+<p>​			这个非常简单，直接看就能看懂，认证组件必须重写父类的authenticate方法。同时认证组件可以正常接收到请求对象，也就是请求中的所有内容，包括请求头和请求体，以及其它野数据，因此，在认证组件中进行校验逻辑，比如token是否有效等，如果通过校验，直接返回空值或者两个参数，这两个参数将会依次封装到此次请求的request对象的user和auth中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MineAuthentication</span><span class="p">(</span><span class="n">BaseAuthentication</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="n">token</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;token&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">AuthenticationFailed</span><span class="p">({</span><span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;认证失败,没有登录&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_object</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">user_object</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">AuthenticationFailed</span><span class="p">({</span><span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;token无效&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">user_object</span><span class="p">,</span> <span class="n">token</span>  <span class="c1"># request.user   request.auth</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">MineAuthentication</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">  		<span class="o">....</span>
+</span></span></code></pre></div><ul>
+<li><strong>单视图多方法应用</strong></li>
+</ul>
+<p>​			上述代码，可以在视图中的所有方法中应用对应的组件，但是当我们需要只针对某几个请求限制权限，应该如何做呢？ 这里可以使用闭包来完成这个需求，闭包的作用就是可以动态的调用一个函数，让这个返回我们想要的内容</p>
+<pre tabindex="0"><code>def nb(cls, user_method):
+    def inner():
+        obj = cls(user_method)
+        return obj
+    return inner
+</code></pre><p>让我来解释一下这个函数，此函数将会接收两个，参数，然后最终返回一个inner ，而这个inner函数是在nb函数中进行声明的。因此，我们传入的cls 和method 将直接决定了这个函数的内容。 很显然，传入的cls可能是一个对象，那么他将会被实例化，同时传给构造方法的是user_method , 然后这个实例对象将是nb最终返回值。如果cls是一个函数，那么这个函数会被执行，并且函数结果作为nb返回值</p>
+<p>那么我们可以自己写一个认证组件(它是一个类),在他的构造方法中，将会拿到user_method,此时将它进行封装，就可以在认证的方法中针对这个参数做不同的判断逻辑了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">My3Authentication</span><span class="p">(</span><span class="n">BaseAuthentication</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_methods</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">user_methods</span> <span class="o">=</span> <span class="n">user_methods</span> <span class="c1"># 封装user_methods</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_methods</span><span class="p">:</span> <span class="c1"># 如果请求方法不在对应的user_methods列表，直接跳过认证。</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">       	<span class="o">....</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">nb</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">user_method</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">user_method</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">obj</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">inner</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">nb</span><span class="p">(</span><span class="n">My3Authentication</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;GET&#34;</span><span class="p">])]</span>  <span class="c1">#</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>全局</li>
+</ul>
+<pre tabindex="0"><code># settings.py
+
+REST_FRAMEWORK = {
+  &#34;DEFAULT_AUTHENTICATION_CLASSES&#34;: [&#34;xxxxx&#34;, ],  # 全局应用认证组件
+}
+</code></pre><h2 id="2权限组件">2.权限组件</h2>
+<p>权限组件听起来和认证类似，但是他们的应用场景有一定的区分度</p>
+<p>认证组件一般适用：</p>
+<ul>
+<li>用户是否登录</li>
+</ul>
+<p>权限组件一般就是更加细致的划分</p>
+<ul>
+<li>管理员权限</li>
+<li>必须是xxx地区用户</li>
+<li>必须大于xxx年龄等</li>
+</ul>
+<p>基本使用（和认证组件的使用方法类似），需要写一个认证组件类，且重写父类has_permission方法，具有权限则返回True，如果没有权限，则返回False</p>
+<pre tabindex="0"><code>class MinePermission(BasePermission):
+    message = {&#34;status&#34;: False, &#34;msg&#34;: &#34;无权限访问&#34;}  # 认证失败返回的内容
+    code = &#34;500&#34;
+
+    def has_permission(self, request, view):
+        if request.user.level == 1:
+            # 管理员
+            return True
+        return False  # 返回权限访问字符串
+
+
+class User(APIView):
+	permission_classes = [xxxx,xxxx]
+</code></pre><ul>
+<li>全局应用</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># settings.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">REST_FRAMEWORK</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;DEFAULT_AUTHENTICATION_CLASSES&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;xxxxx&#34;</span><span class="p">,</span> <span class="p">],</span>  <span class="c1"># 全局应用认证组件</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;DEFAULT_PERMISSION_CLASSES&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;utils.permission.MinePermission&#34;</span><span class="p">],</span>  <span class="c1"># 全局应用权限组件</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="3限流组件">3.限流组件</h2>
+<p>限流，限制用户访问频率，例如：用户1分钟最多访问100次 或者 短信验证码一天每天可以发送50次， 防止盗刷。</p>
+<ul>
+<li>对于匿名用户，使用用户IP作为唯一标识。</li>
+<li>对于登录用户，使用用户ID或名称作为唯一标识。</li>
+</ul>
+<p>用户访问记录可以记录在缓存中，因此可以配置redis</p>
+<pre tabindex="0"><code>pip install django-redis
+
+# settings.py
+CACHES = {
+    &#34;default&#34;: {
+        &#34;BACKEND&#34;: &#34;django_redis.cache.RedisCache&#34;,
+        &#34;LOCATION&#34;: &#34;redis://127.0.0.1:6379&#34;,
+        &#34;OPTIONS&#34;: {
+            &#34;CLIENT_CLASS&#34;: &#34;django_redis.client.DefaultClient&#34;,
+            &#34;PASSWORD&#34;: &#34;qwe123&#34;,
+        }
+    }
+}
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># views.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">exceptions</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.throttling</span> <span class="kn">import</span> <span class="n">SimpleRateThrottle</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.core.cache</span> <span class="kn">import</span> <span class="n">cache</span> <span class="k">as</span> <span class="n">default_cache</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ThrottledException</span><span class="p">(</span><span class="n">exceptions</span><span class="o">.</span><span class="n">APIException</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status_code</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_429_TOO_MANY_REQUESTS</span>
+</span></span><span class="line"><span class="cl">    <span class="n">default_code</span> <span class="o">=</span> <span class="s1">&#39;throttled&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyRateThrottle</span><span class="p">(</span><span class="n">SimpleRateThrottle</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cache</span> <span class="o">=</span> <span class="n">default_cache</span>  <span class="c1"># 访问记录存放在django的缓存中（需设置缓存）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scope</span> <span class="o">=</span> <span class="s2">&#34;user&#34;</span>  <span class="c1"># 构造缓存中的key</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cache_format</span> <span class="o">=</span> <span class="s1">&#39;throttle_</span><span class="si">%(scope)s</span><span class="s1">_</span><span class="si">%(ident)s</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 设置访问频率，例如：1分钟允许访问10次</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 其他：&#39;s&#39;, &#39;sec&#39;, &#39;m&#39;, &#39;min&#39;, &#39;h&#39;, &#39;hour&#39;, &#39;d&#39;, &#39;day&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">THROTTLE_RATES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;10/m&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_cache_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ident</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">pk</span>  <span class="c1"># 用户ID</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ident</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ident</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  <span class="c1"># 获取请求用户IP（去request中找请求头）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># throttle_u # throttle_user_11.11.11.11ser_2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_format</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="p">,</span> <span class="s1">&#39;ident&#39;</span><span class="p">:</span> <span class="n">ident</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">throttle_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">wait</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">detail</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">1005</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="s2">&#34;访问频率限制&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;detail&#39;</span><span class="p">:</span> <span class="s2">&#34;需等待</span><span class="si">{}</span><span class="s2">s才能访问&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">wait</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">ThrottledException</span><span class="p">(</span><span class="n">detail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">OrderView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">throttle_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyRateThrottle</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="s2">&#34;数据...&#34;</span><span class="p">})</span>
+</span></span></code></pre></div><p>让我来解释一下限流组件是如何工作的，他会维护一个列表，用户每次访问，都会将当时访问的时间按照队列的形式存入列表，同时它每次查询是否限流，会根据这个队列取规定时间内最近的几个，如果个数满了，那么接下来就会进行限制访问。</p>
+<p><strong>多个限流类</strong></p>
+<p>本质，每个限流的类中都有一个 <code>allow_request</code> 方法，此方法内部可以有三种情况：</p>
+<ul>
+<li>返回True，表示当前限流类允许访问，继续执行后续的限流类。</li>
+<li>返回False，表示当前限流类不允许访问，继续执行后续的限流类。所有的限流类执行完毕后，读取所有不允许的限流，并计算还需等待的时间。</li>
+<li>抛出异常，表示当前限流类不允许访问，后续限流类不再执行。</li>
+</ul>
+<p><strong>全局配置</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">REST_FRAMEWORK</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;DEFAULT_THROTTLE_CLASSES&#34;</span><span class="p">:[</span><span class="s2">&#34;xxx.xxx.xx.限流类&#34;</span><span class="p">,</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;DEFAULT_THROTTLE_RATES&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;10/m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;xx&#34;</span><span class="p">:</span><span class="s2">&#34;100/h&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>关于限流源码</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/100.png"
+        data-srcset="/images/posts/drf/100.png, /images/posts/drf/100.png 1.5x, /images/posts/drf/100.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/100.png"
+        title="image-20210822121259284" /></p>
+<h2 id="4解析器">4.解析器</h2>
+<p>drf中可以通过request.data直接获取请求体数据，而这个数据是在drf中对其进行的封装</p>
+<h3 id="371-jsonparser-">3.7.1 JSONParser （*）</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/102.png"
+        data-srcset="/images/posts/drf/102.png, /images/posts/drf/102.png 1.5x, /images/posts/drf/102.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/102.png"
+        title="image-20210827081058194" /></p>
+<h3 id="372-formparser">3.7.2 FormParser</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/103.png"
+        data-srcset="/images/posts/drf/103.png, /images/posts/drf/103.png 1.5x, /images/posts/drf/103.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/103.png"
+        title="image-20210827081244795" /></p>
+<h3 id="373-multipartparser">3.7.3 MultiPartParser（*）</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/104.png"
+        data-srcset="/images/posts/drf/104.png, /images/posts/drf/104.png 1.5x, /images/posts/drf/104.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/104.png"
+        title="image-20210827083047327" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;http://127.0.0.1:8000/test/&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&#34;multipart/form-data&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;user&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;file&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;img&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="374-fileuploadparser">3.7.4 FileUploadParser（*）</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/105.png"
+        data-srcset="/images/posts/drf/105.png, /images/posts/drf/105.png 1.5x, /images/posts/drf/105.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/105.png"
+        title="image-20210827084403453" /></p>
+<p>解析器可以设置多个，默认解析器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">MultiPartParser</span><span class="p">,</span> <span class="n">JSONParser</span><span class="p">,</span> <span class="n">FormParser</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">content_type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="5序列化器">5.序列化器</h2>
+<p>drf中提供序列化器，主要做两件事：</p>
+<ul>
+<li>对请求数据进行校验类似于form表单校验</li>
+<li>对数据库查询的对象进行序列化。</li>
+</ul>
+<h3 id="51-定义序列化器">5.1 定义序列化器：</h3>
+<ul>
+<li>serializer：</li>
+</ul>
+<p>​			下面是常见的字段</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">IndexSerializers</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># x1 = serializers.CharField(source=&#34;title&#34;)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># x2 = serializers.CharField(source=&#34;number&#34;)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 平凡的字段</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">real_name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 时间字段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c_time</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&#34;%Y-%m-</span><span class="si">%d</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选择字段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gender</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gender_text</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&#34;get_gender_display&#34;</span><span class="p">)</span>  <span class="c1"># 如果遇到choice类型字段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gender_dict</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span>  <span class="c1"># 序列化器遇到这个字段会自动去寻找 get_字段名() 的方法，并将其返回值作为字段值。</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 自定义字段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test_field</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 外键字段</span>
+</span></span><span class="line"><span class="cl">    <span class="n">depart_str</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&#34;depart&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">depart_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&#34;depart.id&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">depart_text</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&#34;depart.title&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">depart_xxxxx</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">depart</span> <span class="o">=</span> <span class="n">DepartSerializers</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 多对多 MtM</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hobbies1</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hobbies2</span> <span class="o">=</span> <span class="n">HobbySerializers</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&#34;hobbys&#34;</span><span class="p">)</span>  <span class="c1"># 因为有多条数据，别忘记many属性的true</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hobbys</span> <span class="o">=</span> <span class="n">HobbySerializers</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_gender_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;obj:&#34;, obj)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">gender</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;text&#34;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_gender_display</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_test_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="s2">&#34;余天王自定义字段&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_depart_xxxxx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(obj)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">depart</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">depart</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;number&#34;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">depart</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_hobbies1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hobby_objects</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">hobbys</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[{</span><span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&#34;text&#34;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">text</span><span class="p">}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hobby_objects</span><span class="p">]</span>
+</span></span></code></pre></div><ul>
+<li>modelserializer</li>
+</ul>
+<p>基于serializer ，但是它可以省略手写字段，或者尽可能少些字段。而且支持了一键保存</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">IndexModelSerializers</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span>  <span class="c1"># 根据模型类的字段类型生成对应的序列化器字段、</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="s2">&#34;__all__&#34;</span>  <span class="c1"># 指定全部字段</span>
+</span></span><span class="line"><span class="cl">         <span class="c1"># fields = [&#34;id&#34;,&#34;title&#34;]  # 指定某几个字段</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># exclude = [&#34;title&#34;]  # 排除某几个字段</span>
+</span></span></code></pre></div><h3 id="52-钩子方法">5.2 钩子方法</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">InfoSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">order</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;高级&#34;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&#34;中级&#34;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 正则</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># email = serializers.EmailField()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">email</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">EmailValidator</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&#34;邮箱格式错误！！！&#34;</span><span class="p">)])</span>  <span class="c1"># EmailValidator 是django中提供的邮箱正则校验</span>
+</span></span><span class="line"><span class="cl">    <span class="n">more</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">RegexValidator</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\d+&#34;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&#34;格式错误&#34;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 钩子方法</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">validate_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;code校验中...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">Exc</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;code字段长度不能大于6&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># raise Exc.ValidationError(&#34;整体校验失败&#34;)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">attrs</span>
+</span></span></code></pre></div><p>让我来解释一下，validate_xxxx  是针对某个字段进行校验，最后需要进行返回这个字段值，如果没有通过校验则返回校验异常，而被返回的值会被封装到self.validated_data 中。而validate是对于所有字段校验完毕后再来一次整体的校验。</p>
+<h3 id="53-数据序列化以及校验">5.3 数据序列化以及校验</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">InfoView</span><span class="p">(</span><span class="n">MineApiView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">ser</span> <span class="o">=</span> <span class="n">Info2Serializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">ser</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">instance</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># ModelSerializer 自带的数保存功能,如果用户提交的数据比orm的少，可以手动加几个进去 ser.save(x1=xxx,x2=xxx)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+</span></span></code></pre></div><p>值得注意的是，前面我们在校验方法中抛出的异常并不会真正的抛出，而是被序列化器自己处理掉，如果希望抛出到视图函数层面的话仅需在is_valid()中加入参数即可，而加入参数后，异常会被视图函数层面捕获到，也就不会往下走了，所以这样修改甚至不需要if条件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">InfoView</span><span class="p">(</span><span class="n">MineApiView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">ser</span> <span class="o">=</span> <span class="n">Info2Serializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ser</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">instance</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 如果没有通过，此处就会报错，当然会被试图层面的dispath方法捕获到，打包成错误信息返回，效果和前面一致。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">instance</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># ModelSerializer 自带的数保存功能,如果用户提交的数据比orm的少，可以手动加几个进去 ser.save(x1=xxx,x2=xxx)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="6自定义异常返回">6.自定义异常返回</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># settings.py </span>
+</span></span><span class="line"><span class="cl"><span class="n">REST_FRAMEWORK</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;EXCEPTION_HANDLER&#39;</span><span class="p">:</span> <span class="s1">&#39;utils.exc_views.exception_handler&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">exceptions</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">ValidationError</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">Throttled</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">PermissionDenied</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">NotAuthenticated</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">AuthenticationFailed</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">set_rollback</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ExtraException</span><span class="p">(</span><span class="n">APIException</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">exception_handler</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">Http404</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span> <span class="o">=</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">NotFound</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">2001</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">PermissionDenied</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span> <span class="o">=</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">PermissionDenied</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">2002</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="p">(</span><span class="n">AuthenticationFailed</span><span class="p">,</span> <span class="n">NotAuthenticated</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">2003</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">Throttled</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">2004</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">ValidationError</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">2005</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">APIException</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="s1">&#39;auth_header&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;WWW-Authenticate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">auth_header</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="s1">&#39;wait&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">exc</span><span class="o">.</span><span class="n">wait</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># if isinstance(exc.detail, (list, dict)):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#     data = exc.detail</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># else:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#     exc_code = getattr(exc, &#39;ret_code&#39;, None) or -1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#     data = {&#39;code&#39;: exc_code, &#39;detail&#39;: exc.detail}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exc_code</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="s1">&#39;ret_code&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">exc_code</span><span class="p">,</span> <span class="s1">&#39;detail&#39;</span><span class="p">:</span> <span class="n">exc</span><span class="o">.</span><span class="n">detail</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">set_rollback</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">exc</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># return None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;detail&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="7-自定义返回值">7 自定义返回值</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">exception_handler</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.authentication</span> <span class="kn">import</span> <span class="n">BaseAuthentication</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.exceptions</span> <span class="kn">import</span> <span class="n">AuthenticationFailed</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">utils.exc_views</span> <span class="kn">import</span> <span class="n">ExtraException</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MineAPIView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">finalize_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">finalize_response</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1.非正常返回</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2.正常数据返回</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">response</span>
+</span></span></code></pre></div><p>接下来让视图先继承我们自己写的类，它在寻找这个finalize_response方法的时候，就会被我们写的所覆盖掉。</p>
+<h2 id="8-分页组件">8 分页组件</h2>
+<p>drf提供的几个默认分页组件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">BasePagination</span><span class="err">，</span><span class="n">分页基类</span>
+</span></span><span class="line"><span class="cl"><span class="n">PageNumberPagination</span><span class="p">(</span><span class="n">BasePagination</span><span class="p">)</span>	<span class="n">支持</span> <span class="o">/</span><span class="n">accounts</span><span class="o">/</span><span class="err">?</span><span class="n">page</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="n">page_size</span><span class="o">=</span><span class="mi">100</span> <span class="n">格式的分页</span>
+</span></span><span class="line"><span class="cl"><span class="n">LimitOffsetPagination</span><span class="p">(</span><span class="n">BasePagination</span><span class="p">)</span>	<span class="n">支持</span> <span class="err">?</span><span class="n">offset</span><span class="o">=</span><span class="mi">100</span><span class="o">&amp;</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span> <span class="n">格式的分页</span>
+</span></span><span class="line"><span class="cl"><span class="n">CursorPagination</span><span class="p">(</span><span class="n">BasePagination</span><span class="p">)</span>		<span class="n">支持</span> <span class="n">上一下</span> <span class="o">&amp;</span> <span class="n">下一页</span> <span class="n">格式的分页</span><span class="err">（</span><span class="n">不常用</span><span class="err">）</span>
+</span></span></code></pre></div><h3 id="pagenumberpagination">PageNumberPagination</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/106.png"
+        data-srcset="/images/posts/drf/106.png, /images/posts/drf/106.png 1.5x, /images/posts/drf/106.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/106.png"
+        title="image-20210826165642846" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/107.png"
+        data-srcset="/images/posts/drf/107.png, /images/posts/drf/107.png 1.5x, /images/posts/drf/107.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/107.png"
+        title="image-20210826165918075" /></p>
+<h3 id="limitoffsetpagination">LimitOffsetPagination</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/108.png"
+        data-srcset="/images/posts/drf/108.png, /images/posts/drf/108.png 1.5x, /images/posts/drf/108.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/108.png"
+        title="image-20210826170617347" /></p>
+<h2 id="9-条件搜索">9 条件搜索</h2>
+<h3 id="自定义filter">自定义Filter</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/drf/109.png"
+        data-srcset="/images/posts/drf/109.png, /images/posts/drf/109.png 1.5x, /images/posts/drf/109.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/drf/109.png"
+        title="image-20210825200814769" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># urls.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;list&#34;</span><span class="p">,</span> <span class="s2">&#34;post&#34;</span><span class="p">:</span> <span class="s2">&#34;create&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;retrieve&#34;</span><span class="p">,</span> <span class="s2">&#34;put&#34;</span><span class="p">:</span> <span class="s2">&#34;update&#34;</span><span class="p">,</span> <span class="s2">&#34;patch&#34;</span><span class="p">:</span> <span class="s2">&#34;partial_update&#34;</span><span class="p">,</span> <span class="s2">&#34;delete&#34;</span><span class="p">:</span> <span class="s2">&#34;destroy&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">ModelViewSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.filters</span> <span class="kn">import</span> <span class="n">BaseFilterBackend</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserModelSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level_text</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">source</span><span class="o">=</span><span class="s2">&#34;get_level_display&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extra</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;username&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;level_text&#34;</span><span class="p">,</span> <span class="s2">&#34;extra&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">666</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Filter1</span><span class="p">(</span><span class="n">BaseFilterBackend</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">filter_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">age</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">age</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">queryset</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Filter2</span><span class="p">(</span><span class="n">BaseFilterBackend</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">filter_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">user_id</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">queryset</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__gt</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">ModelViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">[</span><span class="n">Filter1</span><span class="p">,</span> <span class="n">Filter2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">perform_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34; 序列化：对请求的数据校验成功后，执行保存。&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">depart_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&#34;123&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="10视图">10.视图</h2>
+<h3 id="apiview">APIView</h3>
+<ul>
+<li>View，django</li>
+<li>APIView，drf，在请求到来时，新增了：免除csrf、请求封装、版本、认证、权限、限流的功能。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GenericAPIView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span> <span class="c1"># 10功能</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GenericViewSet</span><span class="p">(</span><span class="n">xxxx</span><span class="o">.</span><span class="n">View</span><span class="o">-</span><span class="mi">2</span><span class="n">个功能</span><span class="p">,</span> <span class="n">GenericAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span> <span class="c1"># 5功能能</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">GenericViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>	
+</span></span></code></pre></div><p><code>APIView</code>是drf中 “顶层” 的视图类，在他的内部主要实现drf基础的组件的使用，例如：版本、认证、权限、限流等。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 认证、权限、限流等</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># 业务逻辑：查看列表</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：新建</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserDetailView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="c1"># 认证、权限、限流等</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># 业务逻辑：查看某个数据的详细</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：全部修改</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：局部修改</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：删除</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span></code></pre></div><h3 id="genericapiview">GenericAPIView</h3>
+<p><code>GenericAPIView</code> 继承APIView，在APIView的基础上又增加了一些功能。例如：<code>get_queryset</code>、<code>get_object</code>等。</p>
+<p>实际在开发中一般不会直接继承它，他更多的是担任 <code>中间人</code>的角色，为子类提供公共功能。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.generics</span> <span class="kn">import</span> <span class="n">GenericAPIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">GenericAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">序列化类</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer</span><span class="p">(</span><span class="n">intance</span><span class="o">=</span><span class="n">queryset</span><span class="p">,</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>    
+</span></span></code></pre></div><h3 id="genericviewset">GenericViewSet</h3>
+<p><code>GenericViewSet</code>类中没有定义任何代码，他就是继承 <code>ViewSetMixin</code> 和 <code>GenericAPIView</code>，也就说他的功能就是将继承的两个类的功能继承到一起。</p>
+<ul>
+<li><code>GenericAPIView</code>，将数据库查询、序列化类的定义提取到类变量中，便于后期处理。</li>
+<li><code>ViewSetMixin</code>，将 get/post/put/delete 等方法映射到 list、create、retrieve、update、partial_update、destroy方法中，让视图不再需要两个类。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span><span class="s2">&#34;list&#34;</span><span class="p">,</span><span class="s2">&#34;post&#34;</span><span class="p">:</span><span class="s2">&#34;create&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span><span class="s2">&#34;retrieve&#34;</span><span class="p">,</span><span class="s2">&#34;put&#34;</span><span class="p">:</span><span class="s2">&#34;update&#34;</span><span class="p">,</span><span class="s2">&#34;patch&#34;</span><span class="p">:</span><span class="s2">&#34;partial_update&#34;</span><span class="p">,</span><span class="s2">&#34;delete&#34;</span><span class="p">:</span><span class="s2">&#34;destory&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># views.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">GenericViewSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">GenericViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="c1"># 认证、权限、限流等</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">序列化类</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># 业务逻辑：查看列表</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer</span><span class="p">(</span><span class="n">intance</span><span class="o">=</span><span class="n">queryset</span><span class="p">,</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：新建</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># 业务逻辑：查看某个数据的详细</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：全部修改</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">partial_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：局部修改</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">destory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span><span class="n">pk</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 业务逻辑：删除</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">})</span><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">GenericViewSetfrom</span> <span class="n">rest_framework</span><span class="o">.</span><span class="n">response</span> <span class="kn">import</span> <span class="nn">Response</span><span class="err">​</span>    <span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">GenericViewSet</span><span class="p">):</span>        <span class="c1"># 认证、权限、限流等    queryset = models.UserInfo.objects.filter(status=True)    serializer_class = 序列化类        def list(self, request):        # 业务逻辑：查看列表        queryset = self.get_queryset()        ser = self.get_serializer(intance=queryset,many=True)        print(ser.data)        return Response({&#34;code&#34;: 0, &#39;data&#39;: &#34;...&#34;})​    def create(self, request):        # 业务逻辑：新建        return Response({&#39;code&#39;: 0, &#39;data&#39;: &#34;...&#34;})        def retrieve(self, request,pk):        # 业务逻辑：查看某个数据的详细        return Response({&#34;code&#34;: 0, &#39;data&#39;: &#34;...&#34;})​    def update(self, request,pk):        # 业务逻辑：全部修改        return Response({&#39;code&#39;: 0, &#39;data&#39;: &#34;...&#34;})        def partial_update(self, request,pk):        # 业务逻辑：局部修改        return Response({&#39;code&#39;: 0, &#39;data&#39;: &#34;...&#34;})        def destory(self, request,pk):        # 业务逻辑：删除        return Response({&#39;code&#39;: 0, &#39;data&#39;: &#34;...&#34;})</span>
+</span></span></code></pre></div><p>注意：开发中一般也很少直接去继承他，因为他也属于是 <code>中间人</code>类，在原来 <code>GenericAPIView</code> 基础上又增加了一个映射而已。</p>
+<h3 id="五大类">五大类</h3>
+<p>在drf的为我们提供好了5个用于做 增、删、改（含局部修改）、查列表、查单个数据的5个类（需结合 <code>GenericViewSet</code> 使用）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span><span class="s2">&#34;list&#34;</span><span class="p">,</span><span class="s2">&#34;post&#34;</span><span class="p">:</span><span class="s2">&#34;create&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span><span class="s2">&#34;retrieve&#34;</span><span class="p">,</span><span class="s2">&#34;put&#34;</span><span class="p">:</span><span class="s2">&#34;update&#34;</span><span class="p">,</span><span class="s2">&#34;patch&#34;</span><span class="p">:</span><span class="s2">&#34;partial_update&#34;</span><span class="p">,</span><span class="s2">&#34;delete&#34;</span><span class="p">:</span><span class="s2">&#34;destroy&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">GenericViewSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.mixins</span> <span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">CreateModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DestroyModelMixin</span><span class="p">,</span> <span class="n">ListModelMixin</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">CreateModelMixin</span><span class="p">,</span><span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span> <span class="n">DestroyModelMixin</span><span class="p">,</span><span class="n">ListModelMixin</span><span class="p">,</span><span class="n">GenericViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="c1"># 认证、权限、限流等</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">序列化类</span>
+</span></span></code></pre></div><p>在这个5个类中已帮我们写好了 <code>list</code>、<code>create</code>、<code>retrieve</code>、<code>update</code>、<code>partial_update</code>、<code>destory</code> 方法，我们只需要在根据写 类变量：queryset、serializer_class即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># urls.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;list&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/users/&lt;int:pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">UserView</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s2">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;retrieve&#34;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">GenericViewSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">mixins</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserModelSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level_text</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">source</span><span class="o">=</span><span class="s2">&#34;get_level_display&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extra</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;username&#34;</span><span class="p">,</span> <span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;level_text&#34;</span><span class="p">,</span> <span class="s2">&#34;extra&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">666</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UserView</span><span class="p">(</span><span class="n">mixins</span><span class="o">.</span><span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">mixins</span><span class="o">.</span><span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">GenericViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserModelSerializer</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-04-18</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/drf/" data-title="Drf整合"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/drf/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/drf/" data-title="Drf整合"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/drf/" data-title="Drf整合"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/drf/" data-title="Drf整合"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="http://localhost:1313/posts/drf/" data-title="Drf整合"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/websocket/" class="prev" rel="prev" title="Websocket"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Websocket</a>
+            <a href="/posts/my_project/" class="next" rel="next" title="项目地址">项目地址<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">tel:17879765153</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">ytw</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"07ZLKN6j99XXVTYxOqYf58xM-gzGzoHsz","appKey":"oDUcddY2PAnTQfpn5AzxknCZ","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"en","pageSize":10,"placeholder":"评论","recordIP":true,"serverURLs":"https://07zlkn6j.lc-cn-n1-shared.com","visitor":true}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

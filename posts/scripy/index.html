@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Scripy菜鸟使用 - yx&#39;s blog</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Scripy菜鸟使用" />
+<meta property="og:description" content="项目启动 创建工程 scrapy startproject 工程名称 进入到项目内的spiders文件夹中，创建爬虫文件。 scrapy genspider spiderName www.xxx.com 执行程序 scrapy crawl siderName # 执行爬虫程序 scrapy crawl siderName --nolog # 无日志执行爬虫" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/scripy/" /><meta property="og:image" content="http://localhost:1313/images/tttt.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-12T12:26:44+08:00" />
+<meta property="article:modified_time" content="2023-10-12T12:26:44+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/tttt.jpg" /><meta name="twitter:title" content="Scripy菜鸟使用"/>
+<meta name="twitter:description" content="项目启动 创建工程 scrapy startproject 工程名称 进入到项目内的spiders文件夹中，创建爬虫文件。 scrapy genspider spiderName www.xxx.com 执行程序 scrapy crawl siderName # 执行爬虫程序 scrapy crawl siderName --nolog # 无日志执行爬虫"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/tttt.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/scripy/" /><link rel="prev" href="http://localhost:1313/posts/git/" /><link rel="next" href="http://localhost:1313/posts/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Scripy菜鸟使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/scripy\/"
+        },"genre": "posts","wordcount":  6978 ,
+        "url": "http:\/\/localhost:1313\/posts\/scripy\/","datePublished": "2023-10-12T12:26:44+08:00","dateModified": "2023-10-12T12:26:44+08:00","license": "write By yuxin","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "ytw"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="文章"> 文章 </a><a class="menu-item" href="/categories/" title="分类"> 分类 </a><a class="menu-item" href="/about/"> 关于ytw </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="请输入关键字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="yx&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/tttt.jpg"
+        data-srcset="/images/tttt.jpg, /images/tttt.jpg 1.5x, /images/tttt.jpg 2x"
+        data-sizes="auto"
+        alt="/images/tttt.jpg"
+        title="/images/tttt.jpg" />ytw</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="请输入关键字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="文章">文章</a><a class="menu-item" href="/categories/" title="分类">分类</a><a class="menu-item" href="/about/" title="">关于ytw</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Scripy菜鸟使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>ytw</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spider/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>spider</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-12">2023-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6978 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;14 minutes&nbsp;<span id="/posts/scripy/" class="leancloud_visitors" data-flag-title="Scripy菜鸟使用">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#示例">示例：</a>
+      <ul>
+        <li><a href="#演示定义item">演示定义item</a></li>
+        <li><a href="#演示封装item">演示封装item</a></li>
+        <li><a href="#演示处理管道">演示处理管道</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#最重要的方法-process_item">最重要的方法 process_item</a></li>
+    <li><a href="#开启爬虫执行的方法">开启爬虫执行的方法</a></li>
+    <li><a href="#结束爬虫的时候执行的方法">结束爬虫的时候执行的方法</a></li>
+    <li><a href="#手写一个管道用于存储到mysql">手写一个管道用于存储到mysql</a>
+      <ul>
+        <li><a href="#详细操作">详细操作：</a></li>
+      </ul>
+    </li>
+    <li><a href="#面试问题">面试问题：</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#五大核心组件">五大核心组件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#使用场景">使用场景：</a></li>
+    <li><a href="#meta-">meta :</a></li>
+    <li><a href="#params">params:</a></li>
+    <li><a href="#formdata">formdata:</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#imagepipeline-">ImagePipeline ：</a></li>
+    <li><a href="#1解析数据">1:解析数据</a></li>
+    <li><a href="#2管道下载图片">2:管道下载图片</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#下载中间件重要">下载中间件(重要)：</a>
+      <ul>
+        <li><a href="#基于下载中间件的局部ua伪装">基于下载中间件的局部ua伪装</a></li>
+        <li><a href="#基于中间件的代理ip">基于中间件的代理ip</a></li>
+      </ul>
+    </li>
+    <li><a href="#拦截响应数据">拦截响应数据：</a></li>
+    <li><a href="#注意要记得开启中间件">注意：要记得开启中间件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#crawlspider的基本使用">CrawlSpider的基本使用</a>
+      <ul>
+        <li><a href="#创建工程">创建工程：</a></li>
+        <li><a href="#链接提取器">链接提取器：</a></li>
+        <li><a href="#规则解析器">规则解析器：</a></li>
+        <li><a href="#完整示例">完整示例：</a></li>
+      </ul>
+    </li>
+    <li><a href="#完整案例">完整案例：</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="项目启动">项目启动</h1>
+<ul>
+<li>创建工程</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">scrapy</span> <span class="n">startproject</span> <span class="n">工程名称</span> 
+</span></span></code></pre></div><ul>
+<li>进入到项目内的spiders文件夹中，创建爬虫文件。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">scrapy</span> <span class="n">genspider</span> <span class="n">spiderName</span> <span class="n">www</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">com</span>
+</span></span></code></pre></div><ul>
+<li>执行程序</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">scrapy</span> <span class="n">crawl</span> <span class="n">siderName</span>   <span class="c1"># 执行爬虫程序</span>
+</span></span><span class="line"><span class="cl"><span class="n">scrapy</span> <span class="n">crawl</span> <span class="n">siderName</span> <span class="o">--</span><span class="n">nolog</span>  <span class="c1"># 无日志执行爬虫程序</span>
+</span></span></code></pre></div><h1 id="爬虫文件的组成">爬虫文件的组成</h1>
+<ul>
+<li>创建好一个爬虫文件里面有一些为我们创建好的代码</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">FirstSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;first&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>name   爬虫文件的名称，就是爬虫源文件的唯一标识。</p>
+</li>
+<li>
+<p>allowed_domains    允许的域名，用来限定start_urls 列表中哪些可以进行请求发送。可以把它注释掉，就没有限定了。</p>
+</li>
+<li>
+<p>start_urls   起始url的列表，里面的url会被scrapy自动进行请求的发送。也就是说你想要对哪个url发起请求，放到列表里就行了 不需要requests.get。。。。 手动发起请求了。</p>
+</li>
+<li>
+<p>def parse(self,response)   用于数据解析的函数,response 参数  每次对url发起请求后就会调用这个parse方法 就表示 请求成功的响应对象。</p>
+</li>
+</ul>
+<h1 id="配置文件的一些设置">配置文件的一些设置</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">LOG_LEVEL</span> <span class="o">=</span> <span class="s2">&#34;ERROR&#34;</span>  <span class="c1"># 只显示错误类型日志</span>
+</span></span><span class="line"><span class="cl"><span class="n">USER_AGENT</span> <span class="o">=</span> <span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&#34;</span>         <span class="c1"># ua伪装</span>
+</span></span><span class="line"><span class="cl"><span class="n">ROBOTSTXT_OBEY</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># roborts协议</span>
+</span></span></code></pre></div><h1 id="关于数据解析">关于数据解析</h1>
+<ul>
+<li>方法一：  直接通过 response.xpath 就可以解析响应数据，无需etree对象</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 爬取房名，面积</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 直接可以使用xpath解析方法</span>
+</span></span><span class="line"><span class="cl">        <span class="n">divs</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//section[@class=&#34;list&#34;][1]/div&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">title</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./a/div[2]/div[1]/div[1]/h3/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>方法二 ： 创建选择器对象，可以做更多类型的解析比如css</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">divs</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//section[@class=&#34;list&#34;][1]/div&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">title</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./a/div[2]/div[1]/div[1]/h3/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>注意，无论用哪种，都需要要通过.extract_first()  方法 才能拿到纯净的数据。</li>
+<li>如果能保证拿到的只有一个列表元素，那么就适合用.extract_first()</li>
+</ul>
+<h1 id="关于数据持久化存储">关于数据持久化存储</h1>
+<ul>
+<li>方式一： 基于终端指令
+<ul>
+<li>要求： 只可以将parse方法的返回值，存储到本地的文本文件中。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">all_data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 解析方式2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">divs</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//section[@class=&#34;list&#34;][1]/div&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">dict</span> <span class="o">=</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">title</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./a/div[2]/div[1]/div[1]/h3/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#    价格 + 单位</span>
+</span></span><span class="line"><span class="cl">            <span class="n">price</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;.//section[@class=&#34;list&#34;][1]/div//span[@class=&#34;property-price-total-num&#34;]/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span> <span class="o">+</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;.//section[@class=&#34;list&#34;][1]/div//span[@class=&#34;property-price-total-text&#34;]/text()&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;标题&#39;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;价格&#39;</span><span class="p">:</span><span class="n">price</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">all_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">all_data</span>  <span class="c1"># 把数据封装在列表中，返回  ，这样我们就可以基于终端指令来存储这个列表</span>
+</span></span><span class="line"><span class="cl">    	
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="c1"># 配置文件进行配置</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FEED_FORMAT</span> <span class="o">=</span> <span class="s2">&#34;csv&#34;</span>  <span class="c1"># </span>
+</span></span><span class="line"><span class="cl">	<span class="n">FEED_URI</span> <span class="o">=</span> <span class="s2">&#34;results.csv&#34;</span> <span class="c1">#</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 终端输入  ：</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scrapy</span> <span class="n">crawl</span> <span class="n">ershou1</span> <span class="o">-</span><span class="n">o</span> <span class="o">./</span><span class="n">ershou</span><span class="o">.</span><span class="n">csv</span>
+</span></span></code></pre></div><ul>
+<li>方式二： 基于管道持久化数据存储。
+<ul>
+<li>编码流程。
+<ul>
+<li>数据解析：parse函数中把相关的数据进行解析并且提取出来</li>
+<li>在item.py 中定义item类。</li>
+<li>将解析出来的数据封装存储在item类型的对象中，   注意：爬虫文件如果导入不了item，去设置里面把根目录设为源路径</li>
+<li>将item类型的对象提给管道进行持久化存储的操作。</li>
+<li>在管道类中的process_item中将其接收到的 item对象中存储的数据 进行持久化存储。</li>
+<li>在配置文件中开启管道。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="示例">示例：</h2>
+<h3 id="演示定义item">演示定义item</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ErshoufangItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># define the fields for your item here like:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># name = scrapy.Field()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">price</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</span></span></code></pre></div><h3 id="演示封装item">演示封装item</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">ershoufang.items</span> <span class="kn">import</span> <span class="n">ErshoufangItem</span>  <span class="c1"># 导入item  </span>
+</span></span><span class="line"><span class="cl">    <span class="o">.....</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1"># 实例化一个item 对象</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span> <span class="o">=</span> <span class="n">ErshoufangItem</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">price</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">item</span>  <span class="c1"># 将item提交给了管道。  每次循环封装一组，提交给管道。</span>
+</span></span></code></pre></div><h3 id="演示处理管道">演示处理管道</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl"><span class="c1">##  获取数据</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">price</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><h1 id="关于管道">关于管道</h1>
+<h2 id="最重要的方法-process_item">最重要的方法 process_item</h2>
+<ul>
+<li>此方法一般执行数据下载，存储的操作。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="o">.....</span>     <span class="n">接收item</span> <span class="n">并处理</span>
+</span></span></code></pre></div><h2 id="开启爬虫执行的方法">开启爬虫执行的方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></div><h2 id="结束爬虫的时候执行的方法">结束爬虫的时候执行的方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        
+</span></span></code></pre></div><h2 id="手写一个管道用于存储到mysql">手写一个管道用于存储到mysql</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 新建一个管道</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">mysqlPipeline</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>	
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></div><h3 id="详细操作">详细操作：</h3>
+<h4 id="open_spider">open_spider：</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="c1">#  建立数据库连接</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;4161010&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span><span class="n">database</span><span class="o">=</span><span class="s1">&#39;spider&#39;</span><span class="p">,</span><span class="n">charset</span><span class="o">=</span><span class="s2">&#34;utf8&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="process_item">process_item：</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># 建立游标对象</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;insert into ershoufang(title,price)values(</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">)&#34;</span><span class="p">,(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>  <span class="c1">#如果有异常事务回滚</span>
+</span></span></code></pre></div><p>close_item:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><ul>
+<li>注意：# 爬虫文件提交的item类型对象最终流向何方 ，给的一定是先执行的管道类，然后这个管道要记得return item  以把item传递给下一个管道。</li>
+</ul>
+<h2 id="面试问题">面试问题：</h2>
+<p>将爬取得到的数据一份一份存储到数据库，如何实现？</p>
+<ul>
+<li>管道文件中一个管道类对应将数据存储到一个平台</li>
+<li>爬虫文件提价的item只会给管道文件中第一个被执行的管道类</li>
+<li>process_item 中的return item 标识将item传递给下一个即将被执行的管道类。</li>
+</ul>
+<h1 id="全站数据爬取">全站数据爬取</h1>
+<ul>
+<li>
+<p>就是将网站中某板块下的全部页码对应的而数据进行爬取。</p>
+</li>
+<li>
+<p>爬取彼岸图网的汽车模块图片名称。</p>
+</li>
+<li>
+<p>实现方式：</p>
+<ul>
+<li>
+<p>多个请求的发送。</p>
+<ul>
+<li>
+<p>方法一： 把所有的url，都扔到start_urls列表中(不推荐：如果几十页几百页，显然就不现实了)</p>
+</li>
+<li>
+<p>方法二： 自行手动进行请求发送。(强烈推荐)</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="c1"># 调用parse再次对new_url 发起请求，进行数据解析</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">new_url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 先对第一页的数据进行爬取</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MnSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;mn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># allowed_domains = [&#34;www.xxx.com&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://pic.netbian.com/4kmeinv/&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 基于起始url对应的数据解析操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">#  拿到图片名字对应的列表</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lis</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;slist&#34;]/ul/li&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">name</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;.//b/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 拿到每一个图片的名称</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">page</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">.......</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 然后定制后面页面的url，并且对其手动进行访问</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 对第二页手动请求发送,指定回调函数为:   self.parse 函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">new_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;https://pic.netbian.com/4kmeinv/index_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="si">}</span><span class="s2">.html&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">new_url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>callback 标识回调函数，执行数据解析的。url是发起请求的url</li>
+</ul>
+<h1 id="关于框架">关于框架：</h1>
+<h2 id="五大核心组件">五大核心组件</h2>
+<ul>
+<li>
+<p>调度器 ：</p>
+<ul>
+<li>过滤器：1：将引擎提交的请求对象进行去重 ，然后将经过去重的请求对象交给队列</li>
+<li>队列：1：请求对象去重后，在此处排队等候</li>
+</ul>
+</li>
+<li>
+<p>管道 ： 4：拿到item，进行数据持久化存储。</p>
+</li>
+<li>
+<p>引擎 ：1：会拿到spider封装的请求对象，交给调度器   2： 接收调度器队列中的请求对象交给下载器去互联网下载 3：把response给到spider进行处理。4：收到spider封装的item，交给管道进行持久化存储</p>
+</li>
+<li>
+<p>下载器：  2：拿到请求对象去互联网下载  3：拿到response响应结果 交给引擎</p>
+</li>
+<li>
+<p>spider ： 作用1：产生url并对url进行请求发送，   作用2：通过回调函数 parse进行数据解析。 4：对数据进行解析和封装item对象，然后给引擎</p>
+</li>
+<li>
+<p>互联网（不属于组件） ：根据请求请求返回response 给下载器</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/posts/scrapy/scrapy%e6%a1%86%e6%9e%b6%e5%9b%be.png"
+        data-srcset="/images/posts/scrapy/scrapy%e6%a1%86%e6%9e%b6%e5%9b%be.png, /images/posts/scrapy/scrapy%e6%a1%86%e6%9e%b6%e5%9b%be.png 1.5x, /images/posts/scrapy/scrapy%e6%a1%86%e6%9e%b6%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="/images/posts/scrapy/scrapy框架图.png"
+        title="image-20230908085858215" /></p>
+<h1 id="请求传参">请求传参：</h1>
+<ul>
+<li>在发起请求的时候传递一个数据值。</li>
+</ul>
+<h2 id="使用场景">使用场景：</h2>
+<ul>
+<li>爬取解析数据不在同一张页面中。（深度爬取</li>
+<li>需求： 爬取boss直聘的岗位名称，岗位描述。</li>
+</ul>
+<h2 id="meta-">meta :</h2>
+<ul>
+<li>请求传参：   meta = {}   可以将meta字典传递给请求对应的回调函数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xxxx</span><span class="p">,</span><span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="n">aaa</span><span class="p">:</span><span class="n">xxx</span><span class="p">}</span><span class="o">......</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>回调函数接收参数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">parse_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">item</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;aaa&#39;</span><span class="p">]</span>  <span class="c1">#    接收到meta传递过来的字典。</span>
+</span></span></code></pre></div><h2 id="params">params:</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">request_data</span><span class="o">.</span><span class="n">ajax_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_data</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_ajax_response</span><span class="p">,</span><span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span><span class="s1">&#39;shabi&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># params 作为get请求参数</span>
+</span></span></code></pre></div><h2 id="formdata">formdata:</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">FormRequest</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">request_data</span><span class="o">.</span><span class="n">ajax_url</span><span class="p">,</span> <span class="n">formdata</span><span class="o">=</span><span class="n">request_data</span><span class="o">.</span><span class="n">formdata</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_data</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_ajax_response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># formdata 作为post请求的参数</span>
+</span></span></code></pre></div><h1 id="图片数据爬取">图片数据爬取</h1>
+<h2 id="imagepipeline-">ImagePipeline ：</h2>
+<ul>
+<li>
+<p>是一个在scrapy框架中专门用于图片数据爬取的管道。</p>
+</li>
+<li>
+<p>基于scrapy爬取字符串类的数据和图片的数据区别：</p>
+<ul>
+<li>字符串： 只需要基于xpath解析，且提交管道进行持久化存储。</li>
+<li>图片: 同过xpath只能解析到图片的src属性值。 单独对图片地址发起请求，获取图片二进制类型的数据 。然后进行持久化存储。</li>
+</ul>
+</li>
+<li>
+<p>ImagePipeline：</p>
+<ul>
+<li>
+<p>只需要将img的src属性值进行解析，提交到管道，管道就会对图片的src进行请求，获取图片二进制类型的数据 。然后进行持久化存储。</p>
+</li>
+<li>
+<p>使用流程 ：</p>
+</li>
+<li>
+<p>来一个需求：爬取图片</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1解析数据">1:解析数据</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ImgSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;img&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># allowed_domains = [&#34;https://sc.chinaz.com&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># start_urls = [&#34;https://sc.chinaz.com/tupian/&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://pic.netbian.com/4kqiche/&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 拿到标签</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imgs</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;slist&#34;]/ul[@class=&#34;clearfix&#34;]//img&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 在img基础上拿到src</span>
+</span></span><span class="line"><span class="cl">            <span class="n">img_src</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&#34;./@src&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">item</span> <span class="o">=</span> <span class="n">ImgproItem</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span><span class="p">[</span><span class="s2">&#34;src&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_src</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">item</span>
+</span></span></code></pre></div><h2 id="2管道下载图片">2:管道下载图片</h2>
+<ul>
+<li>
+<p>可以直接用requests发起请求拿到二进制数据，写入本地。</p>
+</li>
+<li>
+<p>也可以基于一个图片下载管道 ImagesPipeline。自动下载</p>
+<ul>
+<li>一：导入父类</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.pipelines.images</span> <span class="kn">import</span> <span class="n">ImagesPipeline</span>
+</span></span></code></pre></div><ul>
+<li>二：手动封装 一个图片下载管道.,继承ImagesPipeline
+<ul>
+<li>要重写三个父类方法：</li>
+<li>get_media_requests   负责接收item对象，并且发起图片的url请求</li>
+<li>file_path   : 负责指定每一个图片的名字，通过return imgName 返回</li>
+<li>item_completed   ： 负责把item对象交给下一个管道类</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.pipelines.images</span> <span class="kn">import</span> <span class="n">ImagesPipeline</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">imgsPipeline</span><span class="p">(</span><span class="n">ImagesPipeline</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 根据图片地址 进行图片数据请求</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_media_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;src&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 用于指定图片进行持久化存储的路径,和图片名称</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imgName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">imgName</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">item_completed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">item</span>  <span class="c1"># 返回给下一个即将被执行的管道类</span>
+</span></span></code></pre></div><ul>
+<li>注意： 可以在配置文件里指定基础路径然后 file_path里面路径就是基于基础路径拼接上去，本质主要还是指定图片的名字 xxx.jpg 或者xxx.png之类的。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">IMAGES_STORE</span> <span class="o">=</span> <span class="s2">&#34;./imgs&#34;</span>
+</span></span></code></pre></div><ul>
+<li>关于图片名字 ； 在file_path 里面指定，一般请况是无法拿到item 的，但是注意到file_path 里面的request 其实就是get_media_requests  里面定制的对图片发起访问的请求对象，所以可以用请求传参来处理 （如下操作即可）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">imgsPipeline</span><span class="p">(</span><span class="n">ImagesPipeline</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_media_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">         <span class="c1"># 对图片的高清链接发起请求</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;img_src&#39;</span><span class="p">],</span><span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span><span class="n">item</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># request 参数就是图片请求的请求对象，所以</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 在这里可以访问并操作item对象的其他字段</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imgName</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;img_name&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">imgName</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">item_completed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">item</span>  <span class="c1"># 返回给下一个即将被执行的管道类</span>
+</span></span></code></pre></div><h1 id="关于中间件">关于中间件：</h1>
+<ul>
+<li>在scrapy中一共又有两个中间件。
+<ul>
+<li>在引擎和下载器之间有一个 下载中间件</li>
+<li>在引擎和spider文件 中间有个爬虫中间件</li>
+</ul>
+</li>
+</ul>
+<h2 id="下载中间件重要">下载中间件(重要)：</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MiddleproDownloaderMiddleware</span><span class="p">:</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>作用：下载中间件可以批量拦截scrapy中的所有请求和响应</p>
+</li>
+<li>
+<p>拦截请求：</p>
+<ul>
+<li>进行ua伪装（非全局）</li>
+<li>设定代理ip(为每一个请求)</li>
+</ul>
+</li>
+<li>
+<p>拦截响应：</p>
+<ul>
+<li>篡改 响应数据/响应对象  比如页面有动态加载数据，仅靠scrapy发起的请求是那不到响应数据</li>
+</ul>
+<p>​</p>
+<p>主要关注三个请求。</p>
+<ul>
+<li>process_reqest   负责拦截请求的中间件</li>
+<li>process_response  负责拦截响应的中间件</li>
+<li>process_exception  拦截发生 异常的额请求对象</li>
+</ul>
+<h3 id="基于下载中间件的局部ua伪装">基于下载中间件的局部ua伪装</h3>
+<ul>
+<li>
+<p>对于ua伪装，适合在process_reqest    方法里面对每一个请求进行拦截，然后随机赋予一个ua伪装</p>
+</li>
+<li>
+<p>先准备一个ua池</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">user_agent_list</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1084.36 Safari/536.5&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1061.0 Safari/536.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;(KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span></code></pre></div><p>随机从ua池里取一个作ua伪装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#     准备一个ua池</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_agent_list</span> <span class="o">=</span> <span class="p">[</span><span class="o">......</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">user_agent_list</span><span class="p">)</span>
+</span></span></code></pre></div><p>​</p>
+<h3 id="基于中间件的代理ip">基于中间件的代理ip</h3>
+<ul>
+<li>
+<p>​	对于代理ip：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="c1"># 准备两个代理池 </span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROXY_http</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;153.180.102.104:80&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;195.208.131.189:56055&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROXY_https</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;120.83.49.90:9000&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;95.189.112.214:35508&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">MiddleproSpiderMiddleware</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">process_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Called when a download handler or a process_request()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># (from other downloader middleware) raises an exception.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1"># 对拦截的请求,拿到其url，并分割到请求协议是http还是https  ，然后给它分配对应的请求。</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;http&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;proxy&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PROXY_http</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;proxy&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PROXY_https</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1"># 将修正之后的请求兑现能给你</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">request</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="拦截响应数据">拦截响应数据：</h2>
+<ul>
+<li>篡改响应数据，响应对象</li>
+<li>需求：爬取网易新闻的新闻数据（标题和对应内容）
+<ul>
+<li>1 ： 通过网易新闻首页解析出几个板块对应的url（无动态加载）</li>
+<li>2 ： 通过解析到每一个模块的url在每一个板块内部爬取新闻标题和内容（动态加载)</li>
+</ul>
+</li>
+</ul>
+<p>第一步的实现：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WanyiSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;wanyi&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 存储四个板块对应详情页的url</span>
+</span></span><span class="line"><span class="cl">    <span class="n">models_urls</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#   解析五大板块对应的url</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 拿到所有的li标签</span>
+</span></span><span class="line"><span class="cl">        <span class="n">li_lisst</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;ns_area list&#34;]/ul/li&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 目标标签的下标列表 国内，国际，军事，航空</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 拿到四个板块的url</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model_url</span> <span class="o">=</span> <span class="n">li_lisst</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./a/@href&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># url装入数据容器</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">models_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_url</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>拿到了对应板块的url，接下来依次对每一个板块页面发起请求</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#  尝试对每一个板块url进行请求发送</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models_urls</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#  parse_model 用于解析每个细节板块的回调方法</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_model</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>定义回调函数</li>
+</ul>
+<p>问题来了，页面是动态加载的。如何处理</p>
+<p>分析： 目前一共发送了五次请求，一次初始url，四次详情页面的url，后面四次拿到的响应数据，是没有动态加载内容的，但是他们从网上下载下来会经过下载中间件，我们可以通过下载中间件的process_response拦截下来并进行内容的篡改。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span><span class="c1"># spider表示爬虫类实例化的对象</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  负责拦截到四大板块的请求数据并且进行篡改</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  考虑到 一共发送了五次请求，所以需要挑选处四大板块对应的响应数据进行篡改。</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  可以通过响应对象对应的请求url 。当前方法的request参数就是拦截到的响应对象对应的请求参数</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 通过request请求对象来指定响应对象。</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span> <span class="ow">in</span> <span class="n">spider</span><span class="o">.</span><span class="n">models_urls</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 判断当前拦截相应对象的请求url是否是四大板块的url之一</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># response # 四大板块对应的响应对象</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 针对定位到的这些response进行篡改</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如何获取动态加载出来的新闻数据呢？  selenium来获取,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bro</span> <span class="o">=</span> <span class="n">spider</span><span class="o">.</span><span class="n">bro</span><span class="c1"># 获取了在爬虫类 中示例化的浏览器对象</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bro</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">)</span> <span class="c1"># 对五个板块对应的url进行请求发送</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>      <span class="c1">#  等待2秒加载</span>
+</span></span><span class="line"><span class="cl">            <span class="n">page_text</span> <span class="o">=</span> <span class="n">bro</span><span class="o">.</span><span class="n">page_source</span>  <span class="c1">#这就包含了动态加载的新闻数据</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 实例化一个新的响应对象   url 表示：响应对象对应的请求对象的url      body表示响应数据    encoding表示： 编码  request 表示：请求对象，不变就是reqeust</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_response</span> <span class="o">=</span> <span class="n">HtmlResponse</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span><span class="n">body</span><span class="o">=</span><span class="n">page_text</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">new_response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># response # 其它请求对应的响应对象</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="c1"># 正常返回响应对象即可</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">response</span>
+</span></span></code></pre></div><ul>
+<li>至此  ，拿到了一个新的响应对象（篡改完毕），接下里就是在回调函数里进行数据解析。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 专门用于解析每一个板块页面中对应的新闻详情页的url</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 拿到所有的li标签</span>
+</span></span><span class="line"><span class="cl">        <span class="n">li_lisst</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;ns_area list&#34;]/ul/li&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 目标标签的下标列表 国内，国际，军事，航空</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 拿到四个板块的url</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model_url</span> <span class="o">=</span> <span class="n">li_lisst</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./a/@href&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># url装入数据容器</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">models_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="c1">#  尝试对每一个板块url进行请求发送</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models_urls</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#  parse_model 用于解析每个细节板块的回调方法</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># 专门用于解析每一个板块页面中对应的新闻详情页的url</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">response</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="c1"># 每一个板块对应新闻标题内容都是动态加载的。</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">div_list</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;ndi_main&#34;]/div&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">div_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">title</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./div/div/h3/a/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">news_detail_url</span> <span class="o">=</span> <span class="n">div</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;./div/div/h3/a/href&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span> <span class="o">=</span> <span class="n">WangyiproItem</span><span class="p">()</span> <span class="c1"># 实例化一个item</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">title</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 对新闻详情页的url发起请求</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">news_detail_url</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_detail</span><span class="p">,</span><span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span><span class="n">item</span><span class="p">})</span> <span class="c1">#请求传参，只封装了一半的item交给回调函数接着封装</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">response</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span><span class="c1"># 用于解析新闻内容</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">content</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&#34;content&#34;]/div[2]//text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span> <span class="c1"># 多个列表元素同时获取不要用extract_first()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 至此，标题和内容都已经拿到了,而且不在同一个回调函数，说明需要用到请求传参</span>
+</span></span><span class="line"><span class="cl">        <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">content</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">item</span>   <span class="c1"># 提交给管道持久化存储</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 爬虫文件结束的时候关闭浏览器。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">,</span> <span class="n">reason</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bro</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># 爬虫结束的时候</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 关闭webdriver</span>
+</span></span></code></pre></div><h2 id="注意要记得开启中间件">注意：要记得开启中间件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">DOWNLOADER_MIDDLEWARES</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;middlePro.middlewares.MiddleproDownloaderMiddleware&#34;</span><span class="p">:</span> <span class="mi">543</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>最后，持久化存储网易新闻</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pymysql</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WangyiproPipeline</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;4161010&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span><span class="n">database</span><span class="o">=</span><span class="s1">&#39;spider&#39;</span><span class="p">,</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="n">charset</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(item)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">content</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># 去掉换行和空格</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;insert into news(title,content)values(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">);&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">item</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><h1 id="关于selenium在scrapy中的注意事项">关于selenium在scrapy中的注意事项</h1>
+<ul>
+<li>
+<p>首先在爬虫类里实例化浏览器对象</p>
+</li>
+<li>
+<p>在中间件通过spider参数调用对应的浏览器驱动进行对浏览器的自动化操作</p>
+</li>
+<li>
+<p>一般用于篡改响应数据： 如下篡改</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="c1"># 如何获取动态加载出来的新闻数据呢？  selenium来获取,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bro</span> <span class="o">=</span> <span class="n">spider</span><span class="o">.</span><span class="n">bro</span><span class="c1"># 获取了在爬虫类 中示例化的浏览器对象</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bro</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">)</span> <span class="c1"># 对五个板块对应的url进行请求发送</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>      <span class="c1">#  等待2秒加载</span>
+</span></span><span class="line"><span class="cl">            <span class="n">page_text</span> <span class="o">=</span> <span class="n">bro</span><span class="o">.</span><span class="n">page_source</span>  <span class="c1">#这就包含了动态加载的新闻数据</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 实例化一个新的响应对象   url 表示：响应对象对应的请求对象的url      body表示响应数据    encoding表示： 编码  request 表示：请求对象，不变就是reqeust</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_response</span> <span class="o">=</span> <span class="n">HtmlResponse</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span><span class="n">body</span><span class="o">=</span><span class="n">page_text</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">new_response</span>
+</span></span></code></pre></div></li>
+</ul>
+<h1 id="crawlspider">CrawlSpider</h1>
+<ul>
+<li>是Spider的一个子类
+<ul>
+<li>全站数据爬取的方式。
+<ul>
+<li>基于spider  手动请求</li>
+<li>基于crawlspider</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="crawlspider的基本使用">CrawlSpider的基本使用</h2>
+<h3 id="创建工程">创建工程：</h3>
+<ul>
+<li>创建一个工程</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">scrapy startproject xxxx
+</span></span></code></pre></div><ul>
+<li>创建爬虫文件（CrawlSpider）：CrawlSpider作为Spider</li>
+</ul>
+<pre tabindex="0"><code>scrapy genspider -t crawl 爬虫文件名称 www.xxx.com
+</code></pre><ul>
+<li>可以看到创建成功</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.linkextractors</span> <span class="kn">import</span> <span class="n">LinkExtractor</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.spiders</span> <span class="kn">import</span> <span class="n">CrawlSpider</span><span class="p">,</span> <span class="n">Rule</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunSpider</span><span class="p">(</span><span class="n">CrawlSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;sun&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://www.xxx.com&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span><span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s2">&#34;Items/&#34;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">True</span><span class="p">),)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#item[&#34;domain_id&#34;] = response.xpath(&#39;//input[@id=&#34;sid&#34;]/@value&#39;).get()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#item[&#34;name&#34;] = response.xpath(&#39;//div[@id=&#34;name&#34;]&#39;).get()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#item[&#34;description&#34;] = response.xpath(&#39;//div[@id=&#34;description&#34;]&#39;).get()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">item</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>可以看到，spider文件是继承的CrawlSpider ，并且和传统的spider文件有些许的不同，以下是比较总要的两个模块</p>
+</li>
+<li>
+<p>LinkExtractor  链接提取器</p>
+</li>
+<li>
+<p>Rule     规则解析器</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span><span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s2">&#34;Items/&#34;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">True</span><span class="p">),)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">#  实例化了一个Rule对象，也可叫他规则解析器  ,在內部有实例化了一个LinkExtractor，称之为连接提取器 </span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="链接提取器">链接提取器：</h3>
+<ul>
+<li>提取链接：根据指定规则进行指定链接的提取</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;index_(\d+).html&#39;</span><span class="p">)</span>  <span class="c1"># 用正则表达式来提取对应的链接，如果提取到的url不完整，规则解析器会自动把访问的url拼接上解析到的url</span>
+</span></span></code></pre></div><h3 id="规则解析器">规则解析器：</h3>
+<ul>
+<li>callback 表示解析规则的函数， 把链接提取器提取到链接进行指定规则的解析。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 规则解析器  将链接提取器提取到的链接进行指定规则的解析操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span><span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;index_(\d+).html&#39;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">False</span><span class="p">),)</span>
+</span></span></code></pre></div><h3 id="完整示例">完整示例：</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.linkextractors</span> <span class="kn">import</span> <span class="n">LinkExtractor</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.spiders</span> <span class="kn">import</span> <span class="n">CrawlSpider</span><span class="p">,</span> <span class="n">Rule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunSpider</span><span class="p">(</span><span class="n">CrawlSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;sun&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># allowed_domains = [&#34;www.xxx.com&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://pic.netbian.com/4Kdujia/&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">link</span> <span class="o">=</span> <span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;index_?(\d?).html&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 规则解析器  将链接提取器提取到的链接进行指定规则的解析操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span> <span class="n">link</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">False</span><span class="p">),)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>缺点：</p>
+<ul>
+<li>
+<p>显然，这个链接提取器只是作用在起始url的页面上，并不能拿到所有的链接(毕竟每一个页面都要加载出几百几千个链接显然是不合理的)</p>
+</li>
+<li>
+<p>解决方案： 非常简单，把follow改为True即可</p>
+</li>
+</ul>
+</li>
+<li>
+<p>fllow = True   表示： 可以将链接提取器继续作用到   链接提取器的链接提取到的链接所对应的页面中。</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.linkextractors</span> <span class="kn">import</span> <span class="n">LinkExtractor</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.spiders</span> <span class="kn">import</span> <span class="n">CrawlSpider</span><span class="p">,</span> <span class="n">Rule</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunSpider</span><span class="p">(</span><span class="n">CrawlSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;sun&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># allowed_domains = [&#34;www.xxx.com&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://pic.netbian.com/4Kdujia/&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">link</span> <span class="o">=</span> <span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;index_?(\d?).html&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 规则解析器  将链接提取器提取到的链接进行指定规则的解析操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span> <span class="n">link</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">True</span><span class="p">),)</span> <span class="c1"># 让后续链接提取器拿到的url继续作用链接提取器进行解析</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="完整案例">完整案例：</h2>
+<pre tabindex="0"><code># 需求： 爬取图片的名字，以及详情页面的2k图片
+# 分析:  爬取的数据并不在同一个页面中常规方法应该是通过请求传参来解决
+	- 让链接提取器1把所有页码链接都拿到。
+	- 让链接提取器2提取所有图片的详情页的链接。
+	- 把两个提取器拿到的数据封装到一个item里面，但是两个回调函数用不了请求传参
+</code></pre><ul>
+<li>定义链接提取器和规则解析器
+<ul>
+<li>定义两个提取器和解析器。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunSpider</span><span class="p">(</span><span class="n">CrawlSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;sun&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># allowed_domains = [&#34;www.xxx.com&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;https://pic.netbian.com/4Kdujia/&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">link</span> <span class="o">=</span> <span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;index_?(\d*).html&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">link_detail</span> <span class="o">=</span> <span class="n">LinkExtractor</span><span class="p">(</span><span class="n">allow</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;tupian/(\d+).html&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 规则解析器  将链接提取器提取到的链接进行指定规则的解析操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rules</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rule</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_item&#34;</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Rule</span><span class="p">(</span><span class="n">link_detail</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="s2">&#34;parse_detail&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">             <span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>数据解析
+<ul>
+<li>我们希望的item应该是名字和图片链接，但是这两个 数据不在同一个回调函数，如果是唱过的spider方法，可以通过请求传参meta={。。。。。。} 的方式来，但是在CrawlSpider 中用不了请求传参，思路一就定义两个item，单独上传各自部分的数据。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 如下两个解析方法是不能实现请求传参的。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 只能分别存储到两个item中。</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 解析tp名字的回调函数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">liList</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&#34;slist&#34;]/ul/li&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">liList</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">img_name</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;.//img/@alt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span> <span class="o">=</span> <span class="n">SunproItem</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;img_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_name</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">item</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 解析图片详情页的回调函数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sel</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">img2k</span> <span class="o">=</span> <span class="s2">&#34;https://pic.netbian.com&#34;</span> <span class="o">+</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//a[@id=&#34;img&#34;]/img/@src&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">DetailItem</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;img2k&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img2k</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">item</span>
+</span></span></code></pre></div><ul>
+<li>定义两个item</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunproItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># define the fields for your item here like:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_name</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DetailItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img2k</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</span></span></code></pre></div><ul>
+<li>管道中可以判断item是哪一个</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SunproPipeline</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#如何判定item的类型</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;SunproItem&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&#34;img_name&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;img2k&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">item</span>
+</span></span></code></pre></div><h1 id="分布式爬虫">分布式爬虫</h1>
+<ul>
+<li>
+<p>概念： 需要搭建一个分布式机群，让其对一组资源进行分布联合爬取。</p>
+</li>
+<li>
+<p>作用： 提升爬取数据的效率</p>
+<ul>
+<li>
+<p>如何实现分布式：</p>
+<ul>
+<li>安装一个scrapy-redis组件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">scrapy</span><span class="o">-</span><span class="n">redis</span>   
+</span></span></code></pre></div><ul>
+<li>原生的scrapy 是不能实现分布式爬虫的。结合着scrapy-redis 就可以实现分布式爬虫</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-10-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/scripy/" data-title="Scripy菜鸟使用"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/scripy/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/scripy/" data-title="Scripy菜鸟使用"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/scripy/" data-title="Scripy菜鸟使用"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/scripy/" data-title="Scripy菜鸟使用"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="http://localhost:1313/posts/scripy/" data-title="Scripy菜鸟使用"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/git/" class="prev" rel="prev" title="git命令整理"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>git命令整理</a>
+            <a href="/posts/first_post/" class="next" rel="next" title="关于博客">关于博客<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">tel:17879765153</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank">ytw</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"07ZLKN6j99XXVTYxOqYf58xM-gzGzoHsz","appKey":"oDUcddY2PAnTQfpn5AzxknCZ","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"en","pageSize":10,"placeholder":"评论","recordIP":true,"serverURLs":"https://07zlkn6j.lc-cn-n1-shared.com","visitor":true}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
