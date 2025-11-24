@@ -234,7 +234,7 @@
                 photoGrid.innerHTML = '';
 
                 // 模拟照片文件列表 - 您需要根据实际文件修改
-                const photoFiles = generatePhotoFiles(1, 20); // 生成1-20的照片文件
+                const photoFiles = generatePhotoFiles(1, 38); // 生成1-38的照片文件
 
                 // 创建照片卡片
                 photoFiles.forEach((filename, index) => {
@@ -255,7 +255,8 @@
             const files = [];
             for (let i = start; i <= end; i++) {
                 // 假设照片文件在 ../assent/ 目录下，格式为 100.jpg, 101.jpg 等
-                files.push(`../geng/${100 + i}.jpg`);
+                // files.push(`../geng/${100 + i}.jpg`); // 预览模式将它打开
+                files.push(`/images/posts/geng/${100 + i}.jpg`);
             }
             return files;
         }
