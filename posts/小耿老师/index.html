@@ -256,7 +256,7 @@
             for (let i = start; i <= end; i++) {
                 // 假设照片文件在 ../assent/ 目录下，格式为 100.jpg, 101.jpg 等
                 // files.push(`../geng/${100 + i}.jpg`); // 预览模式将它打开
-                files.push(`/images/posts/geng/${100 + i}.jpg`);
+                files.push(`/images/posts/geng/${100 + i}.JPG`);
             }
             return files;
         }
@@ -271,13 +271,20 @@
             const description = photoDescriptions[index % photoDescriptions.length];
 
             photoCard.innerHTML = `
-                <img class="photo-img" src="${filename}" alt="照片 ${index + 1}"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPua1i+ivleWbvueJhzwvdGV4dD48L3N2Zz4='; this.alt='图片加载失败'">
+                <img class="photo-img" data-src="${filename}" src="${filename}" alt="照片 ${index + 1}">
                 <div class="photo-info">
                     <h3>照片 ${index + 1}</h3>
                     <p>${description}</p>
                 </div>
             `;
+            // photoCard.innerHTML = `
+            //     <img class="photo-img" data-src="${filename}" src="${filename}" alt="照片 ${index + 1}"
+            //          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPua1i+ivleWbvueJhzwvdGV4dD48L3N2Zz4='; this.alt='图片加载失败'">
+            //     <div class="photo-info">
+            //         <h3>照片 ${index + 1}</h3>
+            //         <p>${description}</p>
+            //     </div>
+            // `;
 
             photoGrid.appendChild(photoCard);
         }
